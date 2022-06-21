@@ -22,7 +22,7 @@ in system verilog as follows
 
 //
 module addsub(alu_function, op_a, op_b, result);
-    input logic [4:0] alu_function;
+    input [4:0] alu_function;
     input signed [31:0] op_a;
     input signed [31:0] op_b;
     output logic [31:0] result;
@@ -199,7 +199,7 @@ Create your own tests to check you get the correct answer for other cases.
 
 ```sv
 module alu(alu_function, op_a, op_b, result, result_eq_zero);
-    input logic [4:0] alu_function;
+    input [4:0] alu_function;
     input signed [31:0] op_a;
     input signed [31:0] op_b;
     output logic [31:0] result;
