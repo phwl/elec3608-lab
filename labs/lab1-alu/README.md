@@ -23,8 +23,8 @@ in system verilog as follows
 //
 module addsub(alu_function, op_a, op_b, result);
     input [4:0] alu_function;
-    input signed [31:0] op_a;
-    input signed [31:0] op_b;
+    input [31:0] op_a;
+    input [31:0] op_b;
     output logic [31:0] result;
 
     // Compute result
@@ -42,12 +42,6 @@ In the example, the ```always_comb``` construct says that the code
 within is all combinational logic. The case statement thus looks like a
 multiplexor with the select input being ```alu_function```, the different
 inputs the ```op_a alu_function op_b``` values, and the output result.
-
-It should also be noted that op_a and op_b are chosen to be signed
-values. This will make some of the other ALU functions easier
-to implement. If we were to declare the inputs as ```logic``` or
-```unsigned```, then some unsigned operations such as comparisons will
-be treated differently.
 
 ## Verilator test bench
 
@@ -200,8 +194,8 @@ Create your own tests to check you get the correct answer for other cases.
 ```sv
 module alu(alu_function, op_a, op_b, result, result_eq_zero);
     input [4:0] alu_function;
-    input signed [31:0] op_a;
-    input signed [31:0] op_b;
+    input [31:0] op_a;
+    input [31:0] op_b;
     output logic [31:0] result;
     output logic result_eq_zero;
 

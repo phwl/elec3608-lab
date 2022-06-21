@@ -6,8 +6,8 @@
 
 module addsub(alu_function, op_a, op_b, result);
     input [4:0] alu_function;
-    input signed [31:0] op_a;
-    input signed [31:0] op_b;
+    input [31:0] op_a;
+    input [31:0] op_b;
     output logic [31:0] result;
 
     // Compute result
