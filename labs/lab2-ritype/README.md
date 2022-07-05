@@ -28,7 +28,7 @@ ebreak
 ```
 
 When it is succesfully executed, you should get the golden output provided 
-below. When the simulation terminates, register x10 (regfile(10) in the simulation) should have the value 0xe1ec3608. You can study the
+below. When the simulation terminates, register x10 (```regfile(10)``` in the simulation which is copied to ```return_reg```) should have the value 0xe1ec3608. You can study the
 execution of the program from this figure and verify that the processor
 correctly executes the assembly
 language instructions.
