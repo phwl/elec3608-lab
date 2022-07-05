@@ -1,7 +1,7 @@
 # RV32 R-type and I-type instructions
 
 In this lab you will develop a single-cycle RISC-V (RV) processor which
-can execute all of the R-type and I-type instructions. It will use the
+can execute some R-type and I-type instructions. It will use the
 ALU developed in the previous lab.
 
 ## RV Program
@@ -234,7 +234,7 @@ values 0-31 and should be handled accordingly. Moreover, immediate shift
 instructions use the short immediate format.
 
 ### Part 3 - Illegal Instruction trap (20%)
-In the golden output, note that the trap signal is asserted when
+In the golden output, note that the ```trapped``` signal is asserted when
 the ```ebreak``` instruction is executed. The verilator simulation
 exits at that point as ```ebreak``` corresponds to an illegal
 instruction. Modify your ```rv3608.sv``` so that it implements this
