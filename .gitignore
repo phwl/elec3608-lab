@@ -1,6 +1,7 @@
 # Prerequisites
 *.d
 .bash*
+.vim*
 
 # Object files
 *.o
