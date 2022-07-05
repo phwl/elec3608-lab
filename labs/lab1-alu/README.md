@@ -1,6 +1,6 @@
 # Lab 1 - Arithmetic Logic Unit
 
-In this laboratory we will design an arithmetic logic unit (ALU)
+In this laboratory you will design an arithmetic logic unit (ALU)
 which performs ```op_a alu_function op_b```, where ```alu_function'''  specifies the 
 operation that the ALU performs which is one of the following:
 ```sv
