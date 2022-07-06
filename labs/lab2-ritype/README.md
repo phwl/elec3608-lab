@@ -27,27 +27,62 @@ add x10, x3, x10
 ebreak
 ```
 
-When it is succesfully executed, you should get the golden output provided 
-below. When the simulation terminates, register x10 (```regfile(10)``` in the simulation which is copied to ```return_reg```) should have the value 0xe1ec3608. You can study the
-execution of the program from this figure and verify that the processor
-correctly executes the assembly
-language instructions.
+When it is succesfully executed, you should get the golden output
+provided below. When the simulation terminates, register x10
+(```regfile(10)``` in the simulation which is copied to ```return_reg```)
+should have the value 0xe1ec3608. You can study the execution of
+the program from this figure and verify that the processor correctly
+executes the assembly language instructions.
 
 ![golden](rv3608a-golden.png "golden")
 
-## Compiling the program
+## Simulating the processor
+The testbench is as below.
+```python3
+import pyverilator
+import random
+from ctypes import c_int32, c_uint32
+
+def r(tb, reset):
+    tb.io.reset = reset
+    tb.clock.tick()
+
+tb = pyverilator.PyVerilator.build('testbench.sv')
+tb.start_gtkwave()
+#print(tb.io)
+#print(tb.internals)
+tb.send_to_gtkwave(tb.io)
+tb.send_to_gtkwave(tb.internals)
+for i in range(14):
+    r(tb, i < 2)
+
+# check return value is correct
+rr = int(tb.internals['return_reg'])
+if (rr == 0xe1ec3608):
+    print('Correct return_reg') 
+else:
+    print('Wrong return_reg {}'.format(hex(rr)))
+input("Press Enter to exit...")
+tb.stop_gtkwave()
+```
+
 From your host, you can run docker, compile and test as below.
 
 ```bash
-(base) phwl@AHJ7LDH57JP rv3608a % make rundocker 
+(base) phwl@AHJ7LDH57JP lab2-ritype % make rundocker
 docker run --platform linux/amd64 -it -e DISPLAY=host.docker.internal:0 -v `pwd`:/config phwl/elec3608-base:latest
 To run a command as administrator (user "root"), use "sudo <command>".
 See "man sudo_root" for details.
 
-elec3608@e1d480b534eb:~$ make
+elec3608@9bd818db44df:~$ make
 riscv64-unknown-elf-gcc -march=rv32i -mabi=ilp32 -Os -Wall -Wextra -Wl,-Bstatic,-T,sections.lds,--strip-debug -ffreestanding -nostdlib -o firmware.elf firmware.s
 riscv64-unknown-elf-objcopy -O verilog firmware.elf firmware.hex
 python testbench.py
+%Warning-CASEINCOMPLETE: rv3608a.sv:69: Case values incompletely covered (example pattern 0x1)
+    casez ({insn_funct7, insn_funct3})
+    ^~~~~
+                         testbench.sv:72: ... note: In file included from testbench.sv
+                         ... Use "/* verilator lint_off CASEINCOMPLETE */" and lint_on around source to disable this message.
 make[1]: Entering directory '/config/obj_dir'
 g++  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -fPIC -shared --std=c++11 -DVL_USER_FINISH   -c -o pyverilator_wrapper.o ../obj_dir/pyverilator_wrapper.cpp
 g++  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -fPIC -shared --std=c++11 -DVL_USER_FINISH   -c -o verilated.o /usr/share/verilator/include/verilated.cpp
@@ -62,12 +97,13 @@ g++ -fPIC -shared pyverilator_wrapper.o verilated.o verilated_vcd_c.o Vtestbench
 make[1]: Leaving directory '/config/obj_dir'
 /usr/src/pyverilator/pyverilator/pyverilator.py:805: UserWarning: tcl command "gtkwave::loadFile gtkwave.vcd" generated stderr message '\nGTKWave Analyzer v3.3.103 (w)1999-2019 BSI\n\n[5] start time.\n[10] end time.\n'
   self.gtkwave_tcl.eval('gtkwave::loadFile %s' % self.vcd_filename)
-Simulated 4 cycles
-- testbench.sv:86: Verilog $finish
-Simulated 5 cycles
-- testbench.sv:86: Verilog $finish
-- testbench.sv:86: Second verilog $finish, exiting
+Wrong return_reg 0x1fb
+Press Enter to exit...
 ```
+
+You need to press Enter in the terminal window to exit the program.
+Note that the second last line says: "Wrong return_reg 0x1fb" 
+(it should be ```0xe1ec3608```).
 
 The plot below should appear in a window.
 
@@ -126,6 +162,33 @@ All the different fields are extracted as below.
     wire [11:0] imm_i;
     assign imm_i = insn[31:20];
 ```
+
+We need to support 2 different types of immediate values, the normal 12-bit
+ones in ```insn[31:20]``` for I-type instructions (which are extracted into ```imm_i_sext```),
+and the (unsigned) 5-bit shift values in ```insn[24:20]```. This is done
+in the code below and ```imm_val``` is populated with the appropriate
+immediate value. Note that the 12-bit immediate value is sign extended whereas the 5-bit value is zero-extended. 
+
+There are subtleties in signed
+and unsigned conversions which are detailed in Section 5.2 of [Standard Gotchas Subtleties in the Verilog and SystemVerilog Standards That Every Engineer Should Know](https://citeseerx.ist.psu.edu/viewdoc/download;?doi=10.1.1.174.5961&rep=rep1&type=pdf).
+I have used what I think is the clearest way.
+
+```sv
+    // I - short immediates and loads                                           
+    wire [11:0] imm_i;                                                          
+    assign imm_i = insn[31:20];                                                 
+    // sign extended imm_i                                                      
+    wire [31:0] imm_i_sext = 32'(signed'(imm_i));                               
+    // sign extended short immediate for shifts                                 
+    wire [31:0] imm_shift = 32'(signed'({1'b0, insn[24:20]}));                  
+    // use the 5-bit immediate for shifts otherwise the 12-bit one              
+    wire [31:0] imm_val;                                                        
+    assign imm_val =                                                            
+        ({insn_funct7, insn_funct3} == `OPCODE_SLLI ||                          
+         {insn_funct7, insn_funct3} == `OPCODE_SRLI ||                          
+         {insn_funct7, insn_funct3} == `OPCODE_SRAI)                            
+         ? imm_shift : imm_i_sext; // either a shift or an imm
+ ```
 
 The register file is declared as
 ```sv
@@ -189,36 +252,6 @@ Finally, registered values are implemented in the code below.
 endmodule
 ```
 
-The testbench is as below.
-```python3
-import pyverilator
-import random
-from ctypes import c_int32, c_uint32
-
-def r(tb, reset):
-    tb.io.reset = reset
-    tb.clock.tick()
-
-tb = pyverilator.PyVerilator.build('testbench.sv')
-tb.start_gtkwave()
-#print(tb.io)
-#print(tb.internals)
-tb.send_to_gtkwave(tb.io)
-tb.send_to_gtkwave(tb.internals)
-for i in range(14):
-    r(tb, i < 2)
-
-# check return value is correct
-rr = int(tb.internals['return_reg'])
-if (rr == 0xe1ec3608):
-    print('Correct return_reg') 
-else:
-    print('Wrong return_reg {}'.format(hex(rr)))
-input("Press Enter to exit...")
-tb.stop_gtkwave()
-```
-
-Note that you need to press Enter in the terminal window to exit the program.
 
 ### Part 1 - I-type instructions (40%)
 The first three instruction in our test program are all immediate

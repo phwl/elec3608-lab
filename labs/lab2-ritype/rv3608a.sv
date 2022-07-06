@@ -90,17 +90,16 @@ module rv3608a (
     wire [11:0] imm_i;
     assign imm_i = insn[31:20];
     // sign extended imm_i
-    wire [31:0] imm_i_sext = { {20{imm_i[11]}}, imm_i };
+    wire [31:0] imm_i_sext = 32'(signed'(imm_i));
     // sign extended short immediate for shifts
-    wire [31:0] imm_short = { {27{insn[24]}}, insn[24:20] };
+    wire [31:0] imm_shift = 32'(signed'({1'b0, insn[24:20]}));
     // use the 5-bit immediate for shifts otherwise the 12-bit one
     wire [31:0] imm_val;
     assign imm_val = 
         ({insn_funct7, insn_funct3} == `OPCODE_SLLI ||
          {insn_funct7, insn_funct3} == `OPCODE_SRLI ||
          {insn_funct7, insn_funct3} == `OPCODE_SRAI)
-         ? imm_short : imm_i_sext; // either a shift or an imm
-
+         ? imm_shift : imm_i_sext; // either a shift or an imm
 
     // trap is an output to show that execution has halted 
     logic illegalinsn;
