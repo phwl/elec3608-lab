@@ -79,9 +79,14 @@ This tests the ELEC3608 base image.
 Make sure you have set up your X Server and can execute the
 previous Xeyes example.
 
- * (Windows) If your home directory is "C:\Users\XX", you should now be able to run 
-```docker run -it -v /cygdrive/c/Users/XX:/mnt phwl/elec3608-base:latest``` 
-(if that doesn't work try ```docker run -it -v /c/Users/XX:/mnt phwl/elec3608-base:latest```)
+ * (Windows) First copy the ELEC3608 lab files to /cygdrive/c/elec3608:
+ ```bash
+ mkdir /cygdrive/c/elec3608
+ cd /cygdrive/c/elec3608
+ git clone https://github.com/phwl/elec3608-lab
+ ```
+You should now be able to run 
+```docker run -it -v /c/elec3608:/config phwl/elec3608-base:latest``` 
 from within a MobaXterm terminal.
  * (MacOS x86 and M1) You should now be able to do ```docker run --platform linux/amd64 -it -e DISPLAY=$DISPLAY:0 -v `pwd`:/config phwl/elec3608-base:latest```.
 
