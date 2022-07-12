@@ -152,10 +152,11 @@ deadbeef - 00000002	result=deadbeed (cresult=deadbeed) True
 ```
 
 ### Lab Questions
-To complete the lab, you need to update and submit ```alu/alu.sv```.
-A single machine test will be executed (after the deadline) to
-compute your mark for this lab, with specific tests included to
-check the questions below.
+To complete the lab, you need to update and submit ```alu/alu.sv```
+on Canvas.
+A single machine test will be executed to
+compute your mark for this lab, with checks for the 
+individual questions below.
 
 While a small test bench is included you will
 need to add your own to ensure good coverage. The machine test will
@@ -167,7 +168,7 @@ should be included in your code.
 
 #### Lab Question 1 - (20%)
 Inspect the ALU in ```alu/alu.sv```. It supports an additional output called
-```result_eq_zero``` which should be set to zero if the result is zero.
+```result_eq_zero``` which should be asserted if the result is zero.
 Note that if you run the testbench as below, one of the test cases is wrong
 because the current design always returns ```result_eq_zero=0```.
 
@@ -230,8 +231,7 @@ Modify the ALU in ```alu/alu.sv``` to support all of the following ```alu_functi
 
 #### Lab Question 3 - (40%)
 Modify the ALU in ```alu/alu.sv``` to support the remaining ```alu_function``` values listed below.
-Create your own tests for each operation. You will be asked to submit
-your file as ```alu.sv```. 
+Create your own tests for each operation. You will be asked to submit your file as ```alu.sv```, encompassing all three questions. 
 
 ```sv
 `define ALU_SLL     5'b00011
