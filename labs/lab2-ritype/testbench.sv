@@ -48,19 +48,15 @@ always @(posedge clock) begin
 	end
 end
 
-integer i;
-always @(posedge clock) begin
-	out <= 32'h 0;
-	out_valid <= 1'b0;
-	if (!reset) begin
-		imem_data <= {
-			mem[{imem_addr[MEM_ADDR_WIDTH-1:2], 2'b11}],
-			mem[{imem_addr[MEM_ADDR_WIDTH-1:2], 2'b10}],
-			mem[{imem_addr[MEM_ADDR_WIDTH-1:2], 2'b01}],
-			mem[{imem_addr[MEM_ADDR_WIDTH-1:2], 2'b00}]
-		};
-
-	end
+always_comb begin
+        out = 32'h 0;
+        out_valid = 1'b0;
+        imem_data = {
+                mem[{imem_addr[MEM_ADDR_WIDTH-1:2], 2'b11}],
+                mem[{imem_addr[MEM_ADDR_WIDTH-1:2], 2'b10}],
+                mem[{imem_addr[MEM_ADDR_WIDTH-1:2], 2'b01}],
+                mem[{imem_addr[MEM_ADDR_WIDTH-1:2], 2'b00}]
+        };
 end
 
 initial begin
