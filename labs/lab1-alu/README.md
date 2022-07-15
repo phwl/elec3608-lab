@@ -231,7 +231,6 @@ Modify the ALU in ```alu/alu.sv``` to support all of the following ```alu_functi
 
 #### Lab Question 3 - (40%)
 Modify the ALU in ```alu/alu.sv``` to support the remaining ```alu_function``` values listed below.
-Create your own tests for each operation. You will be asked to submit your file as ```alu.sv```, encompassing all three questions. 
 
 ```sv
 `define ALU_SLL     5'b00011
@@ -253,3 +252,5 @@ Also note the difference between ```SLT``` and ```SLTU```. One is for signed num
 0xFFFFFFFF SLTU 1 = 0
 ```
 
+Create your own tests for each operation. You will be asked to submit your file as ```alu.sv```, encompassing all three questions and testing beyond 
+the examples in this question will be necessary to obtain good marks for this lab.
