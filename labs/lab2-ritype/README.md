@@ -251,10 +251,7 @@ Finally, registered values are implemented in the code below.
 
 endmodule
 ```
-
-
-### Part 1 - I-type instructions (40%)
-The first three instruction in our test program are all immediate
+### Part 1 - I-type instructions (40%) The first three instruction in our test program are all immediate
 instructions. Modify ```rv3608a.sv``` so they
 are executed correctly by completing the ALU and any other parts required. Write in your lab book what the output should
 be and include a screen shot of the simulation.
@@ -262,9 +259,7 @@ be and include a screen shot of the simulation.
 ### Part 2 - R-type and I-type Instructions (40%)
 Implement all of the remaining instructions required to execute the
 program and demonstrate that you can create the same output as the
-golden output provided above. Note that shift operations can only be for
-values 0-31 and should be handled accordingly. Moreover, immediate shift
-instructions use the short immediate format.
+golden output provided above. 
 
 ### Part 3 - Illegal Instruction trap (20%)
 In the golden output, note that the ```trapped``` signal is asserted when
