@@ -104,7 +104,6 @@ ranlib Vtestbench__ALL.a
 g++ -fPIC -shared pyverilator_wrapper.o verilated.o verilated_vcd_c.o Vtestbench__ALL.a    -o Vtestbench -lm -lstdc++ 
 make[1]: Leaving directory '/config/obj_dir'
 Correct return_reg 0xd2
-touch test1.out
 rm test1.hex
 ```
 

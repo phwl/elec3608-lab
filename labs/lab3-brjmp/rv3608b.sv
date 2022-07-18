@@ -57,29 +57,29 @@ module rv3608b (
     // registers, instruction reg, program counter, next pc
     logic   [31:0] regfile [0:`NUMREGS-1];
     logic   [31:0] pc;
-    wire   [31:0] insn;
+    logic   [31:0] insn;
 
     // components of the instruction
-    wire [6:0] insn_funct7;
-    wire [4:0] insn_rs2;
-    wire [4:0] insn_rs1;
-    wire [2:0] insn_funct3;
-    wire [4:0] insn_rd;
-    wire [6:0] insn_opcode;
+    logic   [6:0] insn_funct7;
+    logic   [4:0] insn_rs2;
+    logic   [4:0] insn_rs1;
+    logic   [2:0] insn_funct3;
+    logic   [4:0] insn_rd;
+    logic   [6:0] insn_opcode;
 
     // split R-type instruction - see section 2.2 of RiscV spec
     assign {insn_funct7, insn_rs2, insn_rs1, insn_funct3, insn_rd, insn_opcode} = insn;
 
     // setup for I, S, B & J type instructions
     // I - short immediates and loads
-    wire [11:0] imm_i;
-    assign imm_i = insn[31:20];
+    logic   [11:0] imm_i;
+    assign  imm_i = insn[31:20];
     // sign extended imm_i
-    wire [31:0] imm_i_sext = { {20{imm_i[11]}}, imm_i };
+    wire    [31:0] imm_i_sext = { {20{imm_i[11]}}, imm_i };
     // sign extended short immediate for shifts
-    wire [31:0] imm_shift = 32'(signed'({1'b0, insn[24:20]}));
+    wire    [31:0] imm_shift = 32'(signed'({1'b0, insn[24:20]}));
     // use the 5-bit immediate for shifts otherwise the 12-bit one
-    wire [31:0] imm_val;
+    logic   [31:0] imm_val;
     assign imm_val = 
         ({insn_funct7, insn_funct3} == `OPCODE_SLLI ||
          {insn_funct7, insn_funct3} == `OPCODE_SRLI ||
@@ -87,20 +87,20 @@ module rv3608b (
          ? imm_shift : imm_i_sext; // either a shift or an imm
 
 	// B - conditionals
-	wire [12:0] imm_b;
+	logic   [12:0] imm_b;
 	assign {imm_b[12], imm_b[10:5]} = insn_funct7, {imm_b[4:1], imm_b[11]} = insn_rd, imm_b[0] = 1'b0;
 
 	// J - unconditional jumps
-	wire [20:0] imm_j;
-	assign {imm_j[20], imm_j[10:1], imm_j[11], imm_j[19:12], imm_j[0]} = {insn[31:12], 1'b0};
+	logic   [20:0] imm_j;
+	assign  {imm_j[20], imm_j[10:1], imm_j[11], imm_j[19:12], imm_j[0]} = {insn[31:12], 1'b0};
 
-	wire [31:0] imm_b_sext = 32'(signed'(imm_b));
-	wire [31:0] imm_j_sext = 32'(signed'(imm_j));
+	wire    [31:0] imm_b_sext = 32'(signed'(imm_b));
+	wire    [31:0] imm_j_sext = 32'(signed'(imm_j));
 
     // ALU 
-	wire   alu_eq_zero;
-    wire   [31:0] alu_result;
-    wire   alu_eq;
+	logic  alu_eq_zero;
+    logic  [31:0] alu_result;
+    logic  alu_eq;
     wire   [31:0] alu_op_a = regfile[insn_rs1];
 	wire   [31:0] alu_op_b = insn_opcode == `OPCODE_OP_IMM ? 
                                 imm_val : regfile[insn_rs2];
@@ -139,7 +139,6 @@ module rv3608b (
 					default: illegalinsn = 1;
 				endcase
             end
-
 			default: illegalinsn = 1;
         endcase
     end
@@ -166,6 +165,7 @@ module rv3608b (
         rfilewdata = alu_result;
 		case (insn_opcode)
 			0: alu_op = `ALU_ADD;	// NOP
+
 			`OPCODE_OP_IMM: begin
                 regwrite = 1;
 			end
@@ -177,7 +177,7 @@ module rv3608b (
         // check that branches etc weren't to an unaligned address
 		if ((npc & 32'b11) != 0) begin
 			illegalinsn = 1;
-			npc = pc & ~32'b 11;    // make the bottom 2 bits zero
+			npc = pc & ~32'b 11;
 		end
 	end
 

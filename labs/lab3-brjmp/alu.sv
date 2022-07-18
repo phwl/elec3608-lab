@@ -1,4 +1,4 @@
-// a simple adder
+// branch and jump instructions
 //
 `include "constants.svh"
 
