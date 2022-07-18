@@ -22,7 +22,7 @@ all: test1.out test2.out test3.out test4.out
 
 %.out: %.hex
 	cp $^ firmware.hex
-	python testbench.py 
+	python testbench.py -t
 	touch $*.out
 
 %.elf : %.s
