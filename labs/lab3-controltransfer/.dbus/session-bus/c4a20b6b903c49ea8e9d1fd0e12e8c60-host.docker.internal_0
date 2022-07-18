@@ -1,0 +1,8 @@
+# This file allows processes on the machine with id c4a20b6b903c49ea8e9d1fd0e12e8c60 using 
+# display host.docker.internal:0 to find the D-Bus session bus with the below address.
+# If the DBUS_SESSION_BUS_ADDRESS environment variable is set, it will
+# be used rather than this file.
+# See "man dbus-launch" for more details.
+DBUS_SESSION_BUS_ADDRESS='unix:abstract=/tmp/dbus-D7SGX0qohj,guid=2ee25a28426944872b536ce762c3e645'
+DBUS_SESSION_BUS_PID=377
+DBUS_SESSION_BUS_WINDOWID=16777217
