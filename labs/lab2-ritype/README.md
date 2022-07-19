@@ -251,7 +251,8 @@ Finally, registered values are implemented in the code below.
 
 endmodule
 ```
-### Part 1 - I-type instructions (40%) The first three instruction in our test program are all immediate
+### Part 1 - I-type instructions (40%) 
+The first three instruction in our test program are all immediate
 instructions. Modify ```rv3608a.sv``` so they
 are executed correctly by completing the ALU and any other parts required. Write in your lab book what the output should
 be and include a screen shot of the simulation.
