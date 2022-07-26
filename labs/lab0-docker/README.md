@@ -87,6 +87,8 @@ previous Xeyes example.
 If everything works, a prompt should appear and ```ls``` should show your local directory that was mounted.
 
 ```bash
+$ ls
+Dockerfile	Makefile	README.md
 $ docker run --platform linux/amd64 -it -e DISPLAY=$DISPLAY -v `pwd`:/config phwl/elec3608-base:latest
 Unable to find image 'phwl/elec3608-base:latest' locally
 latest: Pulling from phwl/elec3608-base
@@ -105,8 +107,8 @@ Digest: sha256:29c813a7f39a3f9e153bf92b9967acfadae4ee930380b75bf2e573620c9b2f00
 Status: Downloaded newer image for phwl/elec3608-base:latest
 docker: Error response from daemon: create .: volume name is too short, names should be at least two alphanumeric characters.
 See 'docker run --help'.
-elec3608@c045ed169a4f:~$ ls
-bin  elec3608-lab
+elec3608@079a8ca5b594:~$ ls
+Dockerfile  Makefile  README.md
  ```
 Within Docker, the directory on your local home directory will be mapped 
 to your local directory. Use this to access your files and store your outputs. Verify you can also run ```xeyes```.
