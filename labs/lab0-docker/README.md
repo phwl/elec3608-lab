@@ -111,6 +111,6 @@ Within Docker, the directory on your local home directory will be mapped
 to your local directory. Use this to access your files and store your outputs. Verify you can also run ```xeyes```.
 
 ## 3 Troubleshooting
- * Update your operating system to the latest version. My Windows 10 Pro installation was available <https://www.microsoft.com/en-us/software-download/windows10ISO>.
+ * Update your operating system to the latest version. 
  * Check you have virtualization enabled in your BIOS
  * It is also possible to use MobaXterm and the instructions at <http://phwl.org/2022/installing-docker-2022-version/>.
