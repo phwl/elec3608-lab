@@ -62,8 +62,8 @@ tests X Windows basic functionality.
     1. Set “Allow connections from network clients” in XQuartz -> Preferences
     1. In the xterm window type 
     ``` bash
-    $ xhost +localhost
-    localhost being added to access control list
+    $ xhost +
+    access control disabled, clients can connect from any hos
     $ export DISPLAY=host.docker.internal:0
     $ docker run --platform linux/amd64 -it -e DISPLAY=$DISPLAY fr3nd/xeyes 
     ```
