@@ -59,15 +59,13 @@ tests X Windows basic functionality.
     1. Use homebrew to install xquartz ```brew install --cask xquartz'''
     1. Run the ```Xquartz``` X Server program by clicking on the icon, an xterm window should appear
     1. Set “Allow connections from network clients” in XQuartz -> Preferences
-    1. In the xterm window type 
+    1. In the xterm window type (if you get an error with the xhost command, try a reboot)
     ``` bash
     $ xhost +
     access control disabled, clients can connect from any hos
     $ export DISPLAY=host.docker.internal:0
     $ docker run --platform linux/amd64 -it -e DISPLAY=$DISPLAY fr3nd/xeyes 
     ```
-
-    If you get an error with the xhost command, try a reboot.
 
 You should see a window similar to below and the eyes should move with your mouse.
 
