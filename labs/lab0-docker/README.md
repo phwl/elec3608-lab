@@ -85,7 +85,7 @@ Make sure you have set up your X Server and can execute the
 previous Xeyes example.
 
  * (Windows) From your Ubuntu window type 
- ```docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY  -v `pwd`:/config phwl/elec3608-base:latest
+ ```docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY  -v `pwd`:/config phwl/elec3608-base:latest```
  * (MacOS x86) From xterm type ```docker run --platform linux/amd64 -it -e DISPLAY=$DISPLAY -v `pwd`:/config phwl/elec3608-base:latest```
  * (MacOS M1) From xterm type ```docker run --platform linux/amd64 -it -e DISPLAY=$DISPLAY -v `pwd`:/config phwl/elec3608-base:latest```
 
