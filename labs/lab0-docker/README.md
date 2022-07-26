@@ -18,7 +18,7 @@ and [ELEC3608 Computer Architecture](https://cusp.sydney.edu.au/students/view-un
 To test basic Docker functionality, type ```docker run hello-world``` in the command window. Your output should be something like:
 
 ```bash
-% docker run hello-world
+$ docker run hello-world
 Unable to find image 'hello-world:latest' locally
 latest: Pulling from library/hello-world
 7050e35b49f5: Pull complete 
@@ -45,7 +45,7 @@ Share images, automate workflows, and more with a free Docker ID:
 
 For more examples and ideas, visit:
  https://docs.docker.com/get-started/
-% 
+$ 
 ```
 
 ### 2.2 X Server
