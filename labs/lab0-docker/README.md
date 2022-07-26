@@ -84,10 +84,14 @@ This tests the ELEC3608 base image.
 Make sure you have set up your X Server and can execute the
 previous Xeyes example.
 
- * (Windows) From your Ubuntu window do the following
- ```bash
-$ docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY  -v `pwd`:/config phwl/elec3608-base
-:latest
+ * (Windows) From your Ubuntu window type 
+ ```docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY  -v `pwd`:/config phwl/elec3608-base:latest
+ * (MacOS x86) From xterm type ```docker run --platform linux/amd64 -it -e DISPLAY=$DISPLAY -v `pwd`:/config phwl/elec3608-base:latest```
+ * (MacOS M1) From xterm type ```docker run --platform linux/amd64 -it -e DISPLAY=$DISPLAY -v `pwd`:/config phwl/elec3608-base:latest```
+
+If everything works, a prompt should appear and ```ls``` should show your local directory that was mounted.
+
+```bash
 Unable to find image 'phwl/elec3608-base:latest' locally
 latest: Pulling from phwl/elec3608-base
 d7bfe07ed847: Pull complete
@@ -108,19 +112,6 @@ See 'docker run --help'.
 elec3608@c045ed169a4f:~$ ls
 bin  elec3608-lab
  ```
- * (MacOS x86 and M1) You should now be able to do ```docker run --platform linux/amd64 -it -e DISPLAY=$DISPLAY:0 -v `pwd`:/config phwl/elec3608-base:latest```.
-
-If everything works, a prompt should appear and ```ls``` should show your local directory that was mounted.
-
-``` bash
-% docker run --platform linux/amd64 -it -e DISPLAY=$DISPLAY -v `pwd`:/config phwl/elec3608-base
-To run a command as administrator (user "root"), use "sudo <command>".
-See "man sudo_root" for details.
-
-elec3608@c29f67b9ffb6:~$ ls
-README.md
-```
-
 Within Docker, the directory on your local home directory will be mapped 
 to your local directory. Use this to access your files and store your outputs. Verify you can also run ```xeyes```.
 
