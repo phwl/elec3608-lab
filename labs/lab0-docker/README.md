@@ -61,12 +61,12 @@ tests X Windows basic functionality.
     1. Run the ```Xquartz``` X Server program by clicking on the icon, an xterm window should appear
     1. Set “Allow connections from network clients” in XQuartz -> Preferences
     1. In the xterm window type 
-``` bash
-$ xhost +localhost
-localhost being added to access control list
-$ export DISPLAY=host.docker.internal:0
-$ docker run -it -e DISPLAY=$DISPLAY fr3nd/xeyes 
-```
+    ``` bash
+    $ xhost +localhost
+    localhost being added to access control list
+    $ export DISPLAY=host.docker.internal:0
+    $ docker run -it -e DISPLAY=$DISPLAY fr3nd/xeyes 
+    ```
 
 If you get an error with the xhost command, try a reboot.
 You should see the window below and the eyes should move with your mouse.
