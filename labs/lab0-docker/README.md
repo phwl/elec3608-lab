@@ -65,17 +65,12 @@ tests X Windows basic functionality.
     $ xhost +localhost
     localhost being added to access control list
     $ export DISPLAY=host.docker.internal:0
-    $ docker run -it -e DISPLAY=$DISPLAY fr3nd/xeyes 
-    ```
- * (M1 MacOS X setup)
-    The commands are the same as for x86 MacOS except you add ```--platform linux/amd64```, e.g.
-    ``` bash
     $ docker run --platform linux/amd64 -it -e DISPLAY=$DISPLAY fr3nd/xeyes 
     ```
 
+    If you get an error with the xhost command, try a reboot.
 
-If you get an error with the xhost command, try a reboot.
-For either case, you should see a window similar to below and the eyes should move with your mouse.
+You should see a window similar to below and the eyes should move with your mouse.
 
 ![xeyes](http://phwl.org/assets/images/2022/02/docker-xeyes.png "xeyes")
 
