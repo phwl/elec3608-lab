@@ -111,7 +111,7 @@ Within Docker, the directory on your local home directory will be mapped
 to your local directory. Use this to access your files and store your outputs. Verify you can also run ```xeyes```.
 
 ## 3 MobaXterm (for Win10 Systems and if the instructions above don't work under Win11)
- 1. Install MobaXterm <https://mobaxterm.mobatek.net/download-home-edition>
+ 1. Install MobaXterm Home Edition (Installer edition) <https://mobaxterm.mobatek.net/download-home-edition.html>
  1. Install Docker <https://docs.docker.com/desktop/install/windows-install/> (follow instructions carefully)
  1. Run Docker Desktop by double-clicking the icon on the desktop
  1. Follow instructions in Section 2.1 to check docker "Hello world" application.
