@@ -116,7 +116,12 @@ to your local directory. Use this to access your files and store your outputs. V
  1. Run Docker Desktop by double-clicking the icon on the desktop
  1. Follow instructions in Section 2.1 to check docker "Hello world" application.
  1. Run MobaXterm and “Start a local terminal”. Type ```docker run -it fr3nd/xeyes``` in the MobaXterm terminal. This should bring up ```xeyes``` as described in Section 2.2.
- 1. Type ```docker run -it -v /c/Users/XX:/mnt phwl/elec3607-base:latest``` from within a MobaXterm terminal. This should bring up the ELEC3608 base image as described in Section 2.3.
+ 1. Type 
+     ```bash
+     mkdir /c/elec3608
+     docker run -it -v /c/elec3608:/config phwl/elec3607-base:latest
+     ``` 
+     from within a MobaXterm terminal. This should bring up the ELEC3608 base image as described in Section 2.3, and any files in /c/elec3608 on the host system should be visible inside the docker container in /config.
 
 ## 4 Troubleshooting
  * Update your operating system to the latest version. 
