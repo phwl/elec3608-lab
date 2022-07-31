@@ -119,7 +119,7 @@ to your local directory. Use this to access your files and store your outputs. V
  1. Type 
      ```bash
      mkdir /cygdrive/c/elec3608
-     docker run -it -v /cygdrive/c/elec3608:/config phwl/elec3607-base:latest
+     docker run -it -v /cygdrive/c/elec3608:/config phwl/elec3608-base:latest
      ``` 
      from within the MobaXterm terminal. If it returns an error, try 
      ```bash
