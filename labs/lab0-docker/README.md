@@ -124,7 +124,7 @@ to your local directory. Use this to access your files and store your outputs. V
      from within the MobaXterm terminal. If it returns an error, try 
      ```bash
      mkdir /c/elec3608
-     docker run -it -v /c/elec3608:/config phwl/elec3607-base:latest
+     docker run -it -v /c/elec3608:/config phwl/elec3608-base:latest
      ``` 
      The first command creates the /c/elec3608 directory on your host machine. Running docker should bring up the ELEC3608 base image as described in Section 2.3, and any files in /c/elec3608 on the host system should be visible inside the docker container in /config (which is also the home directory).
 
