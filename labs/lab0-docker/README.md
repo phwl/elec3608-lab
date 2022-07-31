@@ -107,7 +107,8 @@ Dockerfile  Makefile  README.md
 Within Docker, the directory on your local home directory will be mapped 
 to your local directory. Use this to access your files and store your outputs. Verify you can also run ```xeyes```.
 
-## 3 MobaXterm (for Win10 Systems and if the instructions above don't work under Win11)
+## 3 MobaXterm 
+These instructions are for Win10 Systems and should only be used as a last resort since you will need to customise they way you call docker as below for every laboratory question. You can also try this approach if you cannot get the Windows 11 instructions to work.
  1. Install MobaXterm Home Edition (Installer edition) <https://mobaxterm.mobatek.net/download-home-edition.html>
  1. Install Docker <https://docs.docker.com/desktop/install/windows-install/> (follow instructions carefully)
  1. Run Docker Desktop by double-clicking the icon on the desktop
