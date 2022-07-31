@@ -3,6 +3,9 @@ Here are installation instructions for installing Docker and running the softwar
 [ELEC3608 Computer Architecture](https://cusp.sydney.edu.au/students/view-unit-page/alpha/ELEC3608).
 
 ## 1. Installation
+ * (Windows 10)
+   1. I would urge Win10 users to upgrade to Win11. Follow instructions in Section 3 otherwise.
+
  * (Windows 11)
    1. Install and run Docker Desktop <https://docs.docker.com/desktop/install/windows-install/>. In Settings, make sure "Use the WSL 2 based engine" is selected.
    1. Install WSL2 (Ubuntu) <https://docs.microsoft.com/en-us/windows/wsl/install> and from Windows Start, run the "Ubuntu on Windows" app
@@ -107,7 +110,15 @@ Dockerfile  Makefile  README.md
 Within Docker, the directory on your local home directory will be mapped 
 to your local directory. Use this to access your files and store your outputs. Verify you can also run ```xeyes```.
 
-## 3 Troubleshooting
+## 3 MobaXterm (for Win10 Systems and if the instructions above don't work under Win11)
+ 1. Install MobaXterm <https://mobaxterm.mobatek.net/download-home-edition>
+ 1. Install Docker <https://docs.docker.com/desktop/install/windows-install/> (follow instructions carefully)
+ 1. Run Docker Desktop by double-clicking the icon on the desktop
+ 1. Follow instructions in Section 2.1 to check docker "Hello world" application.
+ 1. Run MobaXterm and “Start a local terminal”. Type ```docker run -it fr3nd/xeyes``` in the MobaXterm terminal. This should bring up ```xeyes``` as described in Section 2.2.
+ 1. Type ```docker run -it -v /c/Users/XX:/mnt phwl/elec3607-base:latest``` from within a MobaXterm terminal. This should bring up the ELEC3608 base image as described in Section 2.3.
+
+## 4 Troubleshooting
  * Update your operating system to the latest version. 
  * Check you have virtualization enabled in your BIOS
  * It is also possible to use MobaXterm and the instructions at <http://phwl.org/2022/installing-docker-2022-version/>.
