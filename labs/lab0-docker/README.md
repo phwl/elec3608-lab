@@ -117,7 +117,7 @@ to your local directory. Use this to access your files and store your outputs. V
      ```bash
      docker run -it -v `pwd`:/config phwl/elec3608-base:latest
      ``` 
-     Running docker should bring up the ELEC3608 base image as described in Section 2.3, and any files in the current directory on the host system should be visible inside the docker container in /config (which is also the home directory).
+     This should replace the docker command used in Section 2.3. Check that ```xeyes``` from inside the docker container works properly.
 
 ## 4 Troubleshooting
  * Update your operating system to the latest version. 
