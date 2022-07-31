@@ -115,11 +115,7 @@ to your local directory. Use this to access your files and store your outputs. V
  1. Run MobaXterm and “Start a local terminal”. Type ```docker run -it fr3nd/xeyes``` in the MobaXterm terminal. This should bring up ```xeyes``` as described in Section 2.2.
  1. Type 
      ```bash
-     docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -v `pwd`:/config phwl/elec3608-base:latest
-     ``` 
-     from within the MobaXterm terminal. If it returns an error, try 
-     ```bash
-     docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -v `pwd`:/config phwl/elec3608-base:latest
+     docker run -it -v `pwd`:/config phwl/elec3608-base:latest
      ``` 
      Running docker should bring up the ELEC3608 base image as described in Section 2.3, and any files in the current directory on the host system should be visible inside the docker container in /config (which is also the home directory).
 
