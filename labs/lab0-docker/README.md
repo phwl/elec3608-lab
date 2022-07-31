@@ -6,11 +6,11 @@ Here are installation instructions for installing Docker and running the softwar
  * (Windows 10)
    1. I would urge Win10 users to upgrade to Win11. Follow instructions in Section 3 otherwise.
 
- * (Windows 11)
+ * (Windows 11 - Version 21H2 OS Build 22000.795 or higher)
    1. Install and run Docker Desktop <https://docs.docker.com/desktop/install/windows-install/>. In Settings, make sure "Use the WSL 2 based engine" is selected.
    1. Install WSL2 (Ubuntu) <https://docs.microsoft.com/en-us/windows/wsl/install> and from Windows Start, run the "Ubuntu on Windows" app
 
- * (MacOS)
+ * (MacOS - MacOS 12.4 or higher)
    1. Install and run Docker Desktop <https://docs.docker.com/desktop/install/mac-install/> 
 
 ## 2 Testing
