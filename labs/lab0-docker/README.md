@@ -121,7 +121,7 @@ to your local directory. Use this to access your files and store your outputs. V
      mkdir /cygdrive/c/elec3608
      docker run -it -v /cygdrive/c/elec3608:/config phwl/elec3607-base:latest
      ``` 
-     from within a MobaXterm terminal. If ```ls /cygdive/c``` returns an error, try 
+     from within the MobaXterm terminal. If it returns an error, try 
      ```bash
      mkdir /c/elec3608
      docker run -it -v /c/elec3608:/config phwl/elec3607-base:latest
