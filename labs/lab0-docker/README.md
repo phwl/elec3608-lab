@@ -116,8 +116,10 @@ These instructions are for Win10 Systems and should only be used as a last resor
  1. Run MobaXterm and “Start a local terminal”. Type ```docker run -it fr3nd/xeyes``` in the MobaXterm terminal. This should bring up ```xeyes``` as described in Section 2.2.
  1. Type 
      ```bash
-     docker run -it -v `pwd`:/config phwl/elec3608-base:latest
+     docker run -it -v /c/Users/XXX:/config phwl/elec3608-base:latest
      ``` 
+     (where XXX is your Windows user name).
+
      This should replace the docker command used in Section 2.3. Check that ```xeyes``` from inside the docker container works properly.
 
 ## 4 Troubleshooting
