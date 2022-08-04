@@ -3,8 +3,8 @@
 ## Preliminaries
 ### Docker
 Before you start, you will need to understand the way that Docker maps
-your host directories to ```/config``` which is the home directory for 
-the account in the Docker container. On Mac and Windows 11 WSL2 
+your host directories to ```/config``` (the home directory for 
+the account in the Docker container). On Mac and Windows 11 WSL2 
 systems, in Lab 0 we used:
 ```bash
 docker run --platform linux/amd64 -it -e DISPLAY=$DISPLAY -v `pwd`:/config phwl/elec3608-base:latest
@@ -34,8 +34,7 @@ elec3608@56806785b52a:~$ cd elec3608-lab/labs/lab1-alu/
 elec3608@56806785b52a:~/elec3608-lab/labs/lab1-alu$ ls
 README.md  addsub  alu
 ```
-The ```git clone``` will fetch all the files from github and place them in the ```elec3608-lab``` directory. To see the files, you can execute the ```cd``` and ```ls``` instructions above. As the volumes between your host computer and the container are mapped, the same files can be seen and edited from
-either your host machine or inside Docker.
+The ```git clone``` will fetch all the ELEC3608 lab files from github and places them in the ```elec3608-lab``` directory. To see the files for Lab 1, you can execute the ```cd``` and ```ls``` instructions above. As the volumes between your host computer and the container are mapped, the same files can be seen and edited from either your host machine or inside Docker.
 
 # ALU Lab
 In this laboratory you will design an arithmetic logic unit (ALU)
