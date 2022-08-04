@@ -1,5 +1,43 @@
 # Lab 1 - Arithmetic Logic Unit
 
+## Preliminaries
+### Docker
+Before you start, you will need to understand the way that Docker maps
+your host directories to ```/config``` which is the home directory for 
+the account in the Docker container. On Mac and Windows 11 WSL2 
+systems, in Lab 0 we used:
+```bash
+docker run --platform linux/amd64 -it -e DISPLAY=$DISPLAY -v `pwd`:/config phwl/elec3608-base:latest
+```
+and in MobaXterm (which uses [Cygwin](https://www.cygwin.com/)
+internally):
+```bash                                                                         
+docker run -it -v /c/Users/XXX:/config phwl/elec3608-base:latest
+```
+
+The important part of the command is the ``` -v <host_dir>:<container_dir>```.
+This instructs Docker that the specified volume in the host directory is mounted to the specified container directory. For non-Cygwin systems we use ``` `pwd` ``` (which returns the current directory) as the host directory. Unfortunately, in Cygwin this doesn't work. You need to specify the drive and rest of the path which is why we used ```/c/Users/XXX``` to launch Docker.
+
+### Obtaining the Lab Files
+Once inside the Docker container, you can obtain all the lab files with 
+the command:
+```bash
+elec3608@56806785b52a:~$ git clone https://github.com/phwl/elec3608-lab
+Cloning into 'elec3608-lab'...
+remote: Enumerating objects: 372, done.
+remote: Counting objects: 100% (30/30), done.
+remote: Compressing objects: 100% (22/22), done.
+remote: Total 372 (delta 18), reused 18 (delta 8), pack-reused 342
+Receiving objects: 100% (372/372), 1.64 MiB | 1.54 MiB/s, done.
+Resolving deltas: 100% (219/219), done.
+elec3608@56806785b52a:~$ cd elec3608-lab/labs/lab1-alu/
+elec3608@56806785b52a:~/elec3608-lab/labs/lab1-alu$ ls
+README.md  addsub  alu
+```
+The ```git clone``` will fetch all the files from github and place them in the ```elec3608-lab``` directory. To see the files, you can execute the ```cd``` and ```ls``` instructions above. As the volumes between your host computer and the container are mapped, the same files can be seen and edited from
+either your host machine or inside Docker.
+
+# ALU Lab
 In this laboratory you will design an arithmetic logic unit (ALU)
 which performs ```op_a alu_function op_b```, where ```alu_function'''  specifies the 
 operation that the ALU performs which is one of the following:
@@ -115,23 +153,17 @@ ok = test_addsub(tb, ALU_SUB, 0xdeadbeef, 2);
 ok = test_addsub(tb, ALU_SUB, 0xe1e10, 0xdeadbeef); 
 ```
 
-One can execute the addsub example using the commands below. Note that the ```%``` prompt is a prompt on the host machine (a Mac in the example below) whereas the ```$``` prompt corresponds to the docker execution. This involves the following process
+One can execute the addsub example using the commands below. This involves the following process
+* ```cd``` changes to a different directory (we start by doing a cd to the addsub subdirectory)
 * ```ls``` just lists the files in the directory (you should start in the addsub subdirectory)
-* ```make rundocker``` simply executes the command to run docker. You may need to edit the appropriate line in ```Makefile``` on a Windows system
 * ```make``` executes ```python testbench.py``` from within Docker which
 will compile the Verilog code to C and run the testbench.
 
 ```bash
-(base) phwl@AHJ7LDH57JP addsub % ls
-Makefile	addsub.sv	constants.svh	testbench.py
-(base) phwl@AHJ7LDH57JP addsub % make rundocker
-docker run --platform linux/amd64 -it -e DISPLAY=host.docker.internal:0 -v `pwd`:/config phwl/elec3608-base:latest
-To run a command as administrator (user "root"), use "sudo <command>".
-See "man sudo_root" for details.
-
-elec3608@a6fdcffe7ee1:~$ make
+elec3608@56806785b52a:~/elec3608-lab/labs/lab1-alu$ cd addsub/
+elec3608@56806785b52a:~/elec3608-lab/labs/lab1-alu/addsub$ make
 python testbench.py
-make[1]: Entering directory '/config/obj_dir'
+make[1]: Entering directory '/config/elec3608-lab/labs/lab1-alu/addsub/obj_dir'
 g++  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -fPIC -shared --std=c++11 -DVL_USER_FINISH   -c -o pyverilator_wrapper.o ../obj_dir/pyverilator_wrapper.cpp
 g++  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -fPIC -shared --std=c++11 -DVL_USER_FINISH   -c -o verilated.o /usr/share/verilator/include/verilated.cpp
 g++  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -fPIC -shared --std=c++11 -DVL_USER_FINISH   -c -o verilated_vcd_c.o /usr/share/verilator/include/verilated_vcd_c.cpp
@@ -142,7 +174,7 @@ g++  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vlt
 ar -cr Vaddsub__ALL.a Vaddsub__ALLcls.o Vaddsub__ALLsup.o
 ranlib Vaddsub__ALL.a
 g++ -fPIC -shared pyverilator_wrapper.o verilated.o verilated_vcd_c.o Vaddsub__ALL.a    -o Vaddsub -lm -lstdc++ 
-make[1]: Leaving directory '/config/obj_dir'
+make[1]: Leaving directory '/config/elec3608-lab/labs/lab1-alu/addsub/obj_dir'
 00000001 + 00000002	result=00000003 (cresult=00000003) True
 ffffffff + 00000002	result=00000001 (cresult=00000001) True
 7fffffff + 000000ff	result=800000fe (cresult=800000fe) True
@@ -166,41 +198,6 @@ It is expected that you keep a lab book with a description of all
 experiments that you conduct in this lab. Moreover, clear comments 
 should be included in your code.
 
-#### Docker
-Before you start, you will need to understand the way that Docker maps
-your host directories to ```/config``` which is the home directory for 
-the account in the Docker container. On Mac and Windows 11 WSL2 
-systems, in Lab 0 we used:
-```bash
-docker run --platform linux/amd64 -it -e DISPLAY=$DISPLAY -v `pwd`:/config phwl/elec3608-base:latest
-```
-and in MobaXterm (which uses [Cygwin](https://www.cygwin.com/)
-internally):
-```bash                                                                         
-docker run -it -v /c/Users/XXX:/config phwl/elec3608-base:latest
-```
-
-The important part of the command is the ``` -v <host_dir>:<container_dir>```.
-This specifies a host directory. For non-Cygwin systems we use ``` `pwd` ``` (which returns the current directory) as the host directory. Unfortunately, in Cygwin this doesn't work. You need to specify the drive and rest of the path which is why we used ```/c/Users/XXX``` to launch Docker.
-
-#### Obtaining Lab File
-Once inside the Docker container, you can obtain all the lab files with 
-the command:
-```bash
-elec3608@e5baff44c25e:~$ git clone https://github.com/phwl/elec3608-lab
-Cloning into 'elec3608-lab'...
-remote: Enumerating objects: 372, done.
-remote: Counting objects: 100% (30/30), done.
-remote: Compressing objects: 100% (22/22), done.
-remote: Total 372 (delta 18), reused 18 (delta 8), pack-reused 342
-Receiving objects: 100% (372/372), 1.64 MiB | 1.54 MiB/s, done.
-Resolving deltas: 100% (219/219), done.
-elec3608@e5baff44c25e:~$ cd elec3608-lab/labs/lab1-alu/
-elec3608@e5baff44c25e:~/elec3608-lab/labs/lab1-alu$ ls
-README.md  addsub  alu
-```
-The ```git clone``` will fetch all the files from github and place them in the ```elec3608-lab``` directory. To see the files, you can execute the ```cd``` and ```ls``` instructions above.
-
 #### Lab Question 1 - (20%)
 Inspect the ALU in ```alu/alu.sv```. It supports an additional output called
 ```result_eq_zero``` which should be asserted if the result is zero.
@@ -208,12 +205,8 @@ Note that if you run the testbench as below, one of the test cases is wrong
 because the current design always returns ```result_eq_zero=0```.
 
 ```bash
-(base) phwl@AHJ7LDH57JP alu % make rundocker
-docker run --platform linux/amd64 -it -e DISPLAY=host.docker.internal:0 -v `pwd`:/config phwl/elec3608-base:latest
-To run a command as administrator (user "root"), use "sudo <command>".
-See "man sudo_root" for details.
-
-elec3608@3fda6a0d2789:~$ make 
+elec3608@3fda6a0d2789:~/elec3608-lab/labs/lab1-alu$ cd alu/
+elec3608@3fda6a0d2789:~/elec3608-lab/labs/lab1-alu/alu$ make
 python testbench.py
 make[1]: Entering directory '/config/obj_dir'
 g++  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -fPIC -shared --std=c++11 -DVL_USER_FINISH   -c -o pyverilator_wrapper.o ../obj_dir/pyverilator_wrapper.cpp
