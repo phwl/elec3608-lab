@@ -168,19 +168,38 @@ should be included in your code.
 
 #### Docker
 Before you start, you will need to understand the way that Docker maps
-your host directories to the Docker container. On Mac and Windows 11 WSL2 
+your host directories to ```/config``` which is the home directory for 
+the account in the Docker container. On Mac and Windows 11 WSL2 
 systems, in Lab 0 we used:
 ```bash
 docker run --platform linux/amd64 -it -e DISPLAY=$DISPLAY -v `pwd`:/config phwl/elec3608-base:latest
 ```
 and in MobaXterm (which uses [Cygwin](https://www.cygwin.com/)
-internally), the command is:
+internally):
 ```bash                                                                         
 docker run -it -v /c/Users/XXX:/config phwl/elec3608-base:latest
 ```
 
 The important part of the command is the ``` -v <host_dir>:<container_dir>```.
-This specifies a host directory. For non-Cygwin systems we use ``` `pwd` ``` which returns the current directory. Unfortunately, in Cygwin this doesn't work. You need to specify the drive and rest of the path which is why we used ```/c/Users/XXX``` to launch Docker.
+This specifies a host directory. For non-Cygwin systems we use ``` `pwd` ``` (which returns the current directory) as the host directory. Unfortunately, in Cygwin this doesn't work. You need to specify the drive and rest of the path which is why we used ```/c/Users/XXX``` to launch Docker.
+
+#### Obtaining Lab File
+Once inside the Docker container, you can obtain all the lab files with 
+the command:
+```bash
+elec3608@e5baff44c25e:~$ git clone https://github.com/phwl/elec3608-lab
+Cloning into 'elec3608-lab'...
+remote: Enumerating objects: 372, done.
+remote: Counting objects: 100% (30/30), done.
+remote: Compressing objects: 100% (22/22), done.
+remote: Total 372 (delta 18), reused 18 (delta 8), pack-reused 342
+Receiving objects: 100% (372/372), 1.64 MiB | 1.54 MiB/s, done.
+Resolving deltas: 100% (219/219), done.
+elec3608@e5baff44c25e:~$ cd elec3608-lab/labs/lab1-alu/
+elec3608@e5baff44c25e:~/elec3608-lab/labs/lab1-alu$ ls
+README.md  addsub  alu
+```
+The ```git clone``` will fetch all the files from github and place them in the ```elec3608-lab``` directory. To see the files, you can execute the ```cd``` and ```ls``` instructions above.
 
 #### Lab Question 1 - (20%)
 Inspect the ALU in ```alu/alu.sv```. It supports an additional output called
