@@ -166,6 +166,22 @@ It is expected that you keep a lab book with a description of all
 experiments that you conduct in this lab. Moreover, clear comments 
 should be included in your code.
 
+#### Docker
+Before you start, you will need to understand the way that Docker maps
+your host directories to the Docker container. On Mac and Windows 11 WSL2 
+systems, in Lab 0 we used:
+```bash
+docker run --platform linux/amd64 -it -e DISPLAY=$DISPLAY -v `pwd`:/config phwl/elec3608-base:latest
+```
+and in MobaXterm (which uses [Cygwin](https://www.cygwin.com/)
+internally), the command is:
+```bash                                                                         
+docker run -it -v /c/Users/XXX:/config phwl/elec3608-base:latest
+```
+
+The important part of the command is the ``` -v <host_dir>:<container_dir>```.
+This specifies a host directory. For non-Cygwin systems we use ``` `pwd` ``` which returns the current directory. Unfortunately, in Cygwin this doesn't work. You need to specify the drive and rest of the path which is why we used ```/c/Users/XXX``` to launch Docker.
+
 #### Lab Question 1 - (20%)
 Inspect the ALU in ```alu/alu.sv```. It supports an additional output called
 ```result_eq_zero``` which should be asserted if the result is zero.
