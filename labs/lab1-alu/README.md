@@ -269,8 +269,8 @@ Modify the ALU in ```alu/alu.sv``` to support the remaining ```alu_function``` v
 
 Make sure you understand the difference between ```SRA``` and ```SRL```. For numbers where the most significant bit of ```op_a``` is ```0```, their behaviour is exactly the same. When it is ```1```, then the result should fill the bits from the left with ```1``` values. Thus
 ```
-0xFFFFFFFF SRL 2 = 0x3FFFFFF
-0xFFFFFFFF SRA 2 = 0xFFFFFFF
+0xFFFFFFFF SRL 2 = 0x3FFFFFFF
+0xFFFFFFFF SRA 2 = 0xFFFFFFFF
 ```
 
 Also note the difference between ```SLT``` and ```SLTU```. One is for signed numbers whereas the other is for unsigned numbers. Thus
