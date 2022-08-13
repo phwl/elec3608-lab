@@ -3,6 +3,8 @@
 In this lab you will implement the branch and jump instructions for
 a single-cycle RISC-V (RV) processor.
 
+If you have previously downloaded all the labs using ```git clone https://github.com/phwl/elec3608-lab.git```, you should first type ```git pull``` to download any recent changes.
+
 ## Lab Questions
 ### Part 1 - bne instruction (40%) 
 Study the ```test1.s``` program, listed below. 
