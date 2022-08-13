@@ -5,8 +5,8 @@ can execute some R-type and I-type instructions. It will use the
 ALU developed in the previous lab.
 
 If you have previously downloaded all the labs using 
-```git clone https://github.com/phwl/elec3608-lab.git''', 
-you should first type ```git pull''' to download any recent changes.
+```git clone https://github.com/phwl/elec3608-lab.git```, 
+you should first type ```git pull``` to download any recent changes.
 
 ## RV Program
 Study the ```firmware.s``` program, listed below. 
