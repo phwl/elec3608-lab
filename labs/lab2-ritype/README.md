@@ -4,6 +4,10 @@ In this lab you will develop a single-cycle RISC-V (RV) processor which
 can execute some R-type and I-type instructions. It will use the
 ALU developed in the previous lab.
 
+If you have previously downloaded all the labs using 
+```git clone https://github.com/phwl/elec3608-lab.git''', 
+you should first type ```git pull''' to download any recent changes.
+
 ## RV Program
 Study the ```firmware.s``` program, listed below. 
 
@@ -66,7 +70,7 @@ input("Press Enter to exit...")
 tb.stop_gtkwave()
 ```
 
-From your host, you can run docker, compile and test as below.
+From your host, you can run docker, compile and test as below (for Mac, please change Makefile to change the ```docker run''' command for your machine):
 
 ```bash
 (base) phwl@AHJ7LDH57JP lab2-ritype % make rundocker
@@ -97,9 +101,27 @@ g++ -fPIC -shared pyverilator_wrapper.o verilated.o verilated_vcd_c.o Vtestbench
 make[1]: Leaving directory '/config/obj_dir'
 /usr/src/pyverilator/pyverilator/pyverilator.py:805: UserWarning: tcl command "gtkwave::loadFile gtkwave.vcd" generated stderr message '\nGTKWave Analyzer v3.3.103 (w)1999-2019 BSI\n\n[5] start time.\n[10] end time.\n'
   self.gtkwave_tcl.eval('gtkwave::loadFile %s' % self.vcd_filename)
+pc = 0x00000000
+pc = 0x00000004
+pc = 0x00000008
+pc = 0x0000000c
+pc = 0x00000010
+pc = 0x00000014
+pc = 0x00000018
+pc = 0x0000001c
+pc = 0x00000020
+pc = 0x00000024
+pc = 0x00000028
+pc = 0x0000002c
 Wrong return_reg 0x1fb
 Press Enter to exit...
 ```
+
+Note that the ```pc = xxx''' output comes from the code below. A good way to
+debug your designs is to add ```$display''' messages.
+```sv
+$display("pc = 0x%08x", pc);
+'''
 
 You need to press Enter in the terminal window to exit the program.
 Note that the second last line says: "Wrong return_reg 0x1fb" 

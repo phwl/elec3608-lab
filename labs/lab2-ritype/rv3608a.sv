@@ -118,6 +118,7 @@ module rv3608a (
 				trapped <= 1;
 	
 			pc <= pc + 4;
+            $display("pc = 0x%08x", pc);
         	regfile[insn_rd] <= alu_result;
             return_reg <= regfile[10];
 
