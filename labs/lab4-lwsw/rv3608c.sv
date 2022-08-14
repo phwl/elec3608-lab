@@ -183,11 +183,11 @@ module rv3608b (
 			end
 
             `OPCODE_JAL: begin
-                // LAB implement JAL here
+                // LAB implement JAL control signals here
             end
 
             `OPCODE_JALR: begin
-                // LAB implement JALR here
+                // LAB implement JALR control signals here
             end
 
 			// branch instructions: Branch If Equal, Branch Not Equal, Branch Less Than, Branch Greater Than, Branch Less Than Unsigned, Branch Greater Than Unsigned
@@ -199,6 +199,16 @@ module rv3608b (
 					default: illegalinsn = 1;
 				endcase
 			end
+
+            `OPCODE_LOAD: begin
+                // LAB implement LW here
+		        $display("lw from 0x%08x = 0x%08x", dmem_rd_addr, dmem_rd_data);
+            end
+
+            `OPCODE_STORE: begin
+                // LAB implement SW here
+		        $display("sw 0x%08x to = 0x%08x", rs2_value, dmem_wr_addr);
+            end
 
 			default: illegalinsn = 1;
 		endcase
@@ -218,9 +228,11 @@ module rv3608b (
         pc <= npc;
         if (regwrite && insn_rd > 0) 
             regfile[insn_rd] <= rfilewdata;
-        x10 <= regfile[10];
-
+            x10 <= regfile[10];
     	end
+
+        // LAB update the data memory here
+        
         // reset
         if (reset) begin
 		    pc <= 0;

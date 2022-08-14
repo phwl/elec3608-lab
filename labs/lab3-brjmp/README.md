@@ -5,6 +5,10 @@ a single-cycle RISC-V (RV) processor.
 
 If you have previously downloaded all the labs using ```git clone https://github.com/phwl/elec3608-lab.git```, you should first type ```git pull``` to download any recent changes.
 
+In your lab book, clearly explain the changes that you needed to make
+to answer each question and include screen shots of your simulations
+and terminal output.
+
 ## Lab Questions
 ### Part 1 - bne instruction (40%) 
 Study the ```test1.s``` program, listed below. 
@@ -25,6 +29,10 @@ loop:
 This implements a simple loop. The ```x2``` register is first initialised
 to 2 and it is decremented until it becomes zero. The x10 register is
 incremented in the loop and hence the output should be ```0xd2```.
+
+If you have any doubt as to what this program is doing, you can easily
+simulate it using the [RISC-V Graphic Datapath Simulator](https://jesse-r-s-hines.github.io/RISC-V-Graphical-Datapath-Simulator/). This is a useful
+tool for verifying software and datapath execution.
 
 ## Simulating the processor
 The testbench is as below.

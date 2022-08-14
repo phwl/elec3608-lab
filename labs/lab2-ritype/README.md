@@ -4,6 +4,10 @@ In this lab you will develop a single-cycle RISC-V (RV) processor which
 can execute some R-type and I-type instructions. It will use the
 ALU developed in the previous lab.
 
+In your lab book, clearly explain the changes that you needed to make
+to answer each question and include screen shots of your simulations
+and terminal output.
+
 If you have previously downloaded all the labs using 
 ```git clone https://github.com/phwl/elec3608-lab.git```, 
 you should first type ```git pull``` to download any recent changes.
@@ -276,8 +280,8 @@ endmodule
 ### Part 1 - I-type instructions (40%) 
 The first three instruction in our test program are all immediate
 instructions. Modify ```rv3608a.sv``` so they
-are executed correctly by completing the ALU and any other parts required. Write in your lab book what the output should
-be and include a screen shot of the simulation.
+are executed correctly by completing the ALU and any other parts required. '
+
 
 ### Part 2 - R-type and I-type Instructions (40%)
 Implement all of the remaining instructions required to execute the
