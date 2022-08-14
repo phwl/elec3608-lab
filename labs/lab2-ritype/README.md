@@ -121,11 +121,11 @@ Wrong return_reg 0x1fb
 Press Enter to exit...
 ```
 
-Note that the ```pc = xxx''' output comes from the code below. A good way to
-debug your designs is to add ```$display''' messages.
+Note that the ```pc = xxx``` output comes from the code below. A good way to
+debug your designs is to add ```$display``` messages.
 ```sv
 $display("pc = 0x%08x", pc);
-'''
+```
 
 You need to press Enter in the terminal window to exit the program.
 Note that the second last line says: "Wrong return_reg 0x1fb" 
