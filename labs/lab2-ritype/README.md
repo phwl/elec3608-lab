@@ -11,6 +11,8 @@ and terminal output.
 If you have previously downloaded all the labs using 
 ```git clone https://github.com/phwl/elec3608-lab.git```, 
 you should first type ```git pull``` to download any recent changes.
+Also, make sure you can run ```xeyes``` as you will need Xwindows working in
+for this lab.
 
 ## RV Program
 Study the ```firmware.s``` program, listed below. 
