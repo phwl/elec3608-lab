@@ -122,7 +122,11 @@ These instructions are for Win10 Systems and should only be used as a last resor
 
      This should replace the docker command used in Section 2.3. Check that ```xeyes``` from inside the docker container works properly.
 
-## 4 Troubleshooting
+## VcXsvr (draft)
+ 1. Download and install <https://sourceforge.net/projects/vcxsrv/files/latest/download>
+ 1. Run XLaunch. In the Extra Settings, select Disable access control.
+ 
+## 5 Troubleshooting
  * Update your operating system to the latest version. 
  * Check you have virtualization enabled in your BIOS
  * It is also possible to use MobaXterm and the instructions at <http://phwl.org/2022/installing-docker-2022-version/>.

@@ -20,8 +20,8 @@ Study the ```firmware.s``` program, listed below.
 .global _start
 _start:
 # these first three instructions are I-type
-addi x2, x1, 11
 xori x1, zero, 0xe1
+addi x2, x1, 11
 ori x3, zero, 0x36
 
 # remaining instruction types
