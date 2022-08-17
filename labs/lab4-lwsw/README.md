@@ -22,7 +22,7 @@ _start:
     sw x1,0(sp)
     addi sp,sp,-4
     lw x10,4(sp)
-    fence
+    ebreak
 ```
 The first 3 instructions simply initialises the x1 and sp registers and then does a ```sw``` to write 0xd0 to address 0x24. 
 
