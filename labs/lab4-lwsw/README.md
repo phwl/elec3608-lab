@@ -10,7 +10,7 @@ to answer each question and include screen shots of your simulations
 and terminal output.
 
 ## Lab Questions
-### Part 1 - SW instruction (40%) 
+### Part 1 - sw instruction (40%) 
 Study the ```test1.s``` program, listed below. 
 
 ```assembly
@@ -19,18 +19,18 @@ Study the ```test1.s``` program, listed below.
 _start:
     addi x1, zero, 0xd0
     addi sp, zero, 0x24
-	sw	x1,0(sp)
+    sw x1,0(sp)
     addi sp,sp,-4
-    lw  x10,4(sp)
+    lw x10,4(sp)
     fence
 ```
 The first 3 instructions simply initialises the x1 and sp registers and then does a ```sw``` to write 0xd0 to address 0x24. 
 
-Modify ```rv3608c.sv``` so it implements the ```SW``` instruction and show either with System Verilog
-```$display()``` statements or the waveform display that it is storing
-the value to the correct address. 
+Modify ```rv3608c.sv``` so it implements the ```sw``` instruction and show either with System Verilog
+```$display()``` statements or the waveform display that it is operating
+on the correct value and address. 
 
-### Part 2 - LW instruction (40%) 
+### Part 2 - lw instruction (40%) 
 The next step is to implement the ```lw``` and other instructions so that the test1.s program runs correctly. Modify ```rv3608c.sv``` so it
 gives the correct return value of 0xd0 (208 in decimal) as below.
 

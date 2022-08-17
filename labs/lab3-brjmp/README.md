@@ -85,7 +85,7 @@ if tkmode:
     tb.stop_gtkwave()
 
 ```
-From your host, you can run docker using:
+From your host, you can run docker (you may need to modify the Makefile for your system) using:
 
 ```bash
 (base) phwl@AHJ7LDH57JP rv3608b.soln % make rundocker
@@ -119,7 +119,7 @@ rm test1.hex
 
 The starting input file does not implement branches and hence the
 return value is not ```0xd2```.  Modify ```rv3608b.sv``` so that
-it implements ```bne``` instruction. To do this, you will need to
+it implements the ```bne``` instruction. To do this, you will need to
 ensure that the correct ```alu_op``` is passed to the ALU for this
 instruction, and that the correct branch address is computed in 
 ```npc```. The figure below shows the fields for this instruction.
