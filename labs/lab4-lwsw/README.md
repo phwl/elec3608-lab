@@ -26,7 +26,7 @@ _start:
 ```
 The first 3 instructions simply initialises the x1 and sp registers and then does a ```sw``` to write 0xd0 to address 0x24. 
 
-Modify ```rv3608c.sv``` so it implements the ```sw``` instruction and show either with System Verilog
+Modify ```Makefile``` and ```rv3608c.sv``` so it implements the ```sw``` instruction and show either with System Verilog
 ```$display()``` statements or the waveform display that it is operating
 on the correct value and address. 
 
@@ -87,13 +87,13 @@ rm test1.hex test1.elf
 ```
 
 ### Part 3 - Fibonnacci Program (20%) 
-The following program is a recursive program to compute the n'th Fibonnacci
-number. The value of ```n``` is placed in the ```a0``` register before the subroutine is called. 
+The following program, provided in ```fib.s```, is a recursive program to compute the n'th Fibonnacci
+number. The value of ```n``` is placed in the ```a0``` register before the subroutine is called. Note that while this is an interesting program for testing load and store operations, it is a super-inefficient way to compute the Fibonnacci sequence.
 
 Simulate it using the [RISC-V Graphic Datapath Simulator](https://jesse-r-s-hines.github.io/RISC-V-Graphical-Datapath-Simulator/). This is a useful
 tool for verifying software and datapath execution.
 
-Then modify rv3608c.sv so this program can execute on your processor (you
+Then modify ```rv3608c.sv``` so this program can execute on your processor (you
 will need to use work from previous labs).
 
 ```assembly
