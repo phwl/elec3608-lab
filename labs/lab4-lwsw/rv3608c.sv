@@ -40,6 +40,15 @@ module rv3608c (
     assign  imem_addr = pc;
     assign  insn = imem_data;
 
+    // data memory
+    logic [31:0] dmem [0:1023];
+    logic dmem_wr_enable;
+    logic [31:0] dmem_wr_addr;
+    logic [31:0] dmem_wr_data;
+                          
+    logic [31:0] dmem_rd_addr;
+    logic [31:0] dmem_rd_data;
+
     // Debugging
     logic   [4:0] d_rd;
     logic   [31:0] d_x0;
