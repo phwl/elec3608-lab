@@ -25,7 +25,7 @@
 
 `default_nettype none
 
-module rv3608b (
+module rv3608c (
     input clock,
     input reset,
     output trap,
