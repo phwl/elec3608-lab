@@ -10,7 +10,10 @@ to answer each question and include screen shots of your simulations
 and terminal output.
 
 ## Lab Questions
-### Part 1 - sw instruction (40%) 
+### Part 1 - Datapath (20%)
+Using the figures from the lectures as a starting point, modify the datapath of ```rv3608c.sv``` so it has the additional parts required to implement the ```lw``` and ```sw``` instructions. In a table, describe the operation of each of the original and new control signals. Put this information in your lab book.
+
+### Part 2 - sw instruction (20%) 
 Study the ```test1.s``` program, listed below. 
 
 ```assembly
@@ -35,7 +38,7 @@ Modify ```Makefile``` and ```rv3608c.sv``` so it implements the ```sw``` instruc
 ```$display()``` statements or the waveform display that it is operating
 on the correct value and address. 
 
-### Part 2 - lw instruction (40%) 
+### Part 3 - lw instruction (40%) 
 The next step is to implement the ```lw``` and other instructions so that the test1.s program runs correctly. Modify ```rv3608c.sv``` so it
 gives the correct return value of 0xd0 (208 in decimal) as below.
 
@@ -91,7 +94,7 @@ touch test1.out
 rm test1.hex test1.elf
 ```
 
-### Part 3 - Fibonnacci Program (20%) 
+### Part 4 - Fibonnacci Program (20%) 
 The following program, provided in ```fib.s```, is a recursive program to compute the n'th Fibonnacci
 number. The value of ```n``` is placed in the ```a0``` register before the subroutine is called. Note that while this is an interesting program for testing load and store operations, it is a super-inefficient way to compute the Fibonnacci sequence.
 
