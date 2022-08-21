@@ -37,8 +37,7 @@ _start:
     nop
     ebreak
 ```
-The program simply sums the first 10 numbers and the result should be
-55. To test this program on the single cycle processor you can just type
+The program simply sums the first 10 non-negative integers and the result is 55. To test this program on the single cycle processor you can just type
 ```make test1```. In GTKWave, you can view additional waveforms by expanding
 the "testbench" module in the top left window, clicking "dut" and then appending the desired waveforms. In the plot below, "regfile(1)[31:0]" and "insn[31:0]" were appended and you can see that the final value in regfile(1) was 0x37 as expected.
 
