@@ -10,7 +10,10 @@ to answer each question and include screen shots of your simulations
 and terminal output.
 
 ## Lab Questions
-### Part 1 - bne instruction (40%) 
+### Part 1 - Datapath (20%)
+Using the figures from the lectures as a starting point, draw the datapath of ```rv3608b.sv``` in your lab book, showing every control signal. In a table, describe the operation of each of the control signals.
+
+### Part 2 - bne instruction (20%) 
 Study the ```test1.s``` program, listed below. 
 
 ```assembly
@@ -147,7 +150,7 @@ loop:
     ebreak
 ```
 
-### Part 2 - Subroutine instructions (40%) 
+### Part 3 - Subroutine instructions (40%) 
 The next step is to implement the ```jal``` and ```jalr``` instructions.
 When these are correct, the ```test3.s``` program should give the 
 correct return value.
@@ -178,7 +181,7 @@ and jump to the destination address, i.e. ```npc = pc + imm_j_sext```.
 The ```jalr``` instruction uses a different format and the
 destination address is computed with ```npc = (regfile[insn_rs1] + imm_i_sext) & ~32'b 1```.
 
-### Part 3 - Remaining branch instructions (20%) 
+### Part 4 - Remaining branch instructions (20%) 
 Implement the remaining branch instructions. The programs ```test4.s```
 and ```test5.s``` provide some tests but you should create your
 own. To complete these instructions you must set ```alu_op``` 
