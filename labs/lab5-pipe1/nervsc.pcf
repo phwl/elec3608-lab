@@ -1,0 +1,103 @@
+    # input clock,
+    # input reset,
+    # output trap,
+    # output logic [31:0] x10,
+
+    # // instruction memory
+    # output  [3:0] imem_addr,
+    # input   [31:0] imem_data
+    
+set_io clock A1 
+set_io reset A2 
+set_io trap A5 
+set_io imem_addr[0] R9 
+set_io imem_addr[1] T8 
+set_io imem_addr[2] T7 
+set_io imem_addr[3] T6 
+
+set_io imem_data[0] T5 
+set_io imem_data[1] P13
+set_io imem_data[2] P2
+set_io imem_data[3] R2 
+set_io imem_data[4] T1 
+set_io imem_data[5] T3
+set_io imem_data[6] P1
+set_io imem_data[7] R1
+set_io imem_data[8] R3
+set_io imem_data[9] T2
+set_io imem_data[10] K1 
+set_io imem_data[11] L3
+set_io imem_data[12] M2 
+set_io imem_data[13] N3 
+set_io imem_data[14] K3 
+set_io imem_data[15] L1 
+set_io imem_data[16] M1 
+set_io imem_data[17] N2 
+set_io imem_data[18] F2 
+set_io imem_data[19] G3
+set_io imem_data[20] H1 
+set_io imem_data[21] J2 
+set_io imem_data[22] F1 
+set_io imem_data[23] G2 
+set_io imem_data[24] H2 
+set_io imem_data[25] J1 
+set_io imem_data[26] B3 
+set_io imem_data[27] C3 
+set_io imem_data[28] D3 
+set_io imem_data[29] E3 
+set_io imem_data[30] B2 
+set_io imem_data[31] C2 
+set_io unused D2 
+set_io x10[0] E2 
+set_io x10[1] A6 
+set_io x10[2] A7 
+set_io x10[3] A9 
+set_io x10[4] A10 
+set_io x10[5] A11 
+set_io x10[6] B6 
+set_io x10[7] B7 
+set_io x10[8] B8 
+set_io x10[9] B9 
+set_io x10[10] B11 
+set_io x10[11] C16 
+set_io x10[12] T15 
+set_io x10[13] R16 
+set_io x10[14] R15 
+set_io x10[15] P16 
+set_io x10[16] P15 
+set_io x10[17] N16 
+set_io x10[18] M16 
+set_io x10[19] M15 
+set_io x10[20] L16 
+set_io x10[21] T14 
+set_io x10[22] R14  
+set_io x10[23] P14 
+set_io x10[24] L14 
+set_io x10[25] D14 
+set_io x10[26] C14 
+set_io x10[27] D16 
+set_io x10[28] D15 
+set_io x10[29] B16 
+set_io x10[30] B15 
+set_io x10[31] A16 
+set_io D1 A15 
+set_io D2 E16 
+set_io D3 F15 
+set_io D8 F16 
+set_io D9 G15 
+set_io D10 G16 
+set_io D11 J15 
+set_io D12 J16 
+set_io D13 K15 
+set_io D14 K16 
+set_io D15 T16 
+set_io FSMC_NOE F14 
+set_io FSMC_NWE H14 
+set_io FSMC_NE1 J14 
+set_io FSMC_NE4 K14 
+set_io FSMC_NL_NADV B14
+set_io FPGA_SPI_SCLK R10
+set_io FPGA_SPI_MOSI P10
+set_io FPGA_SPI_MISO N12
+set_io FPGA_SPI_CS T13
+set_io FSMC_CLK K9 
