@@ -1,4 +1,4 @@
-# Pipelined RV32 1
+# Pipelined RV32 (Part 1 of 2)
 
 In this lab you will convert the single-cycle RISC-V (RV) processor
 to execute using a simple 2-stage pipeline.
