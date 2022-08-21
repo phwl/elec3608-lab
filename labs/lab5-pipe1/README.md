@@ -100,8 +100,8 @@ Info: [ 80855,  82295) |+
 Info: Program finished normally.
 ```
 
-The reported part is the maximum clock frequency: 38.21 MHz. Also note that
-the routing delay is much higher than the logic delay. This is typical
+The reported maximum clock frequency is 38.21 MHz. Also note that
+the routing delay is much higher than the logic delay - this is typical
 in an FPGA and can be improved with manual placement or floorplanning
 of the design (which is also very tedious).
 Replace ```nervsc.sv``` with your pipelined design. What is the new clock
