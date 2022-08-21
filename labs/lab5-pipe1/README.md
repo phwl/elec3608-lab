@@ -15,7 +15,7 @@ The starting point for this lab is a lightly-modified version of the complete si
 
 Draw the datapath of this processor and, in a table, describe the operation of each of the original and new control signals. Put this information in your lab book.
 
-### Part 2 - Sequentional Instructions (40%) 
+### Part 2 - Sequential Instructions (40%) 
 Study the ```test1.s``` program, listed below. 
 
 ```assembly
@@ -45,6 +45,8 @@ the "testbench" module in the top left window, clicking "dut" and then appending
 ![part1](part1.png "part1")
 
 Modify the single cycle processor so that it implements a 2-stage pipeline as illustrated below. Your design need only do enough to execute this program. Using GTKWave, display the values of your pipeline registers and write a justification in your lab book as to why your solution is correct.
+
+![pipefig](pipefig.png "pipefig")
 
 ### Part 3 - FPGA Synthesis (20%)
 
