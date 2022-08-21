@@ -114,4 +114,4 @@ the remaining part of the instruction is passed to the next stage. In
 your lab book, redraw the data path showing where you located the
 registers and explain which intermediate nodes need to be registered.
 Give the frequency achieved and include the changes to the original 
-verilog design and nextpnr log file as an appendix.
+Verilog design and nextpnr log file as an appendix.
