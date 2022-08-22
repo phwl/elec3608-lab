@@ -88,13 +88,10 @@ if tkmode:
     tb.stop_gtkwave()
 
 ```
-From your host, you can run docker (you may need to modify the Makefile for your system) using:
+From your host, start docker. On MacOS the command is:
 
 ```bash
-(base) phwl@AHJ7LDH57JP rv3608b.soln % make rundocker
 docker run --platform linux/amd64 -it -e DISPLAY=host.docker.internal:0 -v `pwd`:/config phwl/elec3608-base:latest
-To run a command as administrator (user "root"), use "sudo <command>".
-See "man sudo_root" for details.
 ```
 
 Then try compiling ```test1.s```:
