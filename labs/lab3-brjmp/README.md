@@ -100,7 +100,7 @@ Then try compiling ```test1.s```:
 elec3608@9590e973009d:~$ make test1.out 
 riscv64-unknown-elf-objcopy -O verilog test1.elf test1.hex
 cp test1.hex firmware.hex
-python testbench.py 
+python testbench.py -t
 make[1]: Entering directory '/config/obj_dir'
 g++  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -fPIC -shared --std=c++11 -DVL_USER_FINISH   -c -o pyverilator_wrapper.o ../obj_dir/pyverilator_wrapper.cpp
 g++  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -fPIC -shared --std=c++11 -DVL_USER_FINISH   -c -o verilated.o /usr/share/verilator/include/verilated.cpp
@@ -125,6 +125,8 @@ instruction, and that the correct branch address is computed in
 ```npc```. The figure below shows the fields for this instruction.
 
 ![rvisa](rvisa.png "rvisa")
+
+Note the Makefile executes ```python testbench.py -t```. If you change this to ```python -t -s```, it will execute a single instruction and then wait for a return. This is often helpful for debugging.
 
 Verify you can correctly execute ```test2.s``` (listed below). This is done by
 typing ```make test2.out```. Explain what this program does and
