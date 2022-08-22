@@ -38,6 +38,7 @@ simulate it using the [RISC-V Graphic Datapath Simulator](https://jesse-r-s-hine
 tool for verifying software and datapath execution.
 
 ## Simulating the processor
+First put the alu that was designed in an earlier lab in ```alu.sv```.
 The testbench is as below.
 ```python3
 import pyverilator
