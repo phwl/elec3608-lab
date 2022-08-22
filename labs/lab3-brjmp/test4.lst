@@ -1,0 +1,35 @@
+GAS LISTING test4.s 			page 1
+
+
+   1              	.section .text
+   2              	.global _start
+   3              	_start:
+   4 0000 6F00C000 	    j main
+   5              	
+   6              	    # a simple subroutine that increments x4
+   7              	inc:    
+   8 0004 13021200 	    addi x4, x4, 1
+   9 0008 67800000 	    jalr x0, 0(ra)
+  10              	
+  11              	main:
+  12              	    # these first three instructions are I-type
+  13 000c 13021000 	    addi x4, zero, 1
+  14 0010 13050000 	    addi x10, zero, 0
+  15 0014 13013001 	    addi x2, zero, 19
+  16              	loop:
+  17 0018 3305A200 	    add x10, x4, x10
+  18 001c EFF09FFE 	    jal ra, inc
+  19 0020 1301F1FF 	    addi x2, x2, -1
+  20 0024 E35A01FE 	    bge x2, zero, loop
+  21              	
+  22 0028 73001000 	    ebreak
+GAS LISTING test4.s 			page 2
+
+
+DEFINED SYMBOLS
+             test4.s:3      .text:0000000000000000 _start
+             test4.s:11     .text:000000000000000c main
+             test4.s:7      .text:0000000000000004 inc
+             test4.s:16     .text:0000000000000018 loop
+
+NO UNDEFINED SYMBOLS

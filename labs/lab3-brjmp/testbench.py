@@ -24,22 +24,21 @@ if "-h" in opts:
 tb = pyverilator.PyVerilator.build('testbench.sv')
 if (tkmode):
     tb.start_gtkwave()
+    print(tb.io)
     tb.send_to_gtkwave(tb.io)
     tb.send_to_gtkwave(tb.internals)
 i = 0
 while True:
     r(tb, i < 2)
     i = i + 1
-    # import pdb; pdb.set_trace()
     if (int(tb.internals['dut'].trapped)):
         break
+    if (stepmode):
+        input()
 
 # check return value is correct
 rr = int(tb.internals['x10'])
-if (rr == sum(range(21))):
-    print('Correct return_reg {}'.format(hex(rr))) 
-else:
-    print('Wrong return_reg {}'.format(hex(rr)))
+print('Return_reg {} ({} cycles)'.format(rr, i)) 
 
 if tkmode:
     input("Press Enter to exit...")

@@ -22,7 +22,7 @@ all: test1.out test2.out test3.out test4.out
 
 %.out: %.hex
 	cp $^ firmware.hex
-	python testbench.py -t
+	python testbench.py -t -s
 
 %.elf : %.s
 	$(TOOLCHAIN_PREFIX)gcc -march=rv32i -mabi=ilp32 -Os -Wall -Wextra -Wl,-Bstatic,-T,sections.lds,--strip-debug -ffreestanding -nostdlib -o $@ $^
