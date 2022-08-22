@@ -97,7 +97,6 @@ docker run --platform linux/amd64 -it -e DISPLAY=host.docker.internal:0 -v `pwd`
 
 Then try compiling ```test1.s```:
 ```bash
-elec3608@3a5e4367d6b7:~$ make test1
 elec3608@9590e973009d:~$ make test1.out 
 riscv64-unknown-elf-objcopy -O verilog test1.elf test1.hex
 cp test1.hex firmware.hex
