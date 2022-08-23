@@ -11,7 +11,7 @@ and terminal output.
 
 ## Lab Questions
 ### Part 1 - Datapath for Sequential Pipelined Execution (20%)
-The starting point for this lab is a lightly-modified version of the complete single-cycle [nerv processor](https://github.com/YosysHQ/nerv) in ```nervsc.sv``` (which stands for nerv single cycle). Note that this is a little more complex but not significantly different to the processors you have seen to date.
+The starting point for this lab is a lightly-modified version of the complete single-cycle [nerv processor](https://github.com/YosysHQ/nerv) in ```nerv.sv``` (which stands for nerv single cycle). Note that this is a little more complex but not significantly different to the processors you have seen to date.
 
 Draw the datapath of this processor and, in a table, describe the operation of each of the original and new control signals. Put this information in your lab book.
 
@@ -51,7 +51,7 @@ Modify the single cycle processor so that it implements a 2-stage pipeline as il
 
 Execute the shell command
 ```bash
-make nervsc.asc
+make nerv.asc
 ```
 
 This will first run [yosys](https://yosyshq.net/yosys/) which maps
@@ -61,7 +61,7 @@ route your design on the FPGA and determine the maximum clock
 frequency. The target platform is the [Lattice
 iCE40-HX8k](https://www.latticesemi.com/iCE40).
 
-Look in the ```nervsc-pnr.log``` file. The last part looks like this
+Look in the ```nerv-pnr.log``` file. The last part looks like this
 ```
 ...
 Info: 9.3 ns logic, 17.6 ns routing
@@ -103,7 +103,7 @@ Info: Program finished normally.
 The reported maximum clock frequency is 38.21 MHz. Also note that
 the routing delay is much higher than the logic delay - this is typical
 in an FPGA.
-Replace ```nervsc.sv``` with your pipelined design. What is the new clock
+Replace ```nerv.sv``` with your pipelined design. What is the new clock
 frequency?
 
 ### Part 4 - Placement of Pipeline Registers (30%)
@@ -116,6 +116,4 @@ Give the frequency achieved and include the changes to the original
 Verilog design and nextpnr log file as an appendix.
 Also give the reported clock frequency. 
 
-Your design for this part of the lab doesn't have to be simulated for correctness, this will be addressed in the assignment.
-
-
+Your design for this part of the lab does not need to be simulated for correctness, this will be addressed in the assignment.

@@ -17,7 +17,7 @@
  *
  */
 
-module nervsc #(
+module nerv #(
 	parameter [31:0] RESET_ADDR = 32'h 0000_0000,
 	parameter integer NUMREGS = 32
 ) (
