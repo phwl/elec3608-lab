@@ -102,16 +102,20 @@ Info: Program finished normally.
 
 The reported maximum clock frequency is 38.21 MHz. Also note that
 the routing delay is much higher than the logic delay - this is typical
-in an FPGA and can be improved with manual placement or floorplanning
-of the design (which is also very tedious).
+in an FPGA.
 Replace ```nervsc.sv``` with your pipelined design. What is the new clock
 frequency?
 
 ### Part 4 - Placement of Pipeline Registers (30%)
-Try repositioning the pipeline registers in different places in the design to maximise the reported clock frequency. In your experiments you need to 
+Reposition the pipeline registers to before the input to the ALU. This will result in better balancing of the pipeline stages and you should be able to achieve more than 50 MHz. In your design you need to 
 completely bisect the datapath so that all the information to execute
 the remaining part of the instruction is passed to the next stage. In 
 your lab book, redraw the data path showing where you located the
 registers and explain which intermediate nodes need to be registered.
 Give the frequency achieved and include the changes to the original 
 Verilog design and nextpnr log file as an appendix.
+Also give the reported clock frequency. 
+
+Your design for this part of the lab doesn't have to be simulated for correctness, this will be addressed in the assignment.
+
+
