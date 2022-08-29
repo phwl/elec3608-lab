@@ -31,10 +31,7 @@ The first 3 instructions simply initialises the x1 and sp registers and then doe
 
 Note that ```sw``` uses the S-type format for the immediate value and the code is not present in the ```rv3608c.sv```. You can call this offset ```imm_s_sext```.
 
-%.json: %.sv
-	yosys -s $*.yosys -l $*-yosys.log
-
-Modify ```Makefile``` and ```rv3608c.sv``` so it implements the ```sw``` instruction and show either with System Verilog
+Modify ```rv3608c.sv``` so it implements the ```sw``` instruction and show either with System Verilog
 ```$display()``` statements or the waveform display that it is operating
 on the correct value and address. 
 
