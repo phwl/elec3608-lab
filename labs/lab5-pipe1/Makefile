@@ -19,7 +19,10 @@ TOOLCHAIN_PREFIX?=riscv64-unknown-elf-
 VERILATOR = verilator
 RDOCKER = docker run --platform linux/amd64 -it -e DISPLAY=host.docker.internal:0 -v `pwd`:/config phwl/elec3608-cad:latest
 
-all:	firmware.hex test_verilator # nerv.asc
+all:	firmware.out
+
+firmware.out:	firmware.hex
+	python testbench.py -t testbench.sv
 
 test_verilator: testbench_verilator 
 	./obj_dir/Vtestbench +vcd
