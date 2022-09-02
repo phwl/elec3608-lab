@@ -16,7 +16,7 @@ The starting point for this lab is a lightly-modified version of the complete si
 Draw the datapath of this processor and, in a table, describe the operation of each of the original and new control signals. Put this information in your lab book.
 
 ### Part 2 - Sequential Instructions (30%) 
-Study the ```test1.s``` program, listed below. 
+Study the ```firmware.s``` program, listed below. 
 
 ```assembly
 .section .text
@@ -38,7 +38,7 @@ _start:
     ebreak
 ```
 The program simply sums the first 10 non-negative integers and the result is 55. To test this program on the single cycle processor you can just type
-```make test1```. In GTKWave, you can view additional waveforms by expanding
+```make```. In GTKWave, you can view additional waveforms by expanding
 the "testbench" module in the top left window, clicking "dut" and then appending the desired waveforms. In the plot below, "regfile(1)[31:0]" and "insn[31:0]" were appended and you can see that the final value in regfile(1) was 0x37 as expected.
 
 ![part1](part1.png "part1")
