@@ -13,7 +13,7 @@ Create a pipelined RV32I processor which implements enough of the instructions s
 Then add the following features:
  1. (30%) Achieve a high clock frequency on a [Lattice iCE40-HX8k](https://www.latticesemi.com/iCE40) FPGA for the programs provided by placing a pipeline register in the best position for a 2-stage pipeline and modifying the test programs to resolve hazards via ```nop``` instructions. 
  1. (40%) Incorporate hardware interlocks, i.e.  any stalling of the processor to resolve hazards is done within the processor so the original test programs can be executed.
- 1. (30%) Incorporate forwarding or branch prediction (choose the one which you think will give the best performance improvement and explain why you made that choice in your report). 
+ 1. (30%) Incorporate forwarding or branch prediction (choose the one which you think will give the best performance improvement and justify your choice in the report). 
 
 The percentages above are the maximum mark achievable for the Design plus Report parts of this assignment. Performance will be measured using the ```make result``` target as shown below
 ```bash
