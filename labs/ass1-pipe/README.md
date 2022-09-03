@@ -34,7 +34,7 @@ is the only correct mean when averaging normalized results see
 # Submission 
 Your assignment should be submitted online to the Canvas site as two separate files (a pdf and sv file) before the due date.
  * Report (60% of assignment mark): a pdf report as described below.
- * Design (40% of assignment mark): a single System Verilog file ```rv32i-sid.sv``` (where sid is your student ID). This will be machine marked so your solution is expected to work with the same ```testbench.sv```, ```testbench.py``` and Makefile accompanying this assignment.
+ * Design (40% of assignment mark): a single System Verilog file ```rv32i-sid.sv``` (where sid is your student ID). This will be machine marked so your solution is expected to work with the same ```testbench.sv```, ```testbench.py``` and ```Makefile``` accompanying this assignment.
 
 
 **Marking scheme to be added here.**
