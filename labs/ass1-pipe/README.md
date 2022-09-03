@@ -8,12 +8,10 @@ In the labs for this course, you have developed a series of RV32I processors
 culminating in a simple pipelined processor. In this assignment, you will extend and optimise the microarchitecture to achieve higher performance.
 
 # Question
-Create a pipelined RV32I processor which implements enough of the instructions specified in Volume 1 Sections 2.1-2.6 of the RISC-V ISA Specification <https://riscv.org/technical/specifications/> to execute the programs supplied with this assignment.
-
-Then add the following features:
- 1. (30%) Achieve a high clock frequency on a [Lattice iCE40-HX8k](https://www.latticesemi.com/iCE40) FPGA for the programs provided by placing a pipeline register in the best position for a 2-stage pipeline and modifying the test programs to resolve hazards via ```nop``` instructions. 
- 1. (40%) Incorporate hardware interlocks, i.e.  any stalling of the processor to resolve hazards is done within the processor so the original test programs can be executed.
- 1. (30%) Incorporate forwarding or branch prediction (choose the one which you think will give the best performance improvement and justify your choice in the report). 
+Create a pipelined RV32I processor which implements enough of the instructions specified in Volume 1 Sections 2.1-2.6 of the RISC-V ISA Specification <https://riscv.org/technical/specifications/> to execute the programs supplied with this assignment and add the following features:
+ 1. (40%) A 2-stage pipelined processor with high clock frequency on a [Lattice iCE40-HX8k](https://www.latticesemi.com/iCE40) FPGA. This should be achieved by placing a pipeline register in the best position and modifying the test programs to resolve hazards via ```nop``` instructions. 
+ 1. (30%) Incorporate hardware interlocks, i.e.  any stalling of the processor to resolve hazards is done within the processor so the original test programs can be executed.
+ 1. (30%) Incorporate forwarding or branch prediction. You should choose the one which you think will give the best performance improvement and justify the choice in your report. 
 
 The percentages above are the maximum mark achievable for the Design plus Report parts of this assignment. Performance will be measured using the ```make result``` target as shown below
 ```bash
