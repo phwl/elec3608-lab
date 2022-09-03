@@ -19,21 +19,21 @@ Draw the datapath of this processor and, in a table, describe the operation of e
 Study the ```firmware.s``` program, listed below. 
 
 ```assembly
-.section .text
-.global main
-.global _start
-_start:
-    addi x1, zero, 0
-    addi x1, x1, 1
-    addi x1, x1, 2
-    addi x1, x1, 3
-    addi x1, x1, 4
-    addi x1, x1, 5
-    addi x1, x1, 6
-    addi x1, x1, 7
-    addi x1, x1, 8
-    addi x1, x1, 9
-    addi x1, x1, 10
+    .section .text
+    .global main
+    .global _start
+    _start:
+    addi x10, zero, 0
+    addi x10, x10, 1
+    addi x10, x10, 2
+    addi x10, x10, 3
+    addi x10, x10, 4
+    addi x10, x10, 5
+    addi x10, x10, 6
+    addi x10, x10, 7
+    addi x10, x10, 8
+    addi x10, x10, 9
+    addi x10, x10, 10
     nop
     ebreak
 ```
