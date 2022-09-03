@@ -23,7 +23,7 @@ SOURCES = nerv.sv testbench.sv testbench.py
 all:	test1.out test2.out test3.out test4.out 
 
 result:	test1.result test2.result test3.result test4.result nerv.asc
-	python exetime.py nerv-pnr.log *.result
+	python extime.py nerv-pnr.log *.result
 
 %.out: %.hex $(SOURCES)
 	cp $*.hex firmware.hex
