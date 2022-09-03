@@ -8,12 +8,17 @@ In the labs for this course, you have developed a series of RV32I processors
 culminating in a simple pipelined processor. In this assignment, you will extend and optimise the microarchitecture to achieve higher performance.
 
 # Question
-Create a pipelined RV32I processor with the following features:
- * Implements enough of the instructions specified in Volume 1 Sections 2.1-2.6 of the RISC-V ISA Specification <https://riscv.org/technical/specifications/> to execute the programs supplied with this assignment.
- * Incorporates a 2 stage pipeline with hardware interlocks, i.e.  any stalling of the processor to resolve hazards is done within the processor and not through nops being inserted in the program
- * Achieves the highest performance on a [Lattice iCE40-HX8k](https://www.latticesemi.com/iCE40) FPGA for the programs provided. It is expected that you will achieve significantly higher performance than the design in Lab 6 through careful placement of pipeline registers, branch prediction and forwarding. 
+Create a pipelined RV32I processor which implements enough of the instructions specified in Volume 1 Sections 2.1-2.6 of the RISC-V ISA Specification <https://riscv.org/technical/specifications/> to execute the programs supplied with this assignment.
 
-Performance can be measured using the ```make result``` target as shown below
+Then add the following features:
+ 1. (30%) Achieve a high clock frequency on a [Lattice iCE40-HX8k](https://www.latticesemi.com/iCE40) FPGA for the programs provided by placing a pipeline register in the best position for a 2-stage pipeline and modifying the test programs to resolve hazards via ```nop``` instructions. 
+ 1. (40%) Incorporate hardware interlocks, i.e.  any stalling of the processor to resolve hazards is done within the processor and not through nops being inserted in the program
+ 1. (20%) Incorporate forwarding. 
+ 1. (10%) Incorporate branch prediction. 
+
+The percentages above are the maximum mark achievable for both the Design and Report parts of this assignment if you incorporate this feature correctly.
+
+Performance will be measured using the ```make result``` target as shown below
 ```bash
 $ make result
 ...
@@ -35,8 +40,8 @@ Machine marking of this assignment will expect exactly the same System Verilog i
 
 # Submission 
 Your assignment should be submitted online to the Canvas site as two separate files (a pdf and sv file) before the due date.
- * (60% of assignment mark) a pdf report as described below.
- * (40% of assignment mark) a single System Verilog file ```rv32i-sid.sv``` which will be machine marked.
+ * Report (60% of assignment mark): a pdf report as described below.
+ * Design (40% of assignment mark): a single System Verilog file ```rv32i-sid.sv``` which will be machine marked.
 
 **Marking scheme to be added here.**
 
