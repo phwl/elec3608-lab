@@ -1,0 +1,5 @@
+# This yosys script has commands for synthesizing blinky.v.
+# It outputs a json file that can be read by nextpnr.
+
+read_verilog -sv nerv.sv 
+synth_ice40 -top nerv -json nerv.json
