@@ -12,7 +12,7 @@ Create a pipelined RV32I processor which implements enough of the instructions s
 
 Then add the following features:
  1. (30%) Achieve a high clock frequency on a [Lattice iCE40-HX8k](https://www.latticesemi.com/iCE40) FPGA for the programs provided by placing a pipeline register in the best position for a 2-stage pipeline and modifying the test programs to resolve hazards via ```nop``` instructions. 
- 1. (40%) Incorporate hardware interlocks, i.e.  any stalling of the processor to resolve hazards is done within the processor and not through nops being inserted in the program
+ 1. (40%) Incorporate hardware interlocks, i.e.  any stalling of the processor to resolve hazards is done within the processor so the original test programs can be executed.
  1. (20%) Incorporate forwarding. 
  1. (10%) Incorporate branch prediction. 
 
