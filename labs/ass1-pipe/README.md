@@ -16,9 +16,7 @@ Then add the following features:
  1. (20%) Incorporate forwarding. 
  1. (10%) Incorporate branch prediction. 
 
-The percentages above are the maximum mark achievable for both the Design and Report parts of this assignment if you incorporate this feature correctly.
-
-Performance will be measured using the ```make result``` target as shown below
+The percentages above are the maximum mark achievable for the Design plus Report parts of this assignment. Performance will be measured using the ```make result``` target as shown below
 ```bash
 $ make result
 ...
