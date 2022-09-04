@@ -26,7 +26,7 @@ _start:
     addi x3, zero, 10
 loop:   
     add x1, x1, x2
-    addi x2, x2, 1
     ble x2, x3, loop
+    addi x2, x2, 1
     addi x10,x1,0
     ebreak

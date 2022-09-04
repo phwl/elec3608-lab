@@ -1,22 +1,35 @@
-.section .text
-.global _start
-_start:
-    j main
+    # place SP at the end of RAM
+    li sp, 0x00010000
 
-    # a simple subroutine that increments x4
-inc:    
-    addi x4, x4, 1
-    jalr x0, 0(ra)
+	li	a0,10
+	jal ra,fib
+	j quit
 
-main:
-    # these first three instructions are I-type
-    addi x4, zero, 1
-    addi x10, zero, 0
-    addi x2, zero, 19
-loop:
-    add x10, x4, x10
-    jal ra, inc
-    addi x2, x2, -1
-    bge x2, zero, loop
+fib:
+	addi	sp,sp,-16
+	sw	s0,8(sp)
+	sw	s1,4(sp)
+	sw	s2,0(sp)
+	sw	ra,12(sp)
+	mv	s0,a0
+	li	s1,0
+	li	s2,1
+L3:
+	beq	zero,s0,L2
+	beq	s0,s2,L2
+	addi	a0,s0,-1
+	jal ra,fib
+	addi	s0,s0,-2
+	add	s1,s1,a0
+	j	L3
+L2:
+	add	a0,s0,s1
+	lw	ra,12(sp)
+	lw	s0,8(sp)
+	lw	s1,4(sp)
+	lw	s2,0(sp)
+	addi	sp,sp,16
+	jalr	x0,0(ra)
 
+quit:
     ebreak

@@ -27,8 +27,9 @@ fd.close()
 # The remaining files are result files, extract the cycles and x10
 exedict = {'test1.result': 4.86223662884927e-07,
         'test2.result': 4.051863857374392e-07,
-        'test3.result': 3.5116153430578064e-06,
-        'test4.result': 6.647757968665586e-05}
+        'test3.result': 1.161534305780659e-06,
+        'test4.result': 3.5116153430578064e-06,
+        'test5.result': 6.647757968665586e-05}
 lextime = []
 for fname in args.extime[1:]:
     fd = open(fname, "r")

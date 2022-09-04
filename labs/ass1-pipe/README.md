@@ -14,7 +14,8 @@ Create a pipelined RV32I processor which implements enough of the instructions s
  1. (3 marks) Incorporate forwarding or branch prediction. You should choose the one which you think will give the best performance improvement and justify the choice in your report. 
  1. (5 marks) Report (see below).
 
-The machine marked parts will consider correctness and performance. Note that some of the tests will give the right answer only for a machine with no hardware interlocks. Performance will be measured using the ```make result``` target as shown below
+The machine marked parts will consider correctness and performance. 
+Performance will be measured using the ```make result``` target as shown below
 ```bash
 $ make result
 ...
@@ -22,10 +23,13 @@ Test summary
 period: 2.701242571582928e-08
 test1.result: x10=55 cycles=18 extime=4.86223662884927e-07 normextime=1.0
 test2.result: x10=3790353928 cycles=15 extime=4.051863857374392e-07 normextime=1.0
-test3.result: x10=210 cycles=130 extime=3.5116153430578064e-06 normextime=1.0
-test4.result: x10=55 cycles=2461 extime=6.647757968665586e-05 normextime=1.0
+test3.result: x10=55 cycles=43 extime=1.161534305780659e-06 normextime=1.0
+test4.result: x10=210 cycles=130 extime=3.5116153430578064e-06 normextime=1.0
+test5.result: x10=55 cycles=2461 extime=6.647757968665586e-05 normextime=1.0
 Geometric mean=1.0
 ```
+
+Note that test0.s give the right answer only for a machine with no hardware interlocks (it is an infinite loop on a machine with hardware interlocks). Thus it isn't included in the performance test but will be used to mark correctness.
 
 The output gives the minimum clock period (period), value of the x10 register (x10), the number of cycles (cycles), execution time (extime), execution time normalised to the original design (normextime), and the gemetric mean of normextime. The geometric mean is the mean speedup over the nerv single
 cycle processor (note that it is used because it

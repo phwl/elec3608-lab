@@ -20,9 +20,9 @@ VERILATOR = verilator
 RDOCKER = docker run --platform linux/amd64 -it -e DISPLAY=host.docker.internal:0 -v `pwd`:/config phwl/elec3608-cad:latest
 SOURCES = nerv.sv testbench.sv testbench.py
 
-all:	test1.out test2.out test3.out test4.out 
+all:	test1.out test2.out test3.out test4.out test5.out 
 
-result:	test1.result test2.result test3.result test4.result nerv.asc
+result:	test1.result test2.result test3.result test4.result test5.result nerv.asc
 	python extime.py nerv-pnr.log *.result
 
 %.out: %.hex $(SOURCES)

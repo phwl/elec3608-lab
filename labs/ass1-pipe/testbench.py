@@ -29,7 +29,7 @@ if (tkmode):
     tb.send_to_gtkwave(tb.internals)
 
 i = 0
-while True:
+while i < 5000:
     r(tb, i < 4)
     i = i + 1
     if (int(tb.internals['dut'].trapped)):
