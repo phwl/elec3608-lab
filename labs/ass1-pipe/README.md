@@ -9,7 +9,7 @@ culminating in a simple pipelined processor. In this assignment, you will extend
 
 # Question
 Create a pipelined RV32I processor which implements enough of the instructions specified in Volume 1 Sections 2.1-2.6 of the RISC-V ISA Specification <https://riscv.org/technical/specifications/> to execute the programs supplied with this assignment and add the following features:
- 1. (4 marks) A 2-stage pipelined processor with high clock frequency on a [Lattice iCE40-HX8k](https://www.latticesemi.com/iCE40) FPGA. This should be achieved by placing a pipeline register in the best position and modifying the test programs to resolve hazards via ```nop``` instructions. 
+ 1. (4 marks) A 2-stage pipelined processor with high clock frequency on a [Lattice iCE40-HX8k](https://www.latticesemi.com/iCE40) FPGA. This should be achieved by placing a pipeline register in the best position to execute the test programs. Marks for this question do not involve resolving hazards.
  1. (3 marks) Incorporate hardware interlocks, i.e.  any stalling of the processor to resolve hazards is done within the processor so the original test programs can be executed.
  1. (3 marks) Incorporate forwarding or branch prediction. You should choose the one which you think will give the best performance improvement and justify the choice in your report. 
  1. (5 marks) Report (see below).
@@ -29,7 +29,7 @@ test5.result: x10=21 cycles=942 extime=2.5445705024311184e-05 normextime=1.0
 Geometric mean=1.0
 ```
 
-Note that test0.s gives the right answer only for a machine with one branch delay slot (it is an infinite loop on a machine with hardware interlocks). If you need to modify the assembly files to resolve hazards in your processor, they won't be machine marked but you can document the performance in your report and some credit will be given towards Question 1 of your design.
+Note that test0.s gives the right answer only for a machine with one branch delay slot (it is an infinite loop on a machine with hardware interlocks). 
 
 The output gives the minimum clock period (period), value of the x10 register (x10), the number of cycles (cycles), execution time (extime), execution time normalised to the original design (normextime), and the gemetric mean of normextime. The geometric mean is the mean speedup over the nerv single
 cycle processor (note that it is used because it
