@@ -51,4 +51,4 @@ rundocker:
 clean:
 	rm -rf firmware.elf firmware.hex testbench testbench.vcd gtkwave.log
 	rm -rf disasm.o disasm.s checks/ cexdata/ obj_dir
-	rm -rf *.log *.asc *.json *.result *.vcd firmware.s
+	rm -rf *.log *.asc *.json *.result *.vcd firmware.s *.tgz

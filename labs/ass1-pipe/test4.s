@@ -1,35 +1,31 @@
-    # place SP at the end of RAM
-    li sp, 0x00010000
+/*
+ *  NERV -- Naive Educational RISC-V Processor
+ *
+ *  Copyright (C) 2020  Claire Xenia Wolf <claire@yosyshq.com>
+ *
+ *  Permission to use, copy, modify, and/or distribute this software for any
+ *  purpose with or without fee is hereby granted, provided that the above
+ *  copyright notice and this permission notice appear in all copies.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+ *  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+ *  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ *  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+ *  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ *  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+ *  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+ *
+ */
 
-	li	a0,10
-	jal ra,fib
-	j quit
-
-fib:
-	addi	sp,sp,-16
-	sw	s0,8(sp)
-	sw	s1,4(sp)
-	sw	s2,0(sp)
-	sw	ra,12(sp)
-	mv	s0,a0
-	li	s1,0
-	li	s2,1
-L3:
-	beq	zero,s0,L2
-	beq	s0,s2,L2
-	addi	a0,s0,-1
-	jal ra,fib
-	addi	s0,s0,-2
-	add	s1,s1,a0
-	j	L3
-L2:
-	add	a0,s0,s1
-	lw	ra,12(sp)
-	lw	s0,8(sp)
-	lw	s1,4(sp)
-	lw	s2,0(sp)
-	addi	sp,sp,16
-	jalr	x0,0(ra)
-
-quit:
+.section .text
+.global main
+.global _start
+_start:
+    addi x2, zero, 0
+    addi x1, zero, 0
+    addi x3, zero, 10
+loop:   
+    add x1, x1, x2
+    addi x2, x2, 1
+    ble x2, x3, loop
     ebreak

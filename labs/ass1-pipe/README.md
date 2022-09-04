@@ -9,11 +9,12 @@ culminating in a simple pipelined processor. In this assignment, you will extend
 
 # Question
 Create a pipelined RV32I processor which implements enough of the instructions specified in Volume 1 Sections 2.1-2.6 of the RISC-V ISA Specification <https://riscv.org/technical/specifications/> to execute the programs supplied with this assignment and add the following features:
- 1. (40%) A 2-stage pipelined processor with high clock frequency on a [Lattice iCE40-HX8k](https://www.latticesemi.com/iCE40) FPGA. This should be achieved by placing a pipeline register in the best position and modifying the test programs to resolve hazards via ```nop``` instructions. 
- 1. (30%) Incorporate hardware interlocks, i.e.  any stalling of the processor to resolve hazards is done within the processor so the original test programs can be executed.
- 1. (30%) Incorporate forwarding or branch prediction. You should choose the one which you think will give the best performance improvement and justify the choice in your report. 
+ 1. (4 marks) A 2-stage pipelined processor with high clock frequency on a [Lattice iCE40-HX8k](https://www.latticesemi.com/iCE40) FPGA. This should be achieved by placing a pipeline register in the best position and modifying the test programs to resolve hazards via ```nop``` instructions. 
+ 1. (3 marks) Incorporate hardware interlocks, i.e.  any stalling of the processor to resolve hazards is done within the processor so the original test programs can be executed.
+ 1. (3 marks) Incorporate forwarding or branch prediction. You should choose the one which you think will give the best performance improvement and justify the choice in your report. 
+ 1. (5 marks) Report (see below).
 
-The percentages above are the maximum mark achievable for the Design plus Report parts of this assignment. Performance will be measured using the ```make result``` target as shown below
+The machine marked parts will consider correctness and performance. Note that some of the tests will give the right answer only for a machine with no hardware interlocks. Performance will be measured using the ```make result``` target as shown below
 ```bash
 $ make result
 ...
@@ -31,14 +32,6 @@ cycle processor (note that it is used because it
 is the only correct mean when averaging normalized results see
 <https://en.wikipedia.org/wiki/Geometric_mean>).
 
-# Submission 
-Your assignment should be submitted online to the Canvas site as two separate files (a pdf and sv file) before the due date.
- * Report (60% of assignment mark): a pdf report as described below.
- * Design (40% of assignment mark): a single System Verilog file ```rv32i-sid.sv``` (where sid is your student ID). This will be machine marked so your solution is expected to work with the same ```testbench.sv```, ```testbench.py``` and ```Makefile``` accompanying this assignment.
-
-
-**Marking scheme to be added here.**
-
 ## Reports
  * Your report should be a document explaining your design.
  *  Your report should be in [A4 IEEE format](https://www.ieee.org/conferences/publishing/templates.html) with the default font sizes, and organized under the following section headings: Introduction, Background, Architecture, Results, Discussion, Conclusion, References, Appendices.
@@ -48,3 +41,7 @@ Your assignment should be submitted online to the Canvas site as two separate fi
  *  If you don't finish the entire question, still report on your answer. Partial marks will be awarded.
  *  No extensions will be granted and penalty for a late submission is deduction of 5% of the maximum mark for each calendar day after the due date. After ten calendar days late, a mark of zero will be awarded.
 
+# Submission 
+Your assignment should be submitted online as two separate files (a .pdf and .sv file) before the due date. Refer to Canvas for the rubric and submission instructions.
+ * Report: a pdf report as described below.
+ * Design: a System Verilog file containing your pipelined processor.
