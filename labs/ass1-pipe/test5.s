@@ -1,7 +1,7 @@
     # place SP at the end of RAM
     li sp, 0x00010000
 
-	li	a0,10
+	li	a0,8
 	jal ra,fib
 	j quit
 

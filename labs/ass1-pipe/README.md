@@ -23,9 +23,9 @@ Test summary
 period: 2.701242571582928e-08
 test1.result: x10=55 cycles=18 extime=4.86223662884927e-07 normextime=1.0
 test2.result: x10=3790353928 cycles=15 extime=4.051863857374392e-07 normextime=1.0
-test3.result: x10=55 cycles=43 extime=1.161534305780659e-06 normextime=1.0
+test3.result: x10=45 cycles=40 extime=1.0804970286331712e-06 normextime=1.0
 test4.result: x10=210 cycles=130 extime=3.5116153430578064e-06 normextime=1.0
-test5.result: x10=55 cycles=2461 extime=6.647757968665586e-05 normextime=1.0
+test5.result: x10=21 cycles=942 extime=2.5445705024311184e-05 normextime=1.0
 Geometric mean=1.0
 ```
 
