@@ -3,7 +3,10 @@
 In this lab you will convert the single-cycle RISC-V (RV) processor
 to execute using a simple 2-stage pipeline.
 
-If you have previously downloaded all the labs using ```git clone https://github.com/phwl/elec3608-lab.git```, you should first type ```git pull``` to download any recent changes.
+If you have previously downloaded all the labs using ```git clone https://github.com/phwl/elec3608-lab.git```, you should first type ```git pull``` to download any recent changes. **Please note that we are using a different docker image (```elec3608-cad:latest```) for this lab, executed as:**
+```bash
+$ docker run --platform linux/amd64 -it -e DISPLAY=host.docker.internal:0 -v `pwd`:/config phwl/elec3608-cad:latest
+```
 
 In your lab book, clearly explain the changes that you needed to make
 to answer each question and include screen shots of your simulations
