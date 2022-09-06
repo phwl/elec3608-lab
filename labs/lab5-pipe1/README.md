@@ -110,7 +110,7 @@ Replace ```nerv.sv``` with your pipelined design. What is the new clock
 frequency?
 
 ### Part 4 - Placement of Pipeline Registers (30%)
-Reposition the pipeline registers to before the input to the ALU. This will result in better balancing of the pipeline stages and you should be able to achieve more than 50 MHz. In your design you need to 
+Reposition the pipeline registers to before the input to the ALU. This will result in better balancing of the pipeline stages and you should be able to achieve approximately 50 MHz. In your design you need to 
 completely bisect the datapath so that all the information to execute
 the remaining part of the instruction is passed to the next stage. In 
 your lab book, redraw the data path showing where you located the
