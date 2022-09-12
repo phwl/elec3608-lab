@@ -16,7 +16,7 @@ and terminal output.
 ### Part 1 - Datapath for Sequential Pipelined Execution (20%)
 The starting point for this lab is a lightly-modified version of the complete single-cycle [nerv processor](https://github.com/YosysHQ/nerv) in ```nerv.sv``` (which stands for nerv single cycle). Note that this is a little more complex but not significantly different to the processors you have seen to date.
 
-Draw the datapath of this processor and, in a table, describe the operation of each of the original and new control signals. Put this information in your lab book.
+Draw the datapath of this processor and, in a table, describe the operation of each of the control signals. Put this information in your lab book.
 
 ### Part 2 - Sequential Instructions (30%) 
 Study the ```firmware.s``` program, listed below. 
