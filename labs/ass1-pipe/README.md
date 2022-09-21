@@ -29,7 +29,7 @@ test5.result: x10=21 cycles=942 extime=2.5445705024311184e-05 normextime=1.0
 Geometric mean=1.0
 ```
 
-Note that test0.s gives the right answer only for a machine with one branch delay slot (it is an infinite loop on a machine with hardware interlocks). Credit for changing the assembly files to resolve hazards will be given for the report but not machine marking.
+Note that test0.s gives the right answer only for a machine with one branch delay slot (it is an infinite loop on a machine with hardware interlocks and won't be included in the machine marking). Credit for changing the assembly files to resolve hazards will be given for the report but not machine marking.
 
 The output gives the minimum clock period (period), value of the x10 register (x10), the number of cycles (cycles), execution time (extime), execution time normalised to the original design (normextime), and the gemetric mean of normextime. The geometric mean is the mean speedup over the nerv single
 cycle processor (note that it is used because it
@@ -37,7 +37,7 @@ is the only correct mean when averaging normalized results see
 <https://en.wikipedia.org/wiki/Geometric_mean>).
 
 ## Reports
- * Your report should be a document explaining your design.
+ * Your report should be a 4 page document explaining your design (appendices with no page limit can be included).
  *  Your report should be in [A4 IEEE format](https://www.ieee.org/conferences/publishing/templates.html) with the default font sizes, and organized under the following section headings: Introduction, Background, Architecture, Results, Discussion, Conclusion, References, Appendices.
  *  Include a performance description which includes maximum clock frequency and number of cycles required to execute each program you test. You need to provide supporting evidence which can convince the reader that you have completed the design and it works via appendices containing code listings, simulations and log files. The appendices don't count in the page limit. Comment on whether your result is a good one and what could be done to further improve performance.
  *  [Dennis et al.](https://ieeexplore.ieee.org/abstract/document/8303926) and [Miyazaki et al.](https://arxiv.org/abs/2002.03568) are two examples of well-written papers describing a RISC-V processor (you could following a similar style for your report). [Singh et al.](https://ieeexplore.ieee.org/document/9250850) is an example of a poorly written paper.
