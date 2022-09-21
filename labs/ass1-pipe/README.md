@@ -9,7 +9,7 @@ culminating in a simple pipelined processor. In this assignment, you will extend
 
 # Question
 Create a pipelined RV32I processor which implements enough of the instructions specified in Volume 1 Sections 2.1-2.6 of the RISC-V ISA Specification <https://riscv.org/technical/specifications/> to execute the programs supplied with this assignment and add the following features:
- 1. (4 marks) A 2-stage pipelined processor with high clock frequency on a [Lattice iCE40-HX8k](https://www.latticesemi.com/iCE40) FPGA. This should be achieved by placing a pipeline register in the best position to execute the test programs. Marks for this question do not involve resolving hazards.
+ 1. (4 marks) A 2-stage pipelined processor with high clock frequency on a [Lattice iCE40-HX8k](https://www.latticesemi.com/iCE40) FPGA. This should be achieved by placing registers in the best position to execute the test programs. Marks for this question do not involve resolving hazards.
  1. (3 marks) Incorporate hardware interlocks, i.e.  any stalling of the processor to resolve hazards is done within the processor so the original test programs can be executed.
  1. (3 marks) Incorporate forwarding or branch prediction. You should choose the one which you think will give the best performance improvement and justify the choice in your report. 
  1. (5 marks) Report (see below).
