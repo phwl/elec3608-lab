@@ -1,0 +1,10 @@
+prefix=/opt/riscv
+exec_prefix=/opt/riscv
+libdir=${prefix}/${exec_prefix}/lib
+includedir=${prefix}/${prefix}/include
+
+Name: riscv-spike
+Description: RISC-V spike meta library
+Version: git
+Depends: riscv-spike_main riscv-riscv riscv-softfloat
+URL: http://riscv.org/download.html#tab_spike
