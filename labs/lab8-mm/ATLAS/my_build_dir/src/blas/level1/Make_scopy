@@ -1,0 +1,19 @@
+include Make.inc
+
+obj = ATL_scopy.o ATL_scopy_xp1yp1aXbX.o ATL_scopy_xp0yp0aXbX.o
+
+all : lib
+slib : lib
+lib : scopy.grd
+
+scopy.grd : $(obj)
+	$(ARCHIVER) $(ARFLAGS) $(ATLASlib) $(obj)
+	$(RANLIB) $(ATLASlib)
+	touch scopy.grd
+
+ATL_scopy.o : ATL_scopy.c
+	$(ICC) $(ICCFLAGS) -DSREAL -o $@ -c ATL_scopy.c
+ATL_scopy_xp1yp1aXbX.o : ATL_scopy_xp1yp1aXbX.c
+	$(SKC) $(SKCFLAGS) $(CDEFS) -DSREAL -o $@ -c ATL_scopy_xp1yp1aXbX.c
+ATL_scopy_xp0yp0aXbX.o : ATL_scopy_xp0yp0aXbX.c
+	$(SKC) $(SKCFLAGS) $(CDEFS) -DSREAL -o $@ -c ATL_scopy_xp0yp0aXbX.c

@@ -1,0 +1,31 @@
+#ifndef ATL_INSTINFO_H
+   #define ATL_INSTINFO_H
+
+#define ATL_ARCH "HAMMER64SSE3"
+#define ATL_INSTFLAGS "-1 0 -a 1 -l 1"
+#define ATL_F2CDEFS "-DAdd_ -DF77_INTEGER=int -DStringSunStyle"
+#define ATL_ARCHDEFS "-DATL_OS_Linux -DATL_ARCH_HAMMER -DATL_SSE3 -DATL_SSE2 -DATL_SSE1 -DATL_3DNow -DATL_USE64BITS -DATL_GAS_x8664"
+#define ATL_DKCFLAGS "-fomit-frame-pointer -mfpmath=387 -O2 -msse3 -m64"
+#define ATL_DKC "/usr/bin/gcc"
+#define ATL_SKCFLAGS "-fomit-frame-pointer -mfpmath=387 -O2 -msse3 -m64"
+#define ATL_SKC "/usr/bin/gcc"
+#define ATL_DMCFLAGS "-fomit-frame-pointer -mfpmath=387 -O2 -msse3 -m64"
+#define ATL_DMC "/usr/bin/gcc"
+#define ATL_SMCFLAGS "-fomit-frame-pointer -mfpmath=387 -O2 -msse3 -m64"
+#define ATL_SMC "/usr/bin/gcc"
+#define ATL_ICCFLAGS "-DL2SIZE=33554432 -I/config/ATLAS/my_build_dir/include -I/config/ATLAS/my_build_dir/..//include -I/config/ATLAS/my_build_dir/..//include/contrib -DAdd_ -DF77_INTEGER=int -DStringSunStyle -DATL_OS_Linux -DATL_ARCH_HAMMER -DATL_SSE3 -DATL_SSE2 -DATL_SSE1 -DATL_3DNow -DATL_USE64BITS -DATL_GAS_x8664 -m64 -DATL_NCPU=5 -fomit-frame-pointer -mfpmath=387 -O2 -msse3 -m64"
+#define ATL_ICC "/usr/bin/gcc"
+#define ATL_F77FLAGS "-fomit-frame-pointer -mfpmath=387 -O2 -msse3 -m64"
+#define ATL_F77 "/usr/bin/gfortran-11"
+#define ATL_DKCVERS "gcc (Ubuntu 11.2.0-19ubuntu1) 11.2.0"
+#define ATL_SKCVERS "gcc (Ubuntu 11.2.0-19ubuntu1) 11.2.0"
+#define ATL_DMCVERS "gcc (Ubuntu 11.2.0-19ubuntu1) 11.2.0"
+#define ATL_SMCVERS "gcc (Ubuntu 11.2.0-19ubuntu1) 11.2.0"
+#define ATL_ICCVERS "gcc (Ubuntu 11.2.0-19ubuntu1) 11.2.0"
+#define ATL_F77VERS "GNU Fortran (Ubuntu 11.2.0-19ubuntu1) 11.2.0"
+#define ATL_SYSINFO "Linux 9ea0bf9e9fb0 5.10.76-linuxkit #1 SMP PREEMPT Mon Nov 8 11:22:26 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux"
+#define ATL_DATE    "Mon Oct 10 10:29:18 AEDT 2022"
+#define ATL_UNAM    "elec3608"
+#define ATL_VERS    "3.10.3"
+
+#endif

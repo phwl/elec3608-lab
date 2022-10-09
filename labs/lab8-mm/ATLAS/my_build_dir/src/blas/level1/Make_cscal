@@ -1,0 +1,19 @@
+include Make.inc
+
+obj = ATL_cscal.o ATL_cscal_xp1yp0aXbX.o ATL_cscal_xp0yp0aXbX.o
+
+all : lib
+clib : lib
+lib : cscal.grd
+
+cscal.grd : $(obj)
+	$(ARCHIVER) $(ARFLAGS) $(ATLASlib) $(obj)
+	$(RANLIB) $(ATLASlib)
+	touch cscal.grd
+
+ATL_cscal.o : ATL_cscal.c
+	$(ICC) $(ICCFLAGS) -DSCPLX -o $@ -c ATL_cscal.c
+ATL_cscal_xp1yp0aXbX.o : ATL_cscal_xp1yp0aXbX.c
+	$(SKC) $(SKCFLAGS) $(CDEFS) -DSCPLX -o $@ -c ATL_cscal_xp1yp0aXbX.c
+ATL_cscal_xp0yp0aXbX.o : ATL_cscal_xp0yp0aXbX.c
+	$(SKC) $(SKCFLAGS) $(CDEFS) -DSCPLX -o $@ -c ATL_cscal_xp0yp0aXbX.c

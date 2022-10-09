@@ -1,0 +1,19 @@
+include Make.inc
+
+obj = ATL_dscal.o ATL_dscal_xp1yp0aXbX.o ATL_dscal_xp0yp0aXbX.o
+
+all : lib
+dlib : lib
+lib : dscal.grd
+
+dscal.grd : $(obj)
+	$(ARCHIVER) $(ARFLAGS) $(ATLASlib) $(obj)
+	$(RANLIB) $(ATLASlib)
+	touch dscal.grd
+
+ATL_dscal.o : ATL_dscal.c
+	$(ICC) $(ICCFLAGS) -DDREAL -o $@ -c ATL_dscal.c
+ATL_dscal_xp1yp0aXbX.o : ATL_dscal_xp1yp0aXbX.c
+	$(DKC) $(DKCFLAGS) $(CDEFS) -DDREAL -o $@ -c ATL_dscal_xp1yp0aXbX.c
+ATL_dscal_xp0yp0aXbX.o : ATL_dscal_xp0yp0aXbX.c
+	$(DKC) $(DKCFLAGS) $(CDEFS) -DDREAL -o $@ -c ATL_dscal_xp0yp0aXbX.c

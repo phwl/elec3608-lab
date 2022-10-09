@@ -1,0 +1,19 @@
+include Make.inc
+
+obj = ATL_ciamax.o ATL_ciamax_xp1yp0aXbX.o ATL_ciamax_xp0yp0aXbX.o
+
+all : lib
+clib : lib
+lib : ciamax.grd
+
+ciamax.grd : $(obj)
+	$(ARCHIVER) $(ARFLAGS) $(ATLASlib) $(obj)
+	$(RANLIB) $(ATLASlib)
+	touch ciamax.grd
+
+ATL_ciamax.o : ATL_ciamax.c
+	$(ICC) $(ICCFLAGS) -DSCPLX -o $@ -c ATL_ciamax.c
+ATL_ciamax_xp1yp0aXbX.o : ATL_ciamax_xp1yp0aXbX.c
+	$(SKC) $(SKCFLAGS) $(CDEFS) -DSCPLX -o $@ -c ATL_ciamax_xp1yp0aXbX.c
+ATL_ciamax_xp0yp0aXbX.o : ATL_ciamax_xp0yp0aXbX.c
+	$(SKC) $(SKCFLAGS) $(CDEFS) -DSCPLX -o $@ -c ATL_ciamax_xp0yp0aXbX.c

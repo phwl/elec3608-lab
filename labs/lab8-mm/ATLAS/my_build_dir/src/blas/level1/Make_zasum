@@ -1,0 +1,17 @@
+include Make.inc
+
+obj = ATL_zasum.o ATL_zasum_xp0yp0aXbX.o
+
+all : lib
+zlib : lib
+lib : zasum.grd
+
+zasum.grd : $(obj)
+	$(ARCHIVER) $(ARFLAGS) $(ATLASlib) $(obj)
+	$(RANLIB) $(ATLASlib)
+	touch zasum.grd
+
+ATL_zasum.o : ATL_zasum.c
+	$(ICC) $(ICCFLAGS) -DDCPLX -o $@ -c ATL_zasum.c
+ATL_zasum_xp0yp0aXbX.o : ATL_zasum_xp0yp0aXbX.c
+	$(DKC) $(DKCFLAGS) $(CDEFS) -DDCPLX -o $@ -c ATL_zasum_xp0yp0aXbX.c

@@ -1,0 +1,19 @@
+include Make.inc
+
+obj = ATL_dcpsc.o ATL_dcpsc_xp1yp1aXbX.o ATL_dcpsc_xp0yp0aXbX.o
+
+all : lib
+dlib : lib
+lib : dcpsc.grd
+
+dcpsc.grd : $(obj)
+	$(ARCHIVER) $(ARFLAGS) $(ATLASlib) $(obj)
+	$(RANLIB) $(ATLASlib)
+	touch dcpsc.grd
+
+ATL_dcpsc.o : ATL_dcpsc.c
+	$(ICC) $(ICCFLAGS) -DDREAL -o $@ -c ATL_dcpsc.c
+ATL_dcpsc_xp1yp1aXbX.o : ATL_dcpsc_xp1yp1aXbX.c
+	$(DKC) $(DKCFLAGS) $(CDEFS) -DDREAL -o $@ -c ATL_dcpsc_xp1yp1aXbX.c
+ATL_dcpsc_xp0yp0aXbX.o : ATL_dcpsc_xp0yp0aXbX.c
+	$(DKC) $(DKCFLAGS) $(CDEFS) -DDREAL -o $@ -c ATL_dcpsc_xp0yp0aXbX.c

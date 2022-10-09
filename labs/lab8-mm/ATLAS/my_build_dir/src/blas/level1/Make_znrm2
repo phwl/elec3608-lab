@@ -1,0 +1,17 @@
+include Make.inc
+
+obj = ATL_znrm2.o ATL_znrm2_xp0yp0aXbX.o
+
+all : lib
+zlib : lib
+lib : znrm2.grd
+
+znrm2.grd : $(obj)
+	$(ARCHIVER) $(ARFLAGS) $(ATLASlib) $(obj)
+	$(RANLIB) $(ATLASlib)
+	touch znrm2.grd
+
+ATL_znrm2.o : ATL_znrm2.c
+	$(ICC) $(ICCFLAGS) -DDCPLX -o $@ -c ATL_znrm2.c
+ATL_znrm2_xp0yp0aXbX.o : ATL_znrm2_xp0yp0aXbX.c
+	/usr/bin/gcc -fomit-frame-pointer -mfpmath=387 -O2 -msse3 -m64 -m64 -x assembler-with-cpp $(CDEFS) -DDCPLX -o $@ -c ATL_znrm2_xp0yp0aXbX.c

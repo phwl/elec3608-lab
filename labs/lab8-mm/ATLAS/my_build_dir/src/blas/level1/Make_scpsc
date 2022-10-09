@@ -1,0 +1,19 @@
+include Make.inc
+
+obj = ATL_scpsc.o ATL_scpsc_xp1yp1aXbX.o ATL_scpsc_xp0yp0aXbX.o
+
+all : lib
+slib : lib
+lib : scpsc.grd
+
+scpsc.grd : $(obj)
+	$(ARCHIVER) $(ARFLAGS) $(ATLASlib) $(obj)
+	$(RANLIB) $(ATLASlib)
+	touch scpsc.grd
+
+ATL_scpsc.o : ATL_scpsc.c
+	$(ICC) $(ICCFLAGS) -DSREAL -o $@ -c ATL_scpsc.c
+ATL_scpsc_xp1yp1aXbX.o : ATL_scpsc_xp1yp1aXbX.c
+	$(SKC) $(SKCFLAGS) $(CDEFS) -DSREAL -o $@ -c ATL_scpsc_xp1yp1aXbX.c
+ATL_scpsc_xp0yp0aXbX.o : ATL_scpsc_xp0yp0aXbX.c
+	$(SKC) $(SKCFLAGS) $(CDEFS) -DSREAL -o $@ -c ATL_scpsc_xp0yp0aXbX.c

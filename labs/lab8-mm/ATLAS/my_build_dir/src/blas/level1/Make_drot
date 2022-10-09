@@ -1,0 +1,19 @@
+include Make.inc
+
+obj = ATL_drot.o ATL_drot_xp1yp1aXbX.o ATL_drot_xp0yp0aXbX.o
+
+all : lib
+dlib : lib
+lib : drot.grd
+
+drot.grd : $(obj)
+	$(ARCHIVER) $(ARFLAGS) $(ATLASlib) $(obj)
+	$(RANLIB) $(ATLASlib)
+	touch drot.grd
+
+ATL_drot.o : ATL_drot.c
+	$(ICC) $(ICCFLAGS) -DDREAL -o $@ -c ATL_drot.c
+ATL_drot_xp1yp1aXbX.o : ATL_drot_xp1yp1aXbX.c
+	$(DKC) $(DKCFLAGS) $(CDEFS) -DDREAL -o $@ -c ATL_drot_xp1yp1aXbX.c
+ATL_drot_xp0yp0aXbX.o : ATL_drot_xp0yp0aXbX.c
+	$(DKC) $(DKCFLAGS) $(CDEFS) -DDREAL -o $@ -c ATL_drot_xp0yp0aXbX.c

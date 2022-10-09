@@ -1,0 +1,17 @@
+include Make.inc
+
+obj = ATL_zcpsc.o ATL_zcpsc_xp0yp0aXbX.o
+
+all : lib
+zlib : lib
+lib : zcpsc.grd
+
+zcpsc.grd : $(obj)
+	$(ARCHIVER) $(ARFLAGS) $(ATLASlib) $(obj)
+	$(RANLIB) $(ATLASlib)
+	touch zcpsc.grd
+
+ATL_zcpsc.o : ATL_zcpsc.c
+	$(ICC) $(ICCFLAGS) -DDCPLX -o $@ -c ATL_zcpsc.c
+ATL_zcpsc_xp0yp0aXbX.o : ATL_zcpsc_xp0yp0aXbX.c
+	$(DKC) $(DKCFLAGS) $(CDEFS) -DDCPLX -o $@ -c ATL_zcpsc_xp0yp0aXbX.c

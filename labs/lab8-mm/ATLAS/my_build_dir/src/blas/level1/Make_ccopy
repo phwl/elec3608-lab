@@ -1,0 +1,17 @@
+include Make.inc
+
+obj = ATL_ccopy.o ATL_ccopy_xp0yp0aXbX.o
+
+all : lib
+clib : lib
+lib : ccopy.grd
+
+ccopy.grd : $(obj)
+	$(ARCHIVER) $(ARFLAGS) $(ATLASlib) $(obj)
+	$(RANLIB) $(ATLASlib)
+	touch ccopy.grd
+
+ATL_ccopy.o : ATL_ccopy.c
+	$(ICC) $(ICCFLAGS) -DSCPLX -o $@ -c ATL_ccopy.c
+ATL_ccopy_xp0yp0aXbX.o : ATL_ccopy_xp0yp0aXbX.c
+	$(SKC) $(SKCFLAGS) $(CDEFS) -DSCPLX -o $@ -c ATL_ccopy_xp0yp0aXbX.c

@@ -1,0 +1,17 @@
+include Make.inc
+
+obj = ATL_casum.o ATL_casum_xp0yp0aXbX.o
+
+all : lib
+clib : lib
+lib : casum.grd
+
+casum.grd : $(obj)
+	$(ARCHIVER) $(ARFLAGS) $(ATLASlib) $(obj)
+	$(RANLIB) $(ATLASlib)
+	touch casum.grd
+
+ATL_casum.o : ATL_casum.c
+	$(ICC) $(ICCFLAGS) -DSCPLX -o $@ -c ATL_casum.c
+ATL_casum_xp0yp0aXbX.o : ATL_casum_xp0yp0aXbX.c
+	$(SKC) $(SKCFLAGS) $(CDEFS) -DSCPLX -o $@ -c ATL_casum_xp0yp0aXbX.c

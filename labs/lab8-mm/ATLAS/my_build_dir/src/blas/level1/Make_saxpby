@@ -1,0 +1,19 @@
+include Make.inc
+
+obj = ATL_saxpby.o ATL_saxpby_xp1yp1a1bX.o ATL_saxpby_xp0yp0aXbX.o
+
+all : lib
+slib : lib
+lib : saxpby.grd
+
+saxpby.grd : $(obj)
+	$(ARCHIVER) $(ARFLAGS) $(ATLASlib) $(obj)
+	$(RANLIB) $(ATLASlib)
+	touch saxpby.grd
+
+ATL_saxpby.o : ATL_saxpby.c
+	$(ICC) $(ICCFLAGS) -DSREAL -o $@ -c ATL_saxpby.c
+ATL_saxpby_xp1yp1a1bX.o : ATL_saxpby_xp1yp1a1bX.c
+	$(SKC) $(SKCFLAGS) $(CDEFS) -DSREAL -o $@ -c ATL_saxpby_xp1yp1a1bX.c
+ATL_saxpby_xp0yp0aXbX.o : ATL_saxpby_xp0yp0aXbX.c
+	$(SKC) $(SKCFLAGS) $(CDEFS) -DSREAL -o $@ -c ATL_saxpby_xp0yp0aXbX.c

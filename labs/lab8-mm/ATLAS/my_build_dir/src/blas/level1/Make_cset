@@ -1,0 +1,17 @@
+include Make.inc
+
+obj = ATL_cset.o ATL_cset_xp0yp0aXbX.o
+
+all : lib
+clib : lib
+lib : cset.grd
+
+cset.grd : $(obj)
+	$(ARCHIVER) $(ARFLAGS) $(ATLASlib) $(obj)
+	$(RANLIB) $(ATLASlib)
+	touch cset.grd
+
+ATL_cset.o : ATL_cset.c
+	$(ICC) $(ICCFLAGS) -DSCPLX -o $@ -c ATL_cset.c
+ATL_cset_xp0yp0aXbX.o : ATL_cset_xp0yp0aXbX.c
+	$(SKC) $(SKCFLAGS) $(CDEFS) -DSCPLX -o $@ -c ATL_cset_xp0yp0aXbX.c

@@ -1,0 +1,19 @@
+include Make.inc
+
+obj = ATL_zscal.o ATL_zscal_xp1yp0aXbX.o ATL_zscal_xp0yp0aXbX.o
+
+all : lib
+zlib : lib
+lib : zscal.grd
+
+zscal.grd : $(obj)
+	$(ARCHIVER) $(ARFLAGS) $(ATLASlib) $(obj)
+	$(RANLIB) $(ATLASlib)
+	touch zscal.grd
+
+ATL_zscal.o : ATL_zscal.c
+	$(ICC) $(ICCFLAGS) -DDCPLX -o $@ -c ATL_zscal.c
+ATL_zscal_xp1yp0aXbX.o : ATL_zscal_xp1yp0aXbX.c
+	$(DKC) $(DKCFLAGS) $(CDEFS) -DDCPLX -o $@ -c ATL_zscal_xp1yp0aXbX.c
+ATL_zscal_xp0yp0aXbX.o : ATL_zscal_xp0yp0aXbX.c
+	$(DKC) $(DKCFLAGS) $(CDEFS) -DDCPLX -o $@ -c ATL_zscal_xp0yp0aXbX.c

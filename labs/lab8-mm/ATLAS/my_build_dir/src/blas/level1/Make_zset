@@ -1,0 +1,17 @@
+include Make.inc
+
+obj = ATL_zset.o ATL_zset_xp0yp0aXbX.o
+
+all : lib
+zlib : lib
+lib : zset.grd
+
+zset.grd : $(obj)
+	$(ARCHIVER) $(ARFLAGS) $(ATLASlib) $(obj)
+	$(RANLIB) $(ATLASlib)
+	touch zset.grd
+
+ATL_zset.o : ATL_zset.c
+	$(ICC) $(ICCFLAGS) -DDCPLX -o $@ -c ATL_zset.c
+ATL_zset_xp0yp0aXbX.o : ATL_zset_xp0yp0aXbX.c
+	$(DKC) $(DKCFLAGS) $(CDEFS) -DDCPLX -o $@ -c ATL_zset_xp0yp0aXbX.c

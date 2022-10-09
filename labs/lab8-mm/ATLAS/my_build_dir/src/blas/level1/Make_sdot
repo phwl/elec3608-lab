@@ -1,0 +1,19 @@
+include Make.inc
+
+obj = ATL_sdot.o ATL_sdot_xp1yp1aXbX.o ATL_sdot_xp0yp0aXbX.o
+
+all : lib
+slib : lib
+lib : sdot.grd
+
+sdot.grd : $(obj)
+	$(ARCHIVER) $(ARFLAGS) $(ATLASlib) $(obj)
+	$(RANLIB) $(ATLASlib)
+	touch sdot.grd
+
+ATL_sdot.o : ATL_sdot.c
+	$(ICC) $(ICCFLAGS) -DSREAL -o $@ -c ATL_sdot.c
+ATL_sdot_xp1yp1aXbX.o : ATL_sdot_xp1yp1aXbX.c
+	$(SKC) $(SKCFLAGS) $(CDEFS) -DSREAL -o $@ -c ATL_sdot_xp1yp1aXbX.c
+ATL_sdot_xp0yp0aXbX.o : ATL_sdot_xp0yp0aXbX.c
+	$(SKC) $(SKCFLAGS) $(CDEFS) -DSREAL -o $@ -c ATL_sdot_xp0yp0aXbX.c

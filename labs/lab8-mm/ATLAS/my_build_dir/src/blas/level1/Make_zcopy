@@ -1,0 +1,17 @@
+include Make.inc
+
+obj = ATL_zcopy.o ATL_zcopy_xp0yp0aXbX.o
+
+all : lib
+zlib : lib
+lib : zcopy.grd
+
+zcopy.grd : $(obj)
+	$(ARCHIVER) $(ARFLAGS) $(ATLASlib) $(obj)
+	$(RANLIB) $(ATLASlib)
+	touch zcopy.grd
+
+ATL_zcopy.o : ATL_zcopy.c
+	$(ICC) $(ICCFLAGS) -DDCPLX -o $@ -c ATL_zcopy.c
+ATL_zcopy_xp0yp0aXbX.o : ATL_zcopy_xp0yp0aXbX.c
+	$(DKC) $(DKCFLAGS) $(CDEFS) -DDCPLX -o $@ -c ATL_zcopy_xp0yp0aXbX.c

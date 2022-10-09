@@ -1,0 +1,17 @@
+include Make.inc
+
+obj = ATL_sswap.o ATL_sswap_xp0yp0aXbX.o
+
+all : lib
+slib : lib
+lib : sswap.grd
+
+sswap.grd : $(obj)
+	$(ARCHIVER) $(ARFLAGS) $(ATLASlib) $(obj)
+	$(RANLIB) $(ATLASlib)
+	touch sswap.grd
+
+ATL_sswap.o : ATL_sswap.c
+	$(ICC) $(ICCFLAGS) -DSREAL -o $@ -c ATL_sswap.c
+ATL_sswap_xp0yp0aXbX.o : ATL_sswap_xp0yp0aXbX.c
+	$(SKC) $(SKCFLAGS) $(CDEFS) -DSREAL -o $@ -c ATL_sswap_xp0yp0aXbX.c

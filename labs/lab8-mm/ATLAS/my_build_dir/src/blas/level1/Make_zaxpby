@@ -1,0 +1,17 @@
+include Make.inc
+
+obj = ATL_zaxpby.o ATL_zaxpby_xp0yp0aXbX.o
+
+all : lib
+zlib : lib
+lib : zaxpby.grd
+
+zaxpby.grd : $(obj)
+	$(ARCHIVER) $(ARFLAGS) $(ATLASlib) $(obj)
+	$(RANLIB) $(ATLASlib)
+	touch zaxpby.grd
+
+ATL_zaxpby.o : ATL_zaxpby.c
+	$(ICC) $(ICCFLAGS) -DDCPLX -o $@ -c ATL_zaxpby.c
+ATL_zaxpby_xp0yp0aXbX.o : ATL_zaxpby_xp0yp0aXbX.c
+	$(DKC) $(DKCFLAGS) $(CDEFS) -DDCPLX -o $@ -c ATL_zaxpby_xp0yp0aXbX.c

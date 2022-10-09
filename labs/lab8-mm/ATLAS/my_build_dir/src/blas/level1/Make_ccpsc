@@ -1,0 +1,17 @@
+include Make.inc
+
+obj = ATL_ccpsc.o ATL_ccpsc_xp0yp0aXbX.o
+
+all : lib
+clib : lib
+lib : ccpsc.grd
+
+ccpsc.grd : $(obj)
+	$(ARCHIVER) $(ARFLAGS) $(ATLASlib) $(obj)
+	$(RANLIB) $(ATLASlib)
+	touch ccpsc.grd
+
+ATL_ccpsc.o : ATL_ccpsc.c
+	$(ICC) $(ICCFLAGS) -DSCPLX -o $@ -c ATL_ccpsc.c
+ATL_ccpsc_xp0yp0aXbX.o : ATL_ccpsc_xp0yp0aXbX.c
+	$(SKC) $(SKCFLAGS) $(CDEFS) -DSCPLX -o $@ -c ATL_ccpsc_xp0yp0aXbX.c

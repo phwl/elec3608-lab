@@ -1,0 +1,17 @@
+include Make.inc
+
+obj = ATL_crot.o ATL_crot_xp0yp0aXbX.o
+
+all : lib
+clib : lib
+lib : crot.grd
+
+crot.grd : $(obj)
+	$(ARCHIVER) $(ARFLAGS) $(ATLASlib) $(obj)
+	$(RANLIB) $(ATLASlib)
+	touch crot.grd
+
+ATL_crot.o : ATL_crot.c
+	$(ICC) $(ICCFLAGS) -DSCPLX -o $@ -c ATL_crot.c
+ATL_crot_xp0yp0aXbX.o : ATL_crot_xp0yp0aXbX.c
+	$(SKC) $(SKCFLAGS) $(CDEFS) -DSCPLX -o $@ -c ATL_crot_xp0yp0aXbX.c

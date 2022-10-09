@@ -1,0 +1,19 @@
+include Make.inc
+
+obj = ATL_dasum.o ATL_dasum_xp1yp0aXbX.o ATL_dasum_xp0yp0aXbX.o
+
+all : lib
+dlib : lib
+lib : dasum.grd
+
+dasum.grd : $(obj)
+	$(ARCHIVER) $(ARFLAGS) $(ATLASlib) $(obj)
+	$(RANLIB) $(ATLASlib)
+	touch dasum.grd
+
+ATL_dasum.o : ATL_dasum.c
+	$(ICC) $(ICCFLAGS) -DDREAL -o $@ -c ATL_dasum.c
+ATL_dasum_xp1yp0aXbX.o : ATL_dasum_xp1yp0aXbX.c
+	/usr/bin/gcc -fomit-frame-pointer -mfpmath=387 -O2 -msse3 -m64 -m64 -x assembler-with-cpp $(CDEFS) -DDREAL -o $@ -c ATL_dasum_xp1yp0aXbX.c
+ATL_dasum_xp0yp0aXbX.o : ATL_dasum_xp0yp0aXbX.c
+	$(DKC) $(DKCFLAGS) $(CDEFS) -DDREAL -o $@ -c ATL_dasum_xp0yp0aXbX.c

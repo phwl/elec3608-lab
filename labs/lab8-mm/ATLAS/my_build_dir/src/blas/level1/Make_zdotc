@@ -1,0 +1,19 @@
+include Make.inc
+
+obj = ATL_zdotc.o ATL_zdotc_xp1yp1aXbX.o ATL_zdotc_xp0yp0aXbX.o
+
+all : lib
+zlib : lib
+lib : zdotc.grd
+
+zdotc.grd : $(obj)
+	$(ARCHIVER) $(ARFLAGS) $(ATLASlib) $(obj)
+	$(RANLIB) $(ATLASlib)
+	touch zdotc.grd
+
+ATL_zdotc.o : ATL_zdotc.c
+	$(ICC) $(ICCFLAGS) -DDCPLX -DConj_ -o $@ -c ATL_zdotc.c
+ATL_zdotc_xp1yp1aXbX.o : ATL_zdotc_xp1yp1aXbX.c
+	$(DKC) $(DKCFLAGS) $(CDEFS) -DDCPLX -DConj_ -o $@ -c ATL_zdotc_xp1yp1aXbX.c
+ATL_zdotc_xp0yp0aXbX.o : ATL_zdotc_xp0yp0aXbX.c
+	$(DKC) $(DKCFLAGS) $(CDEFS) -DDCPLX -DConj_ -o $@ -c ATL_zdotc_xp0yp0aXbX.c

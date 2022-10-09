@@ -1,0 +1,17 @@
+include Make.inc
+
+obj = ATL_dswap.o ATL_dswap_xp0yp0aXbX.o
+
+all : lib
+dlib : lib
+lib : dswap.grd
+
+dswap.grd : $(obj)
+	$(ARCHIVER) $(ARFLAGS) $(ATLASlib) $(obj)
+	$(RANLIB) $(ATLASlib)
+	touch dswap.grd
+
+ATL_dswap.o : ATL_dswap.c
+	$(ICC) $(ICCFLAGS) -DDREAL -o $@ -c ATL_dswap.c
+ATL_dswap_xp0yp0aXbX.o : ATL_dswap_xp0yp0aXbX.c
+	$(DKC) $(DKCFLAGS) $(CDEFS) -DDREAL -o $@ -c ATL_dswap_xp0yp0aXbX.c

@@ -1,0 +1,19 @@
+include Make.inc
+
+obj = ATL_ziamax.o ATL_ziamax_xp1yp0aXbX.o ATL_ziamax_xp0yp0aXbX.o
+
+all : lib
+zlib : lib
+lib : ziamax.grd
+
+ziamax.grd : $(obj)
+	$(ARCHIVER) $(ARFLAGS) $(ATLASlib) $(obj)
+	$(RANLIB) $(ATLASlib)
+	touch ziamax.grd
+
+ATL_ziamax.o : ATL_ziamax.c
+	$(ICC) $(ICCFLAGS) -DDCPLX -o $@ -c ATL_ziamax.c
+ATL_ziamax_xp1yp0aXbX.o : ATL_ziamax_xp1yp0aXbX.c
+	$(DKC) $(DKCFLAGS) $(CDEFS) -DDCPLX -o $@ -c ATL_ziamax_xp1yp0aXbX.c
+ATL_ziamax_xp0yp0aXbX.o : ATL_ziamax_xp0yp0aXbX.c
+	$(DKC) $(DKCFLAGS) $(CDEFS) -DDCPLX -o $@ -c ATL_ziamax_xp0yp0aXbX.c
