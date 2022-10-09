@@ -37,10 +37,10 @@ This means that using the function in index 0 of the mtab array (mmult0), the pr
 
 * (30%) Looking at the mmul0() function, it should be apparent that the three nested loops are not organized to best utilize the cache. You can add a new mmul1() function to the program by writing the function and changing the declaration of mtab to be
 
-```c
-void (*mtab[])(int b, double C[N][N], double A[N][N], double B[N][N]) =
+ ```c
+ void (*mtab[])(int b, double C[N][N], double A[N][N], double B[N][N]) =
     { mmul0, mmul1 };
-```
+ ```
 
 This should be all you have to do so that the program will run mmul0() and then mmul1() since there is a loop in mmul() which calls each of the entries in mtab. Making sure that your modifications still give the correct answer, change the i, j and k loops and record the execution time for all possible orderings (there are 6: ijk, ikj, jik, jki, kij, kji). Which ordering gives the highest performance? Why?
 
