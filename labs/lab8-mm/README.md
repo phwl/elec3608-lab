@@ -12,8 +12,9 @@ The goals of this lab are:
 If you have previously downloaded all the labs using git clone https://github.com/phwl/elec3608-lab.git, you should first type ```git pull``` to download any recent changes. Please note that we are using a different docker image (elec3608-mm) for this lab, executed as:
 
 ```
-docker run -it -v `pwd`:/config phwl/elec3608-riscv:latest
+docker run -it -v `pwd`:/config phwl/elec3608-mm-`uname -m`
 ```
+Note that ```uname -m``` returns either arm64 or x86_64 which are two different docker images supporting arm64 or x86_64 respectively. If you run the wrong docker image for your machine, docker will emulate using qemu but the optimisation techniques in this lab won't work properly.
 
 Type:
 ```bash
