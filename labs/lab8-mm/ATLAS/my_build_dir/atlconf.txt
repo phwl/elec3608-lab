@@ -1,9 +1,0 @@
-0 '/usr/bin/gcc' '-fomit-frame-pointer -mfpmath=387 -O2 -msse3 -m64'
-1 '/usr/bin/gcc' '-fomit-frame-pointer -mfpmath=387 -O2 -msse3 -m64'
-2 '/usr/bin/gcc' '-fomit-frame-pointer -mfpmath=387 -O2 -msse3 -m64'
-3 '/usr/bin/gcc' '-fomit-frame-pointer -mfpmath=387 -O2 -msse3 -m64'
-4 '/usr/bin/gcc' '-fomit-frame-pointer -mfpmath=387 -O2 -msse3 -m64'
-5 '/usr/bin/gcc' '-O -fomit-frame-pointer -m64'
-6 '/usr/bin/gcc' '-fomit-frame-pointer -mfpmath=387 -O2 -msse3 -m64'
-7 '/usr/bin/gfortran-11' '-fomit-frame-pointer -mfpmath=387 -O2 -msse3 -m64'
-F2CNAME,F2CINT,F2CSTRING=(1,1,1)
