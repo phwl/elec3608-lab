@@ -9,10 +9,10 @@ The goals of this lab are:
  *  Try your hand at software performance optimisation.
  *  Gain experience in reading research papers on computer architecture.
 
-If you have previously downloaded all the labs using git clone https://github.com/phwl/elec3608-lab.git, you should first type ```git pull``` to download any recent changes. Please note that we are using a different docker image (elec3608-riscv:latest) for this lab, executed as:
+If you have previously downloaded all the labs using git clone https://github.com/phwl/elec3608-lab.git, you should first type ```git pull``` to download any recent changes. Please note that we are using a different docker image (elec3608-mm) for this lab, executed as:
 
 ```
-docker run --platform linux/amd64 -it -e DISPLAY=host.docker.internal:0 -v `pwd`:/config phwl/elec3608-riscv:latest
+docker run -it -v `pwd`:/config phwl/elec3608-riscv:latest
 ```
 
 Type:
@@ -29,7 +29,7 @@ The output should be similar to:
 ```bash
 $ ./mm-1
 Block size = 50, N = 1000
---- fn = mmul0, MFLOPS = 2710.56, elapsed time = 0.737856s, sum = 2555.77
+--- fn = mmul0, MFLOPS = 1534.11, elapsed time = 1.30369s, sum = 2555.77
 ```
 This means that using the function in index 0 of the mtab array (mmult0), the program used took 6.40s to execute, the sum of the result was 2555.77 and 313 million floating point instructions per second was achieved.
 
@@ -50,7 +50,7 @@ This means that using the function in index 0 of the mtab array (mmult0), the pr
 
 ## Week 2
 
-* (30%) Install openblas using
+* (90%) Install openblas using
 
     ```bash
     $ sudo apt-get install libopenblas-base libopenblas-dev # use "elec3608" as the password
@@ -62,12 +62,10 @@ This means that using the function in index 0 of the mtab array (mmult0), the pr
     $ make mm-blas
     $ ./mm-blas
     Block size = 50, N = 1000
-    --- fn = mmul0, MFLOPS = 1623.47, elapsed time = 1.23193s, sum = 2555.77
-    --- fn = mmul1, MFLOPS = 12492.7, elapsed time = 0.160093s, sum = 2555.77
+    --- fn = mmul0, MFLOPS = 1406.31, elapsed time = 1.42216s, sum = 2555.77
+    --- fn = mmul1, MFLOPS = 36174.2, elapsed time = 0.055288s, sum = 2555.77
     ```
 
-    Depending on your machine, it might have a large improvement or none at all. The output above was from an x86 machine whereas my M1 Macbook was about the same speed as ```mm-1```. This is because the M1 Macbook is emulating an x86 machine. If you have the choice between x86 and M1, x86 will have much higher performance on this experiment. Note the speedup in your lab book.
+    Clearly there is room for improvement on our blocked implementation! Read (from other sources) about how matrix multiplication can be improved and implement a change to achieve the best improvement you can over the blocked implementation of the previous question (you must implement the technique yourself and can't use BLAS or other third party libraries). Marks will be awarded based on execution time but you must achieve exactly the same result (close to what would be expected in double precision arithmetic) as the original version.
 
 * (10%) Complete the course evaluation survey for ELEC3608 (yes we will give you a mark for this).
-
-
