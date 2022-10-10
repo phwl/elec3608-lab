@@ -9,7 +9,7 @@ In this lab, you will experiment with the design of a cache system for the RISCV
 
 If you have previously downloaded all the labs using git clone https://github.com/phwl/elec3608-lab.git, you should first type ```git pull``` to download any recent changes. Please note that we are using a different docker image (elec3608-riscv:latest) for this lab, executed as:
 
-You can run spike from Docker using:
+You can run the Docker using:
 
 ```
 docker run --platform linux/amd64 -it -e DISPLAY=host.docker.internal:0 -v `pwd`:/config phwl/elec3608-riscv:latest
