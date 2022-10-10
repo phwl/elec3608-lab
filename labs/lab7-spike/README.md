@@ -121,7 +121,7 @@ A direct mapped cache has ways=1, and a fully associative cache has sets=1. The 
 
 ## Question 1
 
-The easiest way to do this lab is by writing one or more programs (in your favourite language such as C, C++ or perl) that automates the tasks. My suggestion is to use python which is installed in the docker image. Subsequent plotting and data analysis can be done using MS excel, MATLAB or other tools. Although you can do it manually, it would be slow, inflexible and error-prone.
+The easiest way to do this lab is by writing one or more programs (in your favourite language such as C, C++ or python) that automates the tasks. My suggestion is to use python which is installed in the docker image. Subsequent plotting and data analysis can be done using MS excel, MATLAB or other tools. Although you can do it manually, it would be slow, inflexible and error-prone.
 
 a. (20%) Assume that the hit time is 1 cycle and the miss penalty is 10 cycles. For the I$ and D$ cache simulations given in the example above, what is the average memory access time (AMAT) for each? Show your working.
 
