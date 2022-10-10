@@ -45,7 +45,7 @@ This means that using the function in index 0 of the mtab array (mmult0), the pr
 
     This should be all you have to do so that the program will run mmul0() and then mmul1() since there is a loop in mmul() which calls each of the entries in mtab. Making sure that your modifications still give the correct answer, change the i, j and k loops and record the execution time for all possible orderings (there are 6: ijk, ikj, jik, jki, kij, kji). Which ordering gives the highest performance? Why?
 
-* (50%) A key optimisation for matrix multiplication is blocking. Read Section 1 of lam91.pdf (included in the mm directory for this lab) and implement a blocked matrix multiplication, calling it mmulb(). The program is written so that ```./mm-1 –b 66``` will set the b argument of the call to the mmulb() routine to be 66. Determine a good choice for the parameter b.
+* (50%) A key optimisation for matrix multiplication is blocking. Read Section 1 of [lam91.pdf](mm/lam91.pdf) and implement a blocked matrix multiplication, calling it mmulb(). The program is written so that ```./mm-1 –b 66``` will set the b argument of the call to the mmulb() routine to be 66. Determine a good choice for the parameter b.
 
 * (20%) What should happen to the speedup of the blocked version over the unblocked on as you increase the size of the matrices (N)? Show this experimentally and plot a graph of the speedup for different b.
 
