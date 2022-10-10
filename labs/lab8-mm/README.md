@@ -51,13 +51,7 @@ This means that using the function in index 0 of the mtab array (mmult0), the pr
 
 ## Week 2
 
-* (90%) Install openblas using
-
-    ```bash
-    $ sudo apt-get install libopenblas-base libopenblas-dev # use "elec3608" as the password
-    ```
-
-    Compare the performance of your blocked version with that linked to the OpenBLAS library by typing
+* (90%) Compare the performance of your blocked version with that linked to the OpenBLAS library by typing
 
     ```bash
     $ make mm-blas
