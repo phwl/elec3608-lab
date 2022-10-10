@@ -1,0 +1,36 @@
+#
+#  This file generated at line 634 of /config/ATLAS/my_build_dir/..//tune/blas/ger/r1hgen.c
+#
+include Make.inc
+
+R1CC = $(DKC)
+R1FLAGS = $(CDEFS) $(DKCFLAGS) -DDREAL
+
+obj = ATL_dgerk__900002.o ATL_dgerk__900003.o ATL_dgerk__900009.o ATL_dgerk__3.o ATL_dgerk__900001.o
+lib : dlib
+dlib : dr1k.grd
+dr1k.grd : $(obj)
+	$(ARCHIVER) $(ARFLAGS) $(ATLASlib) $(obj)
+	$(RANLIB) $(ATLASlib)
+	touch dr1k.grd
+dclean : clean
+clean :
+	- rm -f $(obj) dr1k.grd
+
+dkilllib : killlib
+killlib : 
+	- $(ARCHIVER) d $(ATLASlib) $(obj)
+	$(RANLIB) $(ATLASlib)
+killall : killlib clean
+	 rm -f ATL_dgerk__900002.c ATL_dgerk__900003.c ATL_dgerk__900009.c ATL_dgerk__3.c ATL_dgerk__900001.c
+
+ATL_dgerk__900002.o : ATL_dgerk__900002.c
+	 $(GOODGCC) -o ATL_dgerk__900002.o -c -DATL_UGERK=ATL_dgerk__900002 -x assembler-with-cpp -DPFIA=prefetchnta -DPFIY=prefetcht2 -DPFADIST=1920 -DPFXDIST=512 -DPFYDIST=0 -DDREAL $(CDEFS) ATL_dgerk__900002.c
+ATL_dgerk__900003.o : ATL_dgerk__900003.c
+	 $(GOODGCC) -o ATL_dgerk__900003.o -c -DATL_UGERK=ATL_dgerk__900003 -x assembler-with-cpp -DDREAL $(CDEFS) ATL_dgerk__900003.c
+ATL_dgerk__900009.o : ATL_dgerk__900009.c
+	 $(GOODGCC) -o ATL_dgerk__900009.o -c -DATL_UGERK=ATL_dgerk__900009 -x assembler-with-cpp -DPFIA=prefetchw -DPFIX=prefetcht2 -DPFIY=prefetch -DPFADIST=256 -DPFXDIST=320 -DPFYDIST=704 -DDREAL $(CDEFS) ATL_dgerk__900009.c
+ATL_dgerk__3.o : ATL_dgerk__3.c
+	 $(R1CC) -o ATL_dgerk__3.o -c -DATL_UGERK=ATL_dgerk__3 $(R1FLAGS) ATL_dgerk__3.c
+ATL_dgerk__900001.o : ATL_dgerk__900001.c
+	 $(R1CC) -o ATL_dgerk__900001.o -c -DATL_UGERK=ATL_dgerk__900001 $(R1FLAGS) -DDREAL -fomit-frame-pointer -mfpmath=387 -O2 -msse3 -m64 -DPFIA=prefetcht1 -DPFIX=prefetch -DPFIY=prefetch -DPFADIST=0 ATL_dgerk__900001.c

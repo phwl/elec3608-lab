@@ -56,26 +56,25 @@ This should be all you have to do so that the program will run mmul0() and then 
     $ sudo apt-get install libopenblas-base libopenblas-dev # use "elec3608" as the password
     ```
 
-Compare the performance of your blocked version with that linked to the OpenBLAS library by typing
+    Compare the performance of your blocked version with that linked to the OpenBLAS library by typing
 
     ```bash
     $ make mm-blas
     $ ./mm-blas
     ```
 
-Depending on your machine, it might have a large improvement or none at all. On my M1 Macbook it was about the same speed. This is because the M1 Macbook is emulating an x86 machine whereas Openblas is designed for a single processor type. If you have the choice between x86 and M1, x86 will have much higher performance on this experiment. Note the speedup in your lab book.
+    Depending on your machine, it might have a large improvement or none at all. On my M1 Macbook it was about the same speed. This is because the M1 Macbook is emulating an x86 machine whereas Openblas is designed for a single processor type. If you have the choice between x86 and M1, x86 will have much higher performance on this experiment. Note the speedup in your lab book.
 
 * (20%) ATLAS is a self-tuning BLAS library and the file ```atlas3.10.3.tar.bz2``` contains the source code. Install this in your system (instructions come with the package but you'll need to install other things to make it compile).
 
-Change the program so mm-blas can use it.
-Compare the performance of your blocked version with that linked to the OpenBLAS library by typing
+    Change the program so mm-blas can use it. Compare the performance of your blocked version with that linked to the OpenBLAS library by typing
 
     ```bash
     $ make mm-blas
     $ ./mm-blas
     ```
 
-Clearly there is room for improvement on our blocked implementation! Read (from other sources) about how matrix multiplication can be improved and implement a change to achieve the best improvement you can over the blocked implementation of the previous question (you must implement the technique yourself and can't use BLAS or other third party libraries). Marks will be awarded based on execution time but you must achieve exactly the same result (close to what would be expected in double precision arithmetic) as the original version.
+    Clearly there is room for improvement on our blocked implementation! Read (from other sources) about how matrix multiplication can be improved and implement a change to achieve the best improvement you can over the blocked implementation of the previous question (you must implement the technique yourself and can't use BLAS or other third party libraries). Marks will be awarded based on execution time but you must achieve exactly the same result (close to what would be expected in double precision arithmetic) as the original version.
 
 * (10%) Complete the course evaluation survey for ELEC3608 (yes we will give you a mark for this).
 

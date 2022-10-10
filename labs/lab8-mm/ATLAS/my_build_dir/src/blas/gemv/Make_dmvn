@@ -1,0 +1,42 @@
+#
+#  This file generated at line 270 of /config/ATLAS/my_build_dir/..//tune/blas/gemv/mvnhgen.c
+#
+include Make.inc
+
+MVNCC = $(DKC)
+MVNFLAGS = $(CDEFS) $(DKCFLAGS) -DDREAL
+
+obj = ATL_dmvnk__900002.o ATL_dmvnk__900002_b0.o ATL_dmvnk__900009.o ATL_dmvnk__900009_b0.o ATL_dmvnk__900007.o ATL_dmvnk__900007_b0.o ATL_dmvnk__900004.o ATL_dmvnk__900004_b0.o
+lib : dlib
+dlib : dmvnk.grd
+dmvnk.grd : $(obj)
+	$(ARCHIVER) $(ARFLAGS) $(ATLASlib) $(obj)
+	$(RANLIB) $(ATLASlib)
+	touch dmvnk.grd
+dclean : clean
+clean :
+	- rm -f $(obj) dmvnk.grd
+
+dkilllib : killlib
+killlib : 
+	- $(ARCHIVER) d $(ATLASlib) $(obj)
+	$(RANLIB) $(ATLASlib)
+killall : killlib clean
+	 rm -f ATL_dmvnk__900002.c ATL_dmvnk__900009.c ATL_dmvnk__900007.c ATL_dmvnk__900004.c
+
+ATL_dmvnk__900002.o : ATL_dmvnk__900002.c
+	 $(GOODGCC) -o ATL_dmvnk__900002.o -c -DATL_UGEMV=ATL_dmvnk__900002 -x assembler-with-cpp -DPFIX=prefetchnta -DPFIY=prefetchw -DPFADIST=640 -DPFXDIST=0 -DPFYDIST=256 -DDREAL $(CDEFS) ATL_dmvnk__900002.c
+ATL_dmvnk__900002_b0.o : ATL_dmvnk__900002.c
+	 $(GOODGCC) -o ATL_dmvnk__900002_b0.o -c -DATL_UGEMV=ATL_dmvnk__900002_b0 -DBETA0 -x assembler-with-cpp -DPFIX=prefetchnta -DPFIY=prefetchw -DPFADIST=640 -DPFXDIST=0 -DPFYDIST=256 -DDREAL $(CDEFS) ATL_dmvnk__900002.c
+ATL_dmvnk__900009.o : ATL_dmvnk__900009.c
+	 $(GOODGCC) -o ATL_dmvnk__900009.o -c -DATL_UGEMV=ATL_dmvnk__900009 -x assembler-with-cpp -DPFIX=prefetchnta -DPFADIST=256 -DPFXDIST=0 -DPFYDIST=192 -DDREAL $(CDEFS) ATL_dmvnk__900009.c
+ATL_dmvnk__900009_b0.o : ATL_dmvnk__900009.c
+	 $(GOODGCC) -o ATL_dmvnk__900009_b0.o -c -DATL_UGEMV=ATL_dmvnk__900009_b0 -DBETA0 -x assembler-with-cpp -DPFIX=prefetchnta -DPFADIST=256 -DPFXDIST=0 -DPFYDIST=192 -DDREAL $(CDEFS) ATL_dmvnk__900009.c
+ATL_dmvnk__900007.o : ATL_dmvnk__900007.c
+	 $(MVNCC) -o ATL_dmvnk__900007.o -c -DATL_UGEMV=ATL_dmvnk__900007 $(MVNFLAGS) -DDREAL -fomit-frame-pointer -mfpmath=387 -O2 -msse3 -m64 -DPFIX=prefetcht1 -DPFIY=prefetch -DPFXDIST=128 -DPFYDIST=0 ATL_dmvnk__900007.c
+ATL_dmvnk__900007_b0.o : ATL_dmvnk__900007.c
+	 $(MVNCC) -o ATL_dmvnk__900007_b0.o -c -DATL_UGEMV=ATL_dmvnk__900007_b0 -DBETA0 $(MVNFLAGS) -DDREAL -fomit-frame-pointer -mfpmath=387 -O2 -msse3 -m64 -DPFIX=prefetcht1 -DPFIY=prefetch -DPFXDIST=128 -DPFYDIST=0 ATL_dmvnk__900007.c
+ATL_dmvnk__900004.o : ATL_dmvnk__900004.c
+	 $(MVNCC) -o ATL_dmvnk__900004.o -c -DATL_UGEMV=ATL_dmvnk__900004 $(MVNFLAGS) -DDREAL -fomit-frame-pointer -mfpmath=387 -O2 -msse3 -m64 ATL_dmvnk__900004.c
+ATL_dmvnk__900004_b0.o : ATL_dmvnk__900004.c
+	 $(MVNCC) -o ATL_dmvnk__900004_b0.o -c -DATL_UGEMV=ATL_dmvnk__900004_b0 -DBETA0 $(MVNFLAGS) -DDREAL -fomit-frame-pointer -mfpmath=387 -O2 -msse3 -m64 ATL_dmvnk__900004.c
