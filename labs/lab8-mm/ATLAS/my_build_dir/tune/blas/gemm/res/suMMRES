@@ -1,2 +1,2 @@
-CASE NB MFLOP ROUTINE
-217 84 -7741.18 "ATL_smm14x1x84_sse.c" "R. Clint Whaley"
+CASE  NB    MFLOP  ROUTINE
+ 217  84   301.50  "ATL_smm14x1x84_sse.c" "R. Clint Whaley"
