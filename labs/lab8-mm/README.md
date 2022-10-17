@@ -14,7 +14,14 @@ If you have previously downloaded all the labs using git clone https://github.co
 ```
 docker run -it -v `pwd`:/config phwl/elec3608-mm-`uname -m`
 ```
-Note that ```uname -m``` returns either arm64 or x86_64 which are two different docker images supporting arm64 or x86_64 respectively. If you run the wrong docker image for your machine, docker will emulate using qemu but the optimisation techniques in this lab won't work properly.
+
+Note that ```uname -m``` returns either arm64 or x86_64 which are two different docker images supporting arm64 or x86_64 respectively. Unfortunately,
+this doesn't work on MobaXterm and you need to type:
+```
+docker run -it -v `pwd`:/config phwl/elec3608-mm-x86_64
+```
+
+If you run the wrong docker image for your machine, docker will emulate using qemu but the optimisation techniques in this lab won't work properly.
 
 Type:
 ```bash
