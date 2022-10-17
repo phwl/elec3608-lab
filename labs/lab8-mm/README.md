@@ -39,7 +39,7 @@ $ ./mm-1
 Block size = 50, N = 1000
 --- fn = mmul0, MFLOPS = 1534.11, elapsed time = 1.30369s, sum = 2555.77
 ```
-This means that using the function in index 0 of the mtab array (mmult0), the program used took 6.40s to execute, the sum of the result was 2555.77 and 313 million floating point instructions per second was achieved.
+This means that using the function in index 0 of the mtab array (mmult0), the program used took 1.3s to execute, the sum of the result was 2555.77 and 1534 million floating point instructions per second was achieved.
 
 ## Week 1
 
