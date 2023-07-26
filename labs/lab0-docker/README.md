@@ -1,4 +1,4 @@
-# Installing Docker 2022 Semester 2 - ELEC3608 Version
+# Installing Docker 2023 Semester 2 - ELEC3608 Version
 Here are installation instructions for installing Docker and running the software required for 
 [ELEC3608 Computer Architecture](https://cusp.sydney.edu.au/students/view-unit-page/alpha/ELEC3608).
 
