@@ -104,22 +104,7 @@ Dockerfile  Makefile  README.md
 Within Docker, the directory on your local home directory will be mapped 
 to your local directory. Use this to access your files and store your outputs. Verify you can also run ```xeyes```.
 
-## 3 MobaXterm 
-These instructions are for Win10 Systems and should only be used as a last resort since you will need to customise they way you call docker as below for every laboratory question. You can also try this approach if you cannot get the instructions in Section 1 to work.
- 1. Install MobaXterm Home Edition (Installer edition) <https://mobaxterm.mobatek.net/download-home-edition.html>
- 1. Install Docker <https://docs.docker.com/desktop/install/windows-install/> (follow instructions carefully)
- 1. Run Docker Desktop by double-clicking the icon on the desktop
- 1. Follow instructions in Section 2.1 to check docker "Hello world" application.
- 1. Run MobaXterm and “Start a local terminal”. Type ```docker run -it fr3nd/xeyes``` in the MobaXterm terminal. This should bring up ```xeyes``` as described in Section 2.2.
- 1. Type 
-     ```bash
-     docker run -it -v /c/Users/XXX:/config phwl/elec3608-base:latest
-     ``` 
-     (where XXX is your Windows user name).
-
-     This should replace the docker command used in Section 2.3. Check that ```xeyes``` from inside the docker container works properly.
-
-## 4 Troubleshooting
+## 3 Troubleshooting
  * Update your operating system to the latest version. 
  * Check you have virtualization enabled in your BIOS
  * It is also possible to use MobaXterm and the instructions at <http://phwl.org/2022/installing-docker-2022-version/>.
