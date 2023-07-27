@@ -4,7 +4,11 @@ Here are installation instructions for installing Docker and running the softwar
 
 ## 1. Installation
  * (Windows 11 or Windows 10)
-   1. Install WSL2 (Ubuntu) <https://docs.microsoft.com/en-us/windows/wsl/install> and from Windows Start, run the "Ubuntu on Windows" app. If you type     ```lsb_release -a``` in the Linux window, Release should be 22.04 or higher.
+   1. Install WSL2 (Ubuntu) <https://docs.microsoft.com/en-us/windows/wsl/install> and from Windows Start, run the "Ubuntu on Windows" app. If you type     ```lsb_release -a``` in the Linux window, Release should be 22.04 or higher. If you already had WSL installed, then update to latest version via
+       ```
+        > wsl --update
+       ```
+       in Powershell.
    1. Install and run Docker Desktop <https://docs.docker.com/desktop/install/windows-install/> with the default settings. Make sure to add your user to the docker-users group if your admin account is different to your user account.
    1. In an Ubuntu window
        ```
