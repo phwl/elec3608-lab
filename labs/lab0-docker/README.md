@@ -3,12 +3,8 @@ Here are installation instructions for installing Docker and running the softwar
 [ELEC3608 Computer Architecture](https://cusp.sydney.edu.au/students/view-unit-page/alpha/ELEC3608).
 
 ## 1. Installation
- * (Windows 10)
-   1. I would urge Win10 users to upgrade to Win11. Follow instructions in Section 3 otherwise.
-
- * (Windows 11 - Version 21H2 OS Build 22000.795 or higher)
-   1. Install and run Docker Desktop <https://docs.docker.com/desktop/install/windows-install/>. In Settings, make sure "Use the WSL 2 based engine" is selected.
-   1. Install WSL2 (Ubuntu) <https://docs.microsoft.com/en-us/windows/wsl/install> and from Windows Start, run the "Ubuntu on Windows" app. If you type ```lsb_release -a``` in the Linux window, Release should be 20.04 or higher.
+ * (Windows 11 or Windows 10)
+   1. Install and run Docker Desktop <https://docs.docker.com/desktop/install/windows-install/>. In Settings, make sure the "WSL 2" option is selected. Also, make sure to add your user to the docker-users group if your admin account is different to your user account.
 
  * (MacOS - MacOS 12.4 or higher)
    1. Install and run Docker Desktop <https://docs.docker.com/desktop/install/mac-install/> 
@@ -108,7 +104,7 @@ Within Docker, the directory on your local home directory will be mapped
 to your local directory. Use this to access your files and store your outputs. Verify you can also run ```xeyes```.
 
 ## 3 MobaXterm 
-These instructions are for Win10 Systems and should only be used as a last resort since you will need to customise they way you call docker as below for every laboratory question. You can also try this approach if you cannot get the Windows 11 instructions to work.
+These instructions are for Win10 Systems and should only be used as a last resort since you will need to customise they way you call docker as below for every laboratory question. You can also try this approach if you cannot get the instructions in Section 1 to work.
  1. Install MobaXterm Home Edition (Installer edition) <https://mobaxterm.mobatek.net/download-home-edition.html>
  1. Install Docker <https://docs.docker.com/desktop/install/windows-install/> (follow instructions carefully)
  1. Run Docker Desktop by double-clicking the icon on the desktop
