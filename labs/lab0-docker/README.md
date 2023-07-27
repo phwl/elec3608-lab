@@ -21,7 +21,7 @@ Here are installation instructions for installing Docker and running the softwar
 
 ## 2 Testing
 ### 2.1 Hello world
-To test basic Docker functionality, type ```docker run hello-world``` in the command window. Your output should be something like:
+To test basic Docker functionality, type ```docker run hello-world``` in the Ubuntu window. Your output should be something like:
 
 ```bash
 $ docker run hello-world
