@@ -80,7 +80,7 @@ From your host, you can run docker, compile and test as below (for Mac, please c
 
 ```bash
 (base) phwl@AHJ7LDH57JP lab2-ritype % make rundocker
-docker run --platform linux/amd64 -it -e DISPLAY=host.docker.internal:0 -v `pwd`:/config phwl/elec3608-base:latest
+docker run --rm --platform linux/amd64 -it -e DISPLAY=host.docker.internal:0 -v `pwd`:/config phwl/elec3608-cad:latest
 To run a command as administrator (user "root"), use "sudo <command>".
 See "man sudo_root" for details.
 

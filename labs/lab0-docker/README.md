@@ -75,12 +75,12 @@ You should see a window similar to below and the eyes should move with your mous
 
 ![xeyes](http://phwl.org/assets/images/2022/02/docker-xeyes.png "xeyes")
 
-### 2.3 ELEC3608 Base Image
-This tests the ELEC3608 base image.
+### 2.3 ELEC3608 Image
+This tests the ELEC3608 image.
 Make sure you have set up your X Server and can execute the
 previous Xeyes example. Then in your Windows Ubuntu terminal or MacOS xterm type:
 
- ```docker run --platform linux/amd64 -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY  -v `pwd`:/config phwl/elec3608-cad:latest```
+ ```docker run --rm --platform linux/amd64 -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY  -v `pwd`:/config phwl/elec3608-cad:latest```
 
 If everything goes well, a prompt should appear and ```ls``` should show your local directory that was mounted.
 
