@@ -68,7 +68,7 @@ tests X Windows basic functionality.
     $ xhost +
     access control disabled, clients can connect from any hos
     $ export DISPLAY=host.docker.internal:0
-    $ docker run --platform linux/amd64 -it -e DISPLAY=$DISPLAY fr3nd/xeyes 
+    $ docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY fr3nd/xeyes
     ```
 
 You should see a window similar to below and the eyes should move with your mouse.
