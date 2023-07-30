@@ -80,16 +80,16 @@ This tests the ELEC3608 base image.
 Make sure you have set up your X Server and can execute the
 previous Xeyes example. Then in your Windows Ubuntu terminal or MacOS xterm type:
 
- ```docker run --platform linux/amd64 -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY  -v `pwd`:/config phwl/elec3608-base:latest```
+ ```docker run --platform linux/amd64 -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY  -v `pwd`:/config phwl/elec3608-cad:latest```
 
 If everything goes well, a prompt should appear and ```ls``` should show your local directory that was mounted.
 
 ```bash
 $ ls
 Dockerfile	Makefile	README.md
-$ docker run --platform linux/amd64 -it -e DISPLAY=$DISPLAY -v `pwd`:/config phwl/elec3608-base:latest
-Unable to find image 'phwl/elec3608-base:latest' locally
-latest: Pulling from phwl/elec3608-base
+$ docker run --platform linux/amd64 -it -e DISPLAY=$DISPLAY -v `pwd`:/config phwl/elec3608-cad:latest
+Unable to find image 'phwl/elec3608-cad:latest' locally
+latest: Pulling from phwl/elec3608-cad
 d7bfe07ed847: Pull complete
 40dcc342278c: Pull complete
 74c28b8c2172: Pull complete
@@ -102,7 +102,7 @@ f53da11c4abc: Pull complete
 c6175c8df07c: Pull complete
 18c69afe1063: Pull complete
 Digest: sha256:29c813a7f39a3f9e153bf92b9967acfadae4ee930380b75bf2e573620c9b2f00
-Status: Downloaded newer image for phwl/elec3608-base:latest
+Status: Downloaded newer image for phwl/elec3608-cad:latest
 docker: Error response from daemon: create .: volume name is too short, names should be at least two alphanumeric characters.
 See 'docker run --help'.
 elec3608@079a8ca5b594:~$ ls
