@@ -111,6 +111,7 @@ Dockerfile  Makefile  README.md
 Within Docker, the directory on your local home directory will be mapped 
 to your local directory. Use this to access your files and store your outputs. Verify you can also run ```xeyes```.
 
+
 ## 3 Troubleshooting
  * Update your operating system to the latest version. 
  * Check you have virtualization enabled in your BIOS
