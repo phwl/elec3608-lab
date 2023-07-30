@@ -87,7 +87,7 @@ If everything goes well, a prompt should appear and ```ls``` should show your lo
 ```bash
 $ ls
 Dockerfile	Makefile	README.md
-$ docker run --platform linux/amd64 -it -e DISPLAY=$DISPLAY -v `pwd`:/config phwl/elec3608-cad:latest
+$ docker run --rm --platform linux/amd64 -it -e DISPLAY=$DISPLAY -v `pwd`:/config phwl/elec3608-cad:latest
 Unable to find image 'phwl/elec3608-cad:latest' locally
 latest: Pulling from phwl/elec3608-cad
 d7bfe07ed847: Pull complete
