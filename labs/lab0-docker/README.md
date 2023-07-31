@@ -114,6 +114,7 @@ to your local directory. Use this to access your files and store your outputs. V
 
 
 ## 3 Troubleshooting
+ * Windows WSL2 and Docker <https://docs.docker.com/desktop/wsl/>.
  * Update your operating system to the latest version. 
  * Check you have virtualization enabled in your BIOS
  * It is also possible to use MobaXterm and the instructions at <http://phwl.org/2022/installing-docker-2022-version/>.
