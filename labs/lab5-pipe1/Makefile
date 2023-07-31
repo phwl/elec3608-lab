@@ -17,7 +17,7 @@
 
 TOOLCHAIN_PREFIX?=riscv64-unknown-elf-
 VERILATOR = verilator
-RDOCKER = docker run --rm --platform linux/amd64 -it -e DISPLAY=host.docker.internal:0 -v `pwd`:/config phwl/elec3608-cad:latest
+RDOCKER = ../common/rundocker
 
 all:	firmware.out
 
