@@ -81,7 +81,7 @@ This tests the ELEC3608 image.
 Make sure you have set up your X Server and can execute the
 previous Xeyes example. Then in your Windows Ubuntu terminal or MacOS xterm type:
 
- ```docker run -u $UID --rm --platform linux/amd64 -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY  -v `pwd`:/config phwl/elec3608-cad:latest```
+ ```docker run --rm --platform linux/amd64 -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY  -v `pwd`:/config phwl/elec3608-cad:latest```
 
 If everything goes well, a prompt should appear and ```ls``` should show your local directory that was mounted.
 
