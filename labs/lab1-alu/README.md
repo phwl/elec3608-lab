@@ -7,12 +7,10 @@ your host directories to ```/config``` (the home directory for
 the account in the Docker container). On Mac and Windows 11 WSL2 
 systems, in Lab 0 we used:
 ```bash
-docker run -u $UID --rm --platform linux/amd64 -it -e DISPLAY=$DISPLAY -v `pwd`:/config phwl/elec3608-cad:latest
+docker run -u $UID --rm --platform linux/amd64 -it -e DISPLAY=$DISPLAY -v `pwd`:/config -v /tmp/.X11-unix:/tmp/.X11-unix phwl/elec3608-cad:latest
 ```
-and in MobaXterm (which uses [Cygwin](https://www.cygwin.com/)
-internally):
-```bash                                                                         
-docker run -u $UID --rm -it -v /c/Users/XXX:/config phwl/elec3608-cad:latest
+a better alternative is the ```labs/common/rundocker``` command which does the same thing
+```bash
 ```
 
 The important part of the command is the ``` -v <host_dir>:<container_dir>```.
