@@ -9,7 +9,7 @@ systems, in Lab 0 we used:
 ```bash
 docker run --rm --platform linux/amd64 -it -e DISPLAY=$DISPLAY -v `pwd`:/config -v /tmp/.X11-unix:/tmp/.X11-unix phwl/elec3608-cad:latest
 ```
-a better alternative is the ```elec3607-lab/labs/common/rundocker``` command which does the same thing
+a better alternative is the ```elec3608-lab/labs/common/rundocker``` command which does the same thing
 ```bash
 (base) phwl@AHJ7LDH57JP elec3608-lab % labs/common/rundocker   
 docker run --rm --platform linux/amd64 -it -e DISPLAY=host.docker.internal:0 -v /Users/phwl/usyd/doc/teaching/elec3608-lab:/config phwl/elec3608-cad:latest
