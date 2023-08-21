@@ -88,7 +88,8 @@ If everything goes well, a prompt should appear and ```ls``` should show your lo
 ```bash
 $ ls
 Dockerfile	Makefile	README.md
-$ docker run --rm --platform linux/amd64 -it -e DISPLAY=$DISPLAY -v `pwd`:/config phwl/elec3608-cad:latest
+$ docker run --rm --platform linux/amd64 -it -e DISPLAY=$DISPLAY -v `pwd`:/config -v /tmp/.X11-unix:/tmp/.X11-unix phwl/elec3608-cad:latest
+
 Unable to find image 'phwl/elec3608-cad:latest' locally
 latest: Pulling from phwl/elec3608-cad
 d7bfe07ed847: Pull complete
@@ -110,8 +111,26 @@ elec3608@079a8ca5b594:~$ ls
 Dockerfile  Makefile  README.md
  ```
 Within Docker, the directory on your local home directory will be mapped 
-to your local directory. Use this to access your files and store your outputs. Verify you can also run ```xeyes```.
+to your local directory. Use this to access your files and store your outputs. 
 
+Get the ELEC3608 files:
+```bash
+elec3608@a371aebb4045:~$ git clone https://github.com/phwl/elec3608-lab.git
+Cloning into 'elec3608-lab'...
+remote: Enumerating objects: 5151, done.
+remote: Counting objects: 100% (1392/1392), done.
+remote: Compressing objects: 100% (526/526), done.
+remote: Total 5151 (delta 857), reused 1321 (delta 790), pack-reused 3759
+Receiving objects: 100% (5151/5151), 15.78 MiB | 2.50 MiB/s, done.
+Resolving deltas: 100% (3226/3226), done.
+```
+
+Finally, after exiting docker with ```exit```, you should be able to run it in the future using
+```bash
+$ elec3608-lab/labs/common/rundocker 
+```
+
+Verify you can also run ```xeyes```.
 
 ## 3 Troubleshooting
  * Windows WSL2 and Docker <https://docs.docker.com/desktop/wsl/>.
