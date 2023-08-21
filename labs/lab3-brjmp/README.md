@@ -89,13 +89,9 @@ if tkmode:
     tb.stop_gtkwave()
 
 ```
-From your host, start docker using the same instructions as Lab 1, e.g. on MacOS:
+From your host, start docker using the same instructions as Lab 0 ELEC3608 Image.
 
-```bash
-../common/rundocker
-```
-
-Then try compiling ```test1.s```:
+Then check the course files work
 ```bash
 elec3608@9590e973009d:~$ make test1.out 
 riscv64-unknown-elf-objcopy -O verilog test1.elf test1.hex

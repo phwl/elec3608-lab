@@ -111,11 +111,12 @@ elec3608@079a8ca5b594:~$ ls
 Dockerfile  Makefile  README.md
  ```
 Within Docker, the directory on your local home directory will be mapped 
-to your local directory. Use this to access your files and store your outputs. 
+to your local directory so you can access your files and store your outputs. 
 
-Get the ELEC3608 files:
+Next, while still inside the Docker container get the ELEC3608 files using git
+and exit docker:
 ```bash
-elec3608@a371aebb4045:~$ git clone https://github.com/phwl/elec3608-lab.git
+elec3608@079a8ca5b594:~$ git clone https://github.com/phwl/elec3608-lab.git
 Cloning into 'elec3608-lab'...
 remote: Enumerating objects: 5151, done.
 remote: Counting objects: 100% (1392/1392), done.
@@ -123,14 +124,24 @@ remote: Compressing objects: 100% (526/526), done.
 remote: Total 5151 (delta 857), reused 1321 (delta 790), pack-reused 3759
 Receiving objects: 100% (5151/5151), 15.78 MiB | 2.50 MiB/s, done.
 Resolving deltas: 100% (3226/3226), done.
+elec3608@079a8ca5b594:~$ exit
+$ 
 ```
 
-Finally, after exiting docker with ```exit```, you should be able to run it in the future using
+You should now be able to run it in the future using
 ```bash
 $ elec3608-lab/labs/common/rundocker 
 ```
 
 Verify you can also run ```xeyes```.
+```bash
+$ elec3608-lab/labs/common/rundocker
+docker run -u 1000 --rm --platform linux/amd64 -it -e DISPLAY=/private/tmp/com.apple.launchd.RdgqlIGLhx/org.xquartz:0 -v /tmp/.X11-unix:/tmp/.X11-unix -v /tmp:/config phwl/elec3608-cad:latest
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+elec3608-1000@612659ec2d3a:~$ xeyes
+```
 
 ## 3 Troubleshooting
  * Windows WSL2 and Docker <https://docs.docker.com/desktop/wsl/>.
