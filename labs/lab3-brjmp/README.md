@@ -92,7 +92,7 @@ if tkmode:
 From your host, start docker using the same instructions as Lab 1, e.g. on MacOS:
 
 ```bash
-docker run -u $UID --rm --platform linux/amd64 -it -e DISPLAY=host.docker.internal:0 -v `pwd`:/config phwl/elec3608-cad:latest
+../common/rundocker
 ```
 
 Then try compiling ```test1.s```:
