@@ -30,8 +30,6 @@ test5.result: x10=21 cycles=942 extime=2.5445705024311184e-05 normextime=1.0
 Geometric mean=1.0
 ```
 
-Note that test0.s gives the right answer only for a machine with one branch delay slot (it is an infinite loop on a machine with hardware interlocks and won't be included in the machine marking). Credit for changing the assembly files to resolve hazards will be given for the report but not machine marking.
-
 The output gives the minimum clock period (period), value of the x10 register (x10), the number of cycles (cycles), execution time (extime), execution time normalised to the original design (normextime), and the gemetric mean of normextime. The geometric mean is the mean speedup over the nerv single
 cycle processor (note that it is used because it
 is the only correct mean when averaging normalized results see
