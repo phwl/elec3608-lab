@@ -12,7 +12,6 @@ Create a pipelined RV32I processor which implements enough of the instructions s
  1. (4 marks) A 2-stage pipelined processor with high clock frequency on a [Lattice iCE40-HX8k](https://www.latticesemi.com/iCE40) FPGA. This should be achieved by placing registers in the best position to execute the test programs. Marks for this question do not involve resolving hazards.
  1. (3 marks) Incorporate hardware interlocks, i.e.  any stalling of the processor to resolve hazards is done within the processor so the original test programs can be executed correctly irrespective of what hazards are in
 the program..
- 1. (3 marks) Incorporate forwarding or branch prediction. You should choose the one which you think will give the best performance improvement and justify the choice in your report. 
  1. (5 marks) Report (see below).
 
 The machine marked parts will consider correctness and performance. 
