@@ -25,6 +25,8 @@ input reg clock;
 input reg reset;
 wire trap;
 
+reg [31:0] x10;
+
 wire [31:0] imem_addr;
 reg  [31:0] imem_data;
 
@@ -104,6 +106,7 @@ nerv dut (
 	.clock(clock),
 	.reset(reset),
 	.trap(trap),
+	.x10(x10),
 
 	.imem_addr(imem_addr),
 	.imem_data(imem_data),
