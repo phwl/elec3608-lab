@@ -12,7 +12,7 @@ The goals of this lab are:
 If you have previously downloaded all the labs using git clone https://github.com/phwl/elec3608-lab.git, you should first type ```git pull``` to download any recent changes. Please note that we are using a different docker image (elec3608-mm) for this lab, executed as:
 
 ```
-docker run -u $UID --rm -it -v `pwd`:/config phwl/elec3608-mm-`uname -m`
+../common/rundocker phwl/elec3608-mm-`uname -m`
 ```
 
 Note that ```uname -m``` returns either arm64 or x86_64 which are two different docker images supporting arm64 or x86_64 respectively. Unfortunately,

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# you may need to modify this for your system
+
+
+dockerargs="-u 1000 --rm --platform linux/amd64 -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v `pwd`:/config"
+if [ $# -eq 1 ]; then
+    dockerfile=$1
+else
+    dockerfile="phwl/elec3608-cad:latest" # the default docker file
+fi
+
+echo "docker run $dockerargs $dockerfile"
+docker run $dockerargs $dockerfile
+
