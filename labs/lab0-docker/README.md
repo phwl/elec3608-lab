@@ -59,11 +59,11 @@ tests X Windows basic functionality.
  * (Windows setup) 
     1.  In your Ubuntu window type ```docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY fr3nd/xeyes```
 
- * (x86 MacOS X setup)
+ * (MacOS X setup)
     1. Install homebrew (see ```https://brew.sh/```) 
     1. Use homebrew to install xquartz ```brew install --cask xquartz'''
     1. Run the ```Xquartz``` X Server program by clicking on the icon, an xterm window should appear
-    1. Set “Allow connections from network clients” in XQuartz -> Preferences
+    1. Set “Allow connections from network clients” and unselect "Authenticate Connections" in XQuartz -> Settings -> Security
     1. In the xterm window type (if you get an error with the xhost command, try a reboot)
     ``` bash
     $ xhost +
