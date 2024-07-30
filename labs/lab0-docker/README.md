@@ -61,8 +61,8 @@ tests X Windows basic functionality.
 
  * (MacOS X setup)
     1. Install homebrew (see ```https://brew.sh/```) 
-    1. Use homebrew to install xquartz ```brew install --cask xquartz'''. By the way 
-    1. Run the ```Xquartz``` X Server program by clicking on the icon, an xterm window should appear
+    1. Use homebrew to install xquartz ```brew install --cask xquartz'''. 
+    1. Run the ```Xquartz``` X Server program by clicking on the icon, an xterm window should appear. By the way if you select Xquartz -> Settings -> Input -> Emulate 3 button mouse and then using Option left click on the mouse will allow pasting.
     1. Set “Allow connections from network clients” in XQuartz -> Settings -> Security
     1. In the xterm window type (if you get an error with the xhost command, try a reboot)
     ``` bash
