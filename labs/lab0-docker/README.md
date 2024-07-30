@@ -57,19 +57,19 @@ We need to use the X Server to display graphical output. This
 tests X Windows basic functionality.
 
  * (Windows setup) 
-    1.  In your Ubuntu window type ```docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY fr3nd/xeyes```
+    1.  In your Ubuntu window type ```docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY gns3/xeyes```
 
  * (MacOS X setup)
     1. Install homebrew (see ```https://brew.sh/```) 
     1. Use homebrew to install xquartz ```brew install --cask xquartz'''
     1. Run the ```Xquartz``` X Server program by clicking on the icon, an xterm window should appear
-    1. Set “Allow connections from network clients” and unselect "Authenticate Connections" in XQuartz -> Settings -> Security
+    1. Set “Allow connections from network clients” in XQuartz -> Settings -> Security
     1. In the xterm window type (if you get an error with the xhost command, try a reboot)
     ``` bash
     $ xhost +
     access control disabled, clients can connect from any hos
     $ export DISPLAY=host.docker.internal:0
-    $ docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY fr3nd/xeyes
+    $ docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY gns3/xeyes
     ```
 
 You should see a window similar to below and the eyes should move with your mouse.
