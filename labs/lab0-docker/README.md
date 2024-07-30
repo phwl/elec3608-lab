@@ -61,7 +61,7 @@ tests X Windows basic functionality.
 
  * (MacOS X setup)
     1. Install homebrew (see ```https://brew.sh/```) 
-    1. Use homebrew to install xquartz ```brew install --cask xquartz'''
+    1. Use homebrew to install xquartz ```brew install --cask xquartz'''. By the way 
     1. Run the ```Xquartz``` X Server program by clicking on the icon, an xterm window should appear
     1. Set “Allow connections from network clients” in XQuartz -> Settings -> Security
     1. In the xterm window type (if you get an error with the xhost command, try a reboot)
@@ -86,8 +86,6 @@ previous Xeyes example. Then in your Windows Ubuntu terminal or MacOS xterm type
 If everything goes well, a prompt should appear and ```ls``` should show your local directory that was mounted.
 
 ```bash
-$ ls
-Dockerfile	Makefile	README.md
 $ docker run --rm --platform linux/amd64 -it -e DISPLAY=$DISPLAY -v `pwd`:/config -v /tmp/.X11-unix:/tmp/.X11-unix phwl/elec3608-cad:latest
 
 Unable to find image 'phwl/elec3608-cad:latest' locally
@@ -108,7 +106,7 @@ Status: Downloaded newer image for phwl/elec3608-cad:latest
 docker: Error response from daemon: create .: volume name is too short, names should be at least two alphanumeric characters.
 See 'docker run --help'.
 elec3608@079a8ca5b594:~$ ls
-Dockerfile  Makefile  README.md
+(your files)
  ```
 Within Docker, the directory on your local home directory will be mapped 
 to your local directory so you can access your files and store your outputs. 
