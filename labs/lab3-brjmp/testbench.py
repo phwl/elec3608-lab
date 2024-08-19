@@ -38,7 +38,11 @@ while True:
 
 # check return value is correct
 rr = int(tb.internals['x10'])
-print('Return_reg {} ({} cycles)'.format(rr, i)) 
+if (rr == 0xd2):
+    c = "Correct"
+else:
+    c = "Incorrect"
+print('{} return_reg {} ({} cycles)'.format(c, rr, i)) 
 
 if tkmode:
     input("Press Enter to exit...")

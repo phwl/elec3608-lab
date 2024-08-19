@@ -144,6 +144,7 @@ module rv3608b (
 				case (insn_funct3)
                     // LAB need to map branches to ALU operations here
 					3'b 000 /* BEQ  */: alu_op = `ALU_SUB;
+                    default: alu_op = `ALU_ADD;
                 endcase
             end
 

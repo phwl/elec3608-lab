@@ -89,9 +89,13 @@ if tkmode:
     tb.stop_gtkwave()
 
 ```
-From your host, start docker using the same instructions as Lab 0 ELEC3608 Image.
+From your host, start docker using the same instructions as Lab 1, e.g. on MacOS:
 
-Then check the course files work
+```bash
+docker run --platform linux/amd64 -it -e DISPLAY=host.docker.internal:0 -v `pwd`:/config phwl/elec3608-base:latest
+```
+
+Then try compiling ```test1.s```:
 ```bash
 elec3608@9590e973009d:~$ make test1.out 
 riscv64-unknown-elf-objcopy -O verilog test1.elf test1.hex
