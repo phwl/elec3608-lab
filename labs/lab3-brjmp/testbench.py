@@ -42,7 +42,7 @@ if (rr == 0xd2):
     c = "Correct"
 else:
     c = "Incorrect"
-print('{} return_reg {} ({} cycles)'.format(c, rr, i)) 
+print('{} return_reg 0x{:x} ({} cycles)'.format(c, int(rr), i)) 
 
 if tkmode:
     input("Press Enter to exit...")
