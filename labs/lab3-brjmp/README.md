@@ -126,7 +126,7 @@ instruction, and that the correct branch address is computed in
 
 ![rvisa](rvisa.png "rvisa")
 
-Note the Makefile executes ```python testbench.py -t -s``` so it steps one clock cycle after each return entered in the console. If you change this to ```python -t```, it will execute the entire program. The ```-s''' option is often helpful for debugging.
+Note the Makefile executes ```python testbench.py -t -s``` so it steps one clock cycle after each return is entered in the console. If you change this to ```python -t```, it will execute the entire program. The ```-s''' option is often helpful for debugging.
 
 Verify you can correctly execute ```test2.s``` (listed below). This is done by
 typing ```make test2.out```. Explain what this program does and
