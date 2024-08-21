@@ -1,0 +1,22 @@
+GAS LISTING test1.s 			page 1
+
+
+   1              	.section .text
+   2              	.global _start
+   3              	_start:
+   4              	    # these first three instructions are I-type
+   5 0000 1305000D 	    addi x10, zero, 0xd0
+   6 0004 13012000 	    addi x2, zero, 2
+   7              	loop:
+   8 0008 1301F1FF 	    addi x2, x2, -1
+   9 000c 13051500 	    addi x10,x10, 1
+  10 0010 E31C01FE 	    bne x2, zero, loop
+  11 0014 73001000 	    ebreak
+GAS LISTING test1.s 			page 2
+
+
+DEFINED SYMBOLS
+             test1.s:3      .text:0000000000000000 _start
+             test1.s:7      .text:0000000000000008 loop
+
+NO UNDEFINED SYMBOLS
