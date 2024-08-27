@@ -14,7 +14,7 @@ Starting with the complete single cycle processor that you developed in the labs
 Develop a complete single cycle RV32IM processor using your work from the labs as a starting point.
 This question will be machine marked based on execution time and correctness. We will run your processor using the ```make result``` target as explained below with that are not provided to you. 
 
-The sample test programs provided in this directory don't have instructions from the M extensions. It is your job to create your own test programs to verify your RV32IM meets the full RV32IM specification. If you find mistakes in the starting RV32I processor, these should be noted in your report and you will receive extra credit. 
+The sample test programs provided in this directory don't have instructions from the M extensions. It is your job to create your own test programs to verify your RV32IM meets the full specification. If you find mistakes in the starting RV32I processor, these should be noted in your report and you will receive extra credit. 
 ```bash
 $ make result
 ...
