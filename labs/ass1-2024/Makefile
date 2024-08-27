@@ -25,6 +25,9 @@ all:	test1.out test2.out test3.out test4.out test5.out
 result:	test1.result test2.result test3.result test4.result test5.result nerv.asc
 	python extime.py nerv-pnr.log *.result
 
+submit:
+	tar czvf submission.tgz *.pcf *.lds *.sv *.s testbench.* *.py *.yosys Makefile
+
 %.out: %.hex $(SOURCES)
 	cp $*.hex firmware.hex
 	python testbench.py -t testbench.sv
@@ -51,4 +54,4 @@ rundocker:
 clean:
 	rm -rf firmware.elf firmware.hex testbench testbench.vcd gtkwave.log
 	rm -rf disasm.o disasm.s checks/ cexdata/ obj_dir
-	rm -rf *.log *.asc *.json *.result *.vcd firmware.s *.tgz
+	rm -rf *.log *.asc *.json *.result *.vcd firmware.s *.tgz a.out

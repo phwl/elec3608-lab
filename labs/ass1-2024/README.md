@@ -1,11 +1,11 @@
-# Assignment 1 - Two Stage Pipelined Processor
+# Assignment 1 - RV32IM Single Cycle Processor
 
 ## Goals
  *  Use the knowledge gained from earlier labs to implement a single-cycle RV32I processor with 'M' extensions.
  *  Gain experience writing technical reports.
 
 In the labs for this course, you have developed a series of RV32I processors
-culminating in a simple pipelined processor. In this assignment, you will extend the microarchitecture to include 
+culminating in a simple pipelined processor. In this assignment, you will extend the microarchitecture to design and test a complete RV32IM processor. 
 
 # Question
 Starting with the complete single cycle processor that you developed in the labs, add the M extensions, i.e. create a single-cycle RV32IM processor. The M Extensions are described in Section 13 of Volume 1, Unprivileged Specification version 20240411  <https://riscv.org/technical/specifications/>. 
@@ -44,6 +44,6 @@ is the only correct mean when averaging normalized results see
  *  No extensions will be granted and penalty for a late submission is deduction of 5% of the maximum mark for each calendar day after the due date. After ten calendar days late, a mark of zero will be awarded.
 
 # Submission 
-Your assignment should be submitted online as two separate files (a .pdf and .sv file) before the due date. Refer to Canvas for the rubric and submission instructions.
+Your assignment should be submitted online as two separate files (a .pdf and .tgz file) before the due date. Refer to Canvas for the rubric and submission instructions.
  * Report: a pdf report as described below.
- * Design: a System Verilog file containing your pipelined processor.
+ * Design: a .tgz file created using "make submit". The main design should be a Verilog file which must be called nerv.sv and contain your processor. The remaining files should include your test programs.
