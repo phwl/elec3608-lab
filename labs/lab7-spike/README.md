@@ -12,7 +12,7 @@ If you have previously downloaded all the labs using git clone https://github.co
 You can run the Docker using:
 
 ```
-../common/rundocker phwl/elec3608-riscv:latest
+docker run --platform linux/amd64 -it -e DISPLAY=host.docker.internal:0 -v `pwd`:/config phwl/elec3608-riscv:latest
 ```
 
 The command line arguments for spike can be obtained by invoking spike with the -h argument:

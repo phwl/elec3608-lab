@@ -18,14 +18,20 @@
 TOOLCHAIN_PREFIX?=riscv64-unknown-elf-
 VERILATOR = verilator
 RDOCKER = docker run --platform linux/amd64 -it -e DISPLAY=host.docker.internal:0 -v `pwd`:/config phwl/elec3608-cad:latest
+SOURCES = nerv.sv testbench.sv testbench.py
 
-all:	firmware.out
+all:	test1.out test2.out test3.out test4.out test5.out 
 
-firmware.out:	firmware.hex
+result:	test1.result test2.result test3.result test4.result test5.result nerv.asc
+	python extime.py nerv-pnr.log *.result
+
+%.out: %.hex $(SOURCES)
+	cp $*.hex firmware.hex
 	python testbench.py -t testbench.sv
 
-test_verilator: testbench_verilator 
-	./obj_dir/Vtestbench +vcd
+%.result: %.hex $(SOURCES)
+	cp $*.hex firmware.hex
+	python testbench.py testbench.sv > $*.result
 
 %.asc: %.json
 	nextpnr-ice40 --hx8k --pcf $*.pcf --json $*.json --asc $*.asc --pcf-allow-unconstrained -l $*-pnr.log
@@ -33,18 +39,11 @@ test_verilator: testbench_verilator
 %.json: %.sv
 	yosys -s $*.yosys -l $*-yosys.log
 
-testbench_verilator: firmware.hex testbench.sv nerv.sv testbench.cpp 
-	$(VERILATOR) --cc --exe -Wno-lint -trace --top-module testbench testbench.sv nerv.sv testbench.cpp 
-	$(MAKE) -C obj_dir -f Vtestbench.mk
-
 %.elf: %.s 
 	$(TOOLCHAIN_PREFIX)gcc -march=rv32i -mabi=ilp32 -Os -Wall -Wextra -Wl,-Bstatic,-T,sections.lds,--strip-debug -ffreestanding -nostdlib -o $@ $^
 
 %.hex: %.elf
 	$(TOOLCHAIN_PREFIX)objcopy -O verilog $< $@
-
-show:
-	gtkwave testbench.vcd testbench.gtkw >> gtkwave.log 2>&1 &
 
 rundocker:
 	$(RDOCKER)
@@ -52,4 +51,4 @@ rundocker:
 clean:
 	rm -rf firmware.elf firmware.hex testbench testbench.vcd gtkwave.log
 	rm -rf disasm.o disasm.s checks/ cexdata/ obj_dir
-	rm -rf *.log *.asc *.json
+	rm -rf *.log *.asc *.json *.result *.vcd firmware.s *.tgz

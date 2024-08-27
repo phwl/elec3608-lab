@@ -17,7 +17,7 @@
 
 TOOLCHAIN_PREFIX?=riscv64-unknown-elf-
 VERILATOR = verilator
-RDOCKER = ../common/rundocker
+RDOCKER = docker run --platform linux/amd64 -it -e DISPLAY=host.docker.internal:0 -v `pwd`:/config phwl/elec3608-cad:latest
 SOURCES = nerv.sv testbench.sv testbench.py
 
 all:	test1.out test2.out test3.out test4.out test5.out 

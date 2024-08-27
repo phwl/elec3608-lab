@@ -17,7 +17,16 @@
  *
  */
 
-int main()
-{
-	return 0;
-}
+.section .text
+.global main
+.global _start
+_start:
+    addi x2, zero, 0
+    addi x1, zero, 0
+    addi x3, zero, 9
+loop:   
+    add x1, x1, x2
+    addi x2, x2, 1
+    ble x2, x3, loop
+    addi x10,x1,0
+    ebreak

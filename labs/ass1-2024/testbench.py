@@ -16,33 +16,28 @@ if "-s" in opts:
     stepmode = True
 else:
     stepmode = False
-if "-h" in opts:
-    print('Usage: testbench.py [-t] [-s]')
+svfile = sys.argv[-1]
+if "-h" in opts or ("-" in svfile):
+    print('Usage: testbench.py [-t] [-s] filename.sv')
     exit(1)
 
-
-tb = pyverilator.PyVerilator.build('testbench.sv')
+tb = pyverilator.PyVerilator.build(svfile)
 if (tkmode):
     tb.start_gtkwave()
     print(tb.io)
     tb.send_to_gtkwave(tb.io)
     tb.send_to_gtkwave(tb.internals)
+
 i = 0
-while True:
-    r(tb, i < 2)
+while i < 5000:
+    r(tb, i < 4)
     i = i + 1
     if (int(tb.internals['dut'].trapped)):
         break
     if (stepmode):
         input()
-
-# check return value is correct
 rr = int(tb.internals['x10'])
-if (rr == 0xd2):
-    c = "Correct"
-else:
-    c = "Incorrect"
-print('{} return_reg 0x{:x} ({} cycles)'.format(c, int(rr), i)) 
+print('x10={}, cycles={}'.format(rr, i)) 
 
 if tkmode:
     input("Press Enter to exit...")

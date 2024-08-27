@@ -6,17 +6,16 @@ Before you start, you will need to understand the way that Docker maps
 your host directories to ```/config``` (the home directory for 
 the account in the Docker container). On Mac and Windows 11 WSL2 
 systems, in Lab 0 we used:
-the ```elec3608-lab/labs/common/rundocker``` command 
 ```bash
-$ elec3608-lab/labs/common/rundocker
-docker run -u 1000 --rm --platform linux/amd64 -it -e DISPLAY=/private/tmp/com.apple.launchd.RdgqlIGLhx/org.xquartz:0 -v /tmp/.X11-unix:/tmp/.X11-unix -v /tmp:/config phwl/elec3608-cad:latest
-To run a command as administrator (user "root"), use "sudo <command>".
-See "man sudo_root" for details.
-
-elec3608-1000@86cb66676a2f:~$ 
+docker run --platform linux/amd64 -it -e DISPLAY=$DISPLAY -v `pwd`:/config phwl/elec3608-base:latest
+```
+and in MobaXterm (which uses [Cygwin](https://www.cygwin.com/)
+internally):
+```bash                                                                         
+docker run -it -v /c/Users/XXX:/config phwl/elec3608-base:latest
 ```
 
-The important part of the command is the second ``` -v <host_dir>:<container_dir>```.
+The important part of the command is the ``` -v <host_dir>:<container_dir>```.
 This instructs Docker that the specified volume in the host directory is mounted to the specified container directory. For non-Cygwin systems we use ``` `pwd` ``` (which returns the current directory) as the host directory. Unfortunately, in Cygwin this doesn't work. You need to specify the drive and rest of the path which is why we used ```/c/Users/XXX``` to launch Docker.
 
 ### Obtaining the Lab Files
