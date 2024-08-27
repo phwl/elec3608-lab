@@ -30,7 +30,7 @@ Geometric mean=1.0
 The output gives the minimum clock period (period), value of the x10 register (x10), the number of cycles (cycles), execution time (extime), execution time normalised to the original design (normextime), and the gemetric mean of normextime. The geometric mean is the mean speedup over the nerv single
 cycle processor (note that it is used because it
 is the only correct mean when averaging normalized results see
-<https://en.wikipedia.org/wiki/Geometric_mean>). We will not be running any of these tests in machine marking, they are just used as examples of how to create a test suite.
+<https://en.wikipedia.org/wiki/Geometric_mean>). We will not be running any of these tests in machine marking (and hence not use the normalized execution time or mean), they are just used as examples of how to create a test suite.
 
 ## (5 marks) Part 2: Report.
  * Your report should be a document with maximum of 6 pages explaining your design (appendices with no page limit can be included).
