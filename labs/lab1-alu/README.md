@@ -18,6 +18,12 @@ docker run -it -v /c/Users/XXX:/config phwl/elec3608-base:latest
 The important part of the command is the ``` -v <host_dir>:<container_dir>```.
 This instructs Docker that the specified volume in the host directory is mounted to the specified container directory. For non-Cygwin systems we use ``` `pwd` ``` (which returns the current directory) as the host directory. Unfortunately, in Cygwin this doesn't work. You need to specify the drive and rest of the path which is why we used ```/c/Users/XXX``` to launch Docker.
 
+We have made a script in ```labs/common/rundocker``` so you can start docker from inside the ```elec3608-lab``` directory with
+```bash
+$ ./labs/common/rundocker 
+docker run -u 1000 --rm --platform linux/amd64 -it -e DISPLAY=/private/tmp/com.apple.launchd.uJDzbYPdO6/org.xquartz:0 -v /tmp/.X11-unix:/tmp/.X11-unix -v /Users/phwl/usyd/doc/teaching/elec3608/elec3608-lab:/config phwl/elec3608-cad:latest
+```
+
 ### Obtaining the Lab Files
 Once inside the Docker container, you can obtain all the lab files with 
 the command:

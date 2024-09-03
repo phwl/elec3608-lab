@@ -3,10 +3,7 @@
 In this lab you will convert the single-cycle RISC-V (RV) processor
 to execute using a simple 2-stage pipeline.
 
-If you have previously downloaded all the labs using ```git clone https://github.com/phwl/elec3608-lab.git```, you should first type ```git pull``` to download any recent changes. **Please note that we are using a different docker image (```elec3608-cad:latest```) for this lab, executed as:**
-```bash
-$ docker run --platform linux/amd64 -it -e DISPLAY=host.docker.internal:0 -v `pwd`:/config phwl/elec3608-cad:latest
-```
+If you have previously downloaded all the labs using ```git clone https://github.com/phwl/elec3608-lab.git```, you should first type ```git pull``` to download any recent changes. 
 
 In your lab book, clearly explain the changes that you needed to make
 to answer each question and include screen shots of your simulations
@@ -41,7 +38,7 @@ Study the ```firmware.s``` program, listed below.
     ebreak
 ```
 The program simply sums the first 10 non-negative integers and the result is 55. To test this program on the single cycle processor you can just type
-```make```. In GTKWave, you can view additional waveforms by expanding
+```make``` (from within docker). In GTKWave, you can view additional waveforms by expanding
 the "testbench" module in the top left window, clicking "dut" and then appending the desired waveforms. In the plot below, "regfile(10)[31:0]" and "insn[31:0]" were appended and you can see that the final value in regfile(10) was 0x37 as expected.
 
 ![part1](part1.png "part1")
