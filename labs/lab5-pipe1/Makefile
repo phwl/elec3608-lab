@@ -17,7 +17,6 @@
 
 TOOLCHAIN_PREFIX?=riscv64-unknown-elf-
 VERILATOR = verilator
-RDOCKER = docker run --platform linux/amd64 -it -e DISPLAY=host.docker.internal:0 -v `pwd`:/config phwl/elec3608-cad:latest
 
 all:	firmware.out
 
@@ -47,7 +46,7 @@ show:
 	gtkwave testbench.vcd testbench.gtkw >> gtkwave.log 2>&1 &
 
 rundocker:
-	$(RDOCKER)
+	../common/rundocker
 
 clean:
 	rm -rf firmware.elf firmware.hex testbench testbench.vcd gtkwave.log
