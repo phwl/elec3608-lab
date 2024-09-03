@@ -37,4 +37,4 @@ clean:
 	rm -rf disasm.o disasm.s checks/ cexdata/ obj_dir
 
 rundocker:
-	docker run --platform linux/amd64 -it -e DISPLAY=host.docker.internal:0 -v `pwd`:/config phwl/elec3608-base:latest
+	../common/rundocker
