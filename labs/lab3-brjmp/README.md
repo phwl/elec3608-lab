@@ -89,11 +89,7 @@ if tkmode:
     tb.stop_gtkwave()
 
 ```
-From your host, start docker using the same instructions as Lab 1, e.g. on MacOS:
-
-```bash
-docker run --platform linux/amd64 -it -e DISPLAY=host.docker.internal:0 -v `pwd`:/config phwl/elec3608-base:latest
-```
+From your host, start docker using the same instructions as Lab 1, i.e. using ```rundocker```.
 
 Then try compiling ```test1.s```:
 ```bash
