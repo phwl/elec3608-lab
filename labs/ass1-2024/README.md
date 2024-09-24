@@ -1,4 +1,4 @@
-# Assignment 1 - RV32IM Single Cycle Processor
+# Assignment 1 - RV32IM Single Cycle Processor (v1.1 24 Sep, 2024)
 
 ## Goals
  *  Use the knowledge gained from earlier labs to implement a single-cycle RV32I processor with 'M' extensions.
@@ -12,9 +12,9 @@ Starting with the complete single cycle processor that you developed in the labs
 
 ## (5 marks) Part 1: Implementation.
 Develop a complete single cycle RV32IM processor using nerv.sv in this directory as a starting point.
-This question will be machine marked based on execution time and correctness. We will run your processor using the ```make result``` target as explained below with that are not provided to you. 
+This question will be machine marked based on correctness (execution time is not considered). We will run your processor using the ```make result``` target as explained below with that are not provided to you. Note that a straightforwad implementation will use more than 100\% of the FPGA (the largest Lattice iCE40 device). If your design does not completely fit in the FPGA, the maximum mark is 70\%. The additional 30\% is left for optimising the design to fit entirely on the FPGA.
 
-The sample test programs provided in this directory don't have instructions from the M extensions. It is your job to create your own test programs to verify your RV32IM meets the full specification. If you find mistakes in the starting RV32I processor, these should be fixed and noted in your report (you will receive extra credit). 
+The sample test programs provided in this directory don't have instructions from the M extensions. It is your job to create your own test programs to verify your RV32IM meets the full specification. If you find mistakes in the starting RV32I processor, these should be fixed and noted in your report (you will receive extra credit). Modify the Makefile so```make result``` runs all your tests (this may be used to evaluate your work if you don't pass all my tests).
 ```bash
 $ make result
 ...
