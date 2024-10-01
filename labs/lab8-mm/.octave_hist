@@ -1,0 +1,2 @@
+plot(sin(1:10))
+# Octave 6.4.0, Tue Oct 01 05:55:18 2024 Australia <unknown@31458f300525>
