@@ -8,9 +8,9 @@ else
     dockerfile="phwl/elec3608-cad:latest" # the default docker file
 fi
 
-# only for the mm lab should we run on the native platform
-if [[ $dockerfile =~ elec3608-mm ]]; then
-    cpu=`uname -m`
+# for arm64 labs we run on the native platform
+if [[ $dockerfile =~ arm64 ]]; then
+    cpu=arm64
 else
     cpu=amd64                           # the default platform
 fi
