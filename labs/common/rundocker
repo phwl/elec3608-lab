@@ -4,9 +4,14 @@
 
 if [ $# -eq 1 ]; then
     dockerfile=$1
-    cpu=`uname -m`
 else
     dockerfile="phwl/elec3608-cad:latest" # the default docker file
+fi
+
+# only for the mm lab should we run on the native platform
+if [[ $dockerfile =~ elec3608-mm ]]; then
+    cpu=`uname -m`
+else
     cpu=amd64                           # the default platform
 fi
 dockerargs="-u 1000 --rm --platform linux/$cpu -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v `pwd`:/config"
