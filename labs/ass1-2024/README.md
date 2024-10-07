@@ -35,6 +35,7 @@ is the only correct mean when averaging normalized results see
 ## (5 marks) Part 2: Report.
  * Your report should be a document with maximum of 6 pages explaining your design (appendices with no page limit can be included).
  *  The report should be in [A4 IEEE format](https://www.ieee.org/conferences/publishing/templates.html) with the default font sizes, and organized under the following section headings: Introduction, Background, Architecture, Results, Discussion, Conclusion, References, Appendices.
+ * This page provides a link to guides on writing reports <https://phwl.org/resources>.
  * It should include a full datapath description and matching control table like that given in the "Hardwired Control Table (Excerpt)" slide in Lecture 4 Single Cycle Processor.
  * Create a table of your test programs and explain their functionality in your report. Also explain how they provide good coverage of the 'M' extensions, what is the correct x10 result and why.
  *  Include a performance description which includes maximum clock frequency of your processor and number of cycles required to execute each program you test. You need to provide supporting evidence which can convince the reader that you have completed the design and it works via appendices containing code listings, simulations and log files. The appendices don't count in the page limit. 
