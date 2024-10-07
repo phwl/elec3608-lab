@@ -48,3 +48,22 @@ is the only correct mean when averaging normalized results see
 Your assignment should be submitted online as two separate files (a .pdf and .tgz file) before the due date. Refer to Canvas for the rubric and submission instructions.
  * Report: a pdf report as described below.
  * Design: a .tgz file created using "make submit". The main design should be a Verilog file which must be called nerv.sv and contain your processor. The remaining files should include your test programs.
+
+# Tips and Hints
+*   Your audience is an ECE graduate that knows about digital logic but may not have been exposed to RISC-V or the nerv processor. There should be sufficient background so they can understand your report.
+
+*   I usually keep the things that other people have done in the Background section and write about what I did in the other parts. The background should be short compared to the report length as you want to spend most of the space talking about the latter.
+
+*   Make sure you cite references such as the RV32I ISA description and the Lattice data sheet.
+
+*   Describe which CAD tools were used and their version number.
+
+*   Include source code listings, simulations etc in appendices. If you have lots of test cases, include the details in the appendix and summarise in the main text.
+
+*   Also, it would be good to describe your testing methodology, i.e. how you arrived at your test cases and how you tested your processor.
+
+*   Normally I like to start each new section with a figure that can be used to explain the text that follows.
+
+*   Don't take figures from other sources (e.g. the textbook) as that would be plagiarism. You can redraw them though.
+
+*   Reports should be self-contained, the reader should be able to understand the report without referring to other documents.
