@@ -60,7 +60,7 @@ This means that using the function in index 0 of the mtab array (mmult0), the pr
 
 * (10%) Complete the course evaluation survey for ELEC3608 (yes we will give you a mark for this).
 
-* (70%) Take a look at the code in <https://github.com/flame/how-to-optimize-gemm>. For each of the 15 optimisation steps, classify them as one of the following and justify your answer:
+* (90%) Examine the code in <https://github.com/flame/how-to-optimize-gemm>. For each of the 15 optimisation steps, classify them as one of the following and justify your answer:
   1. Removing false dependences.
   2. Exploit multiple registers.
   3. Minimise pointer updates.
@@ -69,7 +69,9 @@ This means that using the function in index 0 of the mtab array (mmult0), the pr
   6. Copy optimisation.
   7. Other.
 
-* (20%) Compare the performance of your blocked version with that linked to the OpenBLAS library by typing
+* (0%) This is an old question and not part of the lab. It is left here to show that OpenBlas is 25x faster than the original code.
+
+Compare the performance of your blocked version with that linked to the OpenBLAS library by typing
 
     ```bash
     $ make mm-blas
