@@ -60,14 +60,17 @@ This means that using the function in index 0 of the mtab array (mmult0), the pr
 
 * (10%) Complete the course evaluation survey for ELEC3608 (yes we will give you a mark for this).
 
-* (90%) Examine the code in <https://github.com/flame/how-to-optimize-gemm>. For each of the 15 optimisation steps, classify them as one of the following and justify your answer:
-  1. Removing false dependences.
-  2. Exploit multiple registers.
-  3. Minimise pointer updates.
-  4. Loop unrolling.
-  5. Expose independent operations.
-  6. Copy optimisation.
-  7. Other.
+* (90%) Examine the code in <https://github.com/flame/how-to-optimize-gemm>. In your lab notebook, for each of the 15 optimisation steps: 
+      1. give a 1 sentence summary of what was done,
+      2. classify it as one or more of the following, 
+         1. Removing false dependences.
+         2. Exploit multiple registers.
+         3. Minimise pointer updates.
+         4. Loop unrolling.
+         5. Expose independent operations.
+         6. Copy optimisation.
+         7. Other.
+      3. justify your classification.
 
 * (0%) This is an old question and not part of the lab. It is left here to show that OpenBlas is 25x faster than the original code.
 
