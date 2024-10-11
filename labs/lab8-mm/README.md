@@ -58,7 +58,18 @@ This means that using the function in index 0 of the mtab array (mmult0), the pr
 
 ## Week 2
 
-* (90%) Compare the performance of your blocked version with that linked to the OpenBLAS library by typing
+* (10%) Complete the course evaluation survey for ELEC3608 (yes we will give you a mark for this).
+
+* (70%) Take a look at the code in <https://github.com/flame/how-to-optimize-gemm>. For each of the 15 optimisation steps, classify them as one of the following and justify your answer:
+  1. Removing false dependences.
+  2. Exploit multiple registers.
+  3. Minimise pointer updates.
+  4. Loop unrolling.
+  5. Expose independent operations.
+  6. Copy optimisation.
+  7. Other.
+
+* (20%) Compare the performance of your blocked version with that linked to the OpenBLAS library by typing
 
     ```bash
     $ make mm-blas
@@ -70,4 +81,3 @@ This means that using the function in index 0 of the mtab array (mmult0), the pr
 
     Clearly there is room for improvement on our blocked implementation! Read (from other sources) about how matrix multiplication can be improved and implement a change to achieve the best improvement you can over the blocked implementation of the previous question (you must implement the technique yourself and can't use BLAS or other third party libraries). Marks will be awarded based on execution time but you must achieve exactly the same result (close to what would be expected in double precision arithmetic) as the original version. This is a good tutorial <https://github.com/flame/how-to-optimize-gemm>.
 
-* (10%) Complete the course evaluation survey for ELEC3608 (yes we will give you a mark for this).
