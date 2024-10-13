@@ -69,6 +69,7 @@ This means that using the function in index 0 of the mtab array (mmult0), the pr
     * Loop unrolling.
     * Expose independent operations.
     * Copy optimisation.
+    * SIMD instructions.
     * Other.
    3. Justify your classification.
 
