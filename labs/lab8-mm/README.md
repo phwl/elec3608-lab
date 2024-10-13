@@ -73,7 +73,7 @@ This means that using the function in index 0 of the mtab array (mmult0), the pr
     * Other.
    3. Justify your classification.
 
-* (0%) This is an old question and not part of the lab. It is left here to show that OpenBlas is 25x faster than the original code.
+* (0%) This is an old question and not part of the lab. It is left here to show that OpenBlas is 25x faster than the original code and leave you with something to do if you finish the lab with an hour to spare. If you are on an Apple ARM machine, you can also port the code to use the Apple SIMD intrinsics.
 
 Compare the performance of your blocked version with that linked to the OpenBLAS library by typing
 
