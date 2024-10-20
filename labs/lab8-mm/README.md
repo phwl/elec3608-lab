@@ -58,7 +58,7 @@ This means that using the function in index 0 of the mtab array (mmult0), the pr
 
 ## Week 2
 
-* (10%) Complete the course evaluation survey for ELEC3608 (yes we will give you a mark for this).
+* (10%) Complete the [course evaluation survey for ELEC3608](https://student-surveys.sydney.edu.au/students/) (yes we will give you a mark for this).
 
 * (90%) Examine the code in <https://github.com/flame/how-to-optimize-gemm>. In your lab notebook, for each of the 15 optimisation steps: 
    1. Give a 1 sentence summary of what was done.
