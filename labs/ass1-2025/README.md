@@ -6,7 +6,9 @@
 
 In the labs for this course, you have sucecssively built up capability for the RV32I instruction set.  Now you will extend this to a __multicore__ processor network, where two instances of your processor will coexist on the same silicon.  We make use of the ```lr.w``` and ```sc.w``` atomic instructions, and a special memory.  
 
-See the background section below for more theory.
+See the background section below for more theory.  
+
+__Note: You will not need to synthesize this design onto an FPGA.  Simulation is sufficient for this assignment__
 
 # Question
 Create a pipelined RV32IA processor which implements enough of the instructions specified in Volume 1 Sections 2.1-2.6 of the RISC-V ISA Specification <https://riscv.org/technical/specifications/> to execute the programs supplied with this assignment and add the following features (with each improvement including the functionality from previous part):
@@ -53,7 +55,7 @@ Total failures = 4 of 9 tests
  * Your report should be a 4 page document explaining your design (appendices with no page limit can be included).
  *  Your report should be in [A4 IEEE format](https://www.ieee.org/conferences/publishing/templates.html) with the default font sizes, and organized under the following section headings: Introduction, Background, Architecture, Results, Discussion, Conclusion, References, Appendices.
  *  Your report should document the datapath design of all the major components, including a high-level description and/or diagram, and specific implementation of the major subsystems.  This is a narrative description to as given to a fellow engineer, and not merely a copy of code.
- *  Include a performance description which includes maximum clock frequency and number of cycles required to execute each program you test. You need to provide supporting evidence which can convince the reader that you have completed the design and it works via appendices containing code listings, simulations and log files. The appendices don't count in the page limit. 
+ *  Include a performance description which includes number of cycles required to execute each program you test. You need to provide supporting evidence which can convince the reader that you have completed the design and it works via appendices containing code listings, simulations and log files. The appendices don't count in the page limit. 
  * Comment on whether your result is a good one and what could be done to further improve performance.
  *  [Dennis et al.](https://ieeexplore.ieee.org/abstract/document/8303926) and [Miyazaki et al.](https://arxiv.org/abs/2002.03568) are two examples of well-written papers describing a RISC-V processor (you could following a similar style for your report). [Singh et al.](https://ieeexplore.ieee.org/document/9250850) is an example of a poorly written paper.
  *  You should assume that the reader is familiar computer architecture in general, but not necessarily the the RISC-V instruction set or your architecture. Write the report as an academic-style paper like the examples provided.
